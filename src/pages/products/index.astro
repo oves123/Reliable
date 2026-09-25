@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import products from '../../data/products.json';
+
+const categories = [...new Set(products.map(p => p.category))].map(name => ({
+  name,
+  slug: products.find(p => p.category === name).categorySlug
+}));
+
+// Map categories to some dummy images for the category cards
+const catImages = {
+  "Mechanical Seals": "/images/products/seal1.png",
+  "Rotary Joints": "/images/products/seal5.png",
+  "Support Systems": "/images/products/seal7.png"
+};
+---
+<Layout>
+  <Header />
+  
+  <section class="page-title" style="background-color: #001a3b; padding: 100px 0; text-align: center; color: white;">
+      <div class="container">
+          <h1 style="font-size: 3rem; font-weight: 700;">Product Categories</h1>
+          <p style="font-size: 1.1rem; color: #a0aec0; margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">
+              Explore our complete range of high-performance sealing solutions, rotary joints, and supply systems.
+          </p>
+      </div>
+  </section>
+
+  <section class="categories-section" style="padding: 80px 0; background-color: #f4f5f8;">
+      <div class="container">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+              {categories.map(cat => (
+                  <div class="category-card" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+                      <figure style="margin: 0; position: relative; padding: 50px 20px; text-align: center; background: #eef2f6; border-bottom: 3px solid #009fe3;">
+                          <a href={`/products/${cat.slug}`}>
+                              <img src={catImages[cat.name] || "/images/products/seal1.png"} alt={cat.name} style="height: 180px; object-fit: contain; mix-blend-mode: multiply; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                          </a>
+                      </figure>
+                      <div class="card-content" style="padding: 35px 30px;">
+                          <h3 style="font-size: 1.6rem; margin-bottom: 15px; font-weight: 700; color: #001a3b;">
+                              <a href={`/products/${cat.slug}`} style="color: inherit; text-decoration: none;">{cat.name}</a>
+                          </h3>
+                          <p style="color: #555; line-height: 1.6; margin-bottom: 25px;">
+                              View our full catalog of {cat.name.toLowerCase()} designed for maximum reliability in extreme environments.
+                          </p>
+                          <a href={`/products/${cat.slug}`} style="display: inline-block; padding: 12px 25px; background: #009fe3; color: white; border-radius: 5px; font-weight: 600; text-decoration: none; transition: background 0.3s ease;" onmouseover="this.style.background='#007ab0'" onmouseout="this.style.background='#009fe3'">
+                              View All Products <i class="fas fa-arrow-right" style="margin-left: 5px;"></i>
+                          </a>
+                      </div>
+                  </div>
+              ))}
+          </div>
+      </div>
+  </section>
+  <Footer />
+</Layout>

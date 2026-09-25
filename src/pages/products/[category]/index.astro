@@ -1,0 +1,56 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import products from '../../../data/products.json';
+
+export function getStaticPaths() {
+  const categories = [...new Set(products.map(p => p.category))];
+  return categories.map(cat => ({
+    params: { category: products.find(p => p.category === cat).categorySlug },
+    props: { categoryName: cat }
+  }));
+}
+
+const { categoryName } = Astro.props;
+const categoryProducts = products.filter(p => p.category === categoryName);
+---
+<Layout>
+  <Header />
+  <section class="page-title" style="background-color: #001a3b; padding: 80px 0; color: white;">
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+          <div>
+              <h1 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 10px;">{categoryName}</h1>
+              <div style="color: #009fe3; font-weight: 500;">
+                  <a href="/" style="color: white; text-decoration: none;">Home</a> <span style="margin: 0 10px;">/</span>
+                  <a href="/products" style="color: white; text-decoration: none;">Products</a> <span style="margin: 0 10px;">/</span>
+                  <span>{categoryName}</span>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="products-grid" style="padding: 80px 0; background: #fff;">
+      <div class="container">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px;">
+              {categoryProducts.map(p => (
+                  <div class="product-card" style="border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; transition: box-shadow 0.3s ease, transform 0.3s ease;" onmouseover="this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='none';">
+                      <a href={`/products/${p.categorySlug}/${p.slug}`} style="display: block; background: #f9f9f9; padding: 40px 20px; text-align: center; border-bottom: 1px solid #eaeaea;">
+                          <img src={p.image} alt={p.name} style="height: 200px; object-fit: contain; margin: 0 auto; mix-blend-mode: multiply;">
+                      </a>
+                      <div style="padding: 25px;">
+                          <h4 style="font-size: 1.4rem; font-weight: 700; color: #001a3b; margin-bottom: 15px;">
+                              <a href={`/products/${p.categorySlug}/${p.slug}`} style="color: inherit; text-decoration: none;">{p.name}</a>
+                          </h4>
+                          <p style="color: #666; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                              {p.description}
+                          </p>
+                          <a href={`/products/${p.categorySlug}/${p.slug}`} style="display: inline-block; color: #009fe3; font-weight: 600; text-decoration: none; border-bottom: 2px solid transparent; transition: border 0.3s;" onmouseover="this.style.borderBottom='2px solid #009fe3'" onmouseout="this.style.borderBottom='2px solid transparent'">View Details & Specs &rarr;</a>
+                      </div>
+                  </div>
+              ))}
+          </div>
+      </div>
+  </section>
+  <Footer />
+</Layout>

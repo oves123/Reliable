@@ -1,0 +1,140 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import products from '../../../data/products.json';
+
+export function getStaticPaths() {
+  return products.map(product => ({
+    params: { category: product.categorySlug, slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const categoryProducts = products.filter(p => p.category === product.category);
+---
+<Layout>
+  <Header />
+  <section class="page-title" style="background-color: #001a3b; padding: 60px 0; color: white;">
+      <div class="container">
+          <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 15px;">{product.name}</h1>
+          <div style="color: #009fe3; font-weight: 500;">
+              <a href="/" style="color: white; text-decoration: none;">Home</a> <span style="margin: 0 10px;">/</span>
+              <a href={`/products/${product.categorySlug}`} style="color: white; text-decoration: none;">{product.category}</a> <span style="margin: 0 10px;">/</span>
+              <span>{product.name}</span>
+          </div>
+      </div>
+  </section>
+
+  <section class="product-details" style="padding: 80px 0; background: #fdfdfd;">
+      <div class="container">
+          <div class="product-grid" style="display: grid; grid-template-columns: 300px 1fr; gap: 50px; align-items: start;">
+              
+              <!-- Sidebar -->
+              <div class="sidebar">
+                  <div class="category-nav" style="background: white; border: 1px solid #eaeaea; border-radius: 8px; padding: 25px; margin-bottom: 30px;">
+                      <h3 style="font-size: 1.25rem; font-weight: 700; color: #001a3b; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #009fe3;">{product.category}</h3>
+                      <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                          {categoryProducts.map(p => (
+                              <li>
+                                  <a href={`/products/${p.categorySlug}/${p.slug}`} 
+                                     style={`display: block; padding: 10px 15px; border-radius: 4px; text-decoration: none; font-weight: 500; ${p.slug === product.slug ? 'background: #009fe3; color: white;' : 'background: #f4f5f8; color: #333;'}`}>
+                                      {p.name}
+                                  </a>
+                              </li>
+                          ))}
+                      </ul>
+                  </div>
+
+                  <div class="brochure-box" style="background: white; border: 1px solid #eaeaea; padding: 25px; border-radius: 8px; text-align: center; margin-bottom: 30px;">
+          <i class="fas fa-file-pdf" style="font-size: 2.5rem; color: #e2574c; margin-bottom: 15px;"></i>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #001a3b; margin-bottom: 10px;">Product Brochure</h3>
+          <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">Download the full technical specifications and dimensions.</p>
+          <a href="/brochures/product_brochure.pdf" download="Reliable_Product_Brochure.pdf" style="display: block; padding: 12px; background: #001a3b; color: white; border-radius: 5px; font-weight: 600; text-decoration: none; transition: background 0.3s;" onmouseover="this.style.background='#009fe3'" onmouseout="this.style.background='#001a3b'">Download PDF</a>
+      </div>
+      <div class="contact-box" style="background: #001a3b; color: white; padding: 30px; border-radius: 8px; text-align: center;">
+                      <i class="fas fa-headset" style="font-size: 3rem; color: #009fe3; margin-bottom: 20px;"></i>
+                      <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px;">Need Technical Support?</h3>
+                      <p style="color: #a0aec0; margin-bottom: 20px; font-size: 0.95rem;">Contact our engineering team for custom solutions.</p>
+                      <a href="tel:+917888065557" style="display: block; padding: 12px; background: white; color: #001a3b; border-radius: 50px; font-weight: 700; text-decoration: none;">+91 78880 65557</a>
+                  </div>
+              </div>
+              
+              <!-- Main Content -->
+              <div class="content" style="background: white; padding: 40px; border-radius: 8px; border: 1px solid #eaeaea;">
+                  <div style="text-align: center; margin-bottom: 40px; padding: 40px; background: #f9f9f9; border-radius: 8px;">
+                      <img src={product.image} alt={product.name} style="max-width: 100%; height: auto; max-height: 400px; mix-blend-mode: multiply;">
+                  </div>
+                  
+                  <h2 style="font-size: 2rem; font-weight: 700; color: #001a3b; margin-bottom: 20px;">Overview</h2>
+                  <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 40px;">
+                      {product.description}
+                  </p>
+                  
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                      <div>
+                          <h3 style="font-size: 1.5rem; font-weight: 700; color: #001a3b; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                              <i class="fas fa-check-circle" style="color: #009fe3;"></i> Key Features
+                          </h3>
+                          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
+                              {product.features.map(f => (
+                                  <li style="display: flex; align-items: flex-start; gap: 10px; color: #555;">
+                                      <i class="fas fa-check" style="color: #009fe3; margin-top: 5px;"></i>
+                                      <span>{f}</span>
+                                  </li>
+                              ))}
+                          </ul>
+                      </div>
+                      
+                      <div>
+                          <h3 style="font-size: 1.5rem; font-weight: 700; color: #001a3b; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                              <i class="fas fa-sliders-h" style="color: #009fe3;"></i> Technical Specs
+                          </h3>
+                          <div style="background: #f9f9f9; border-radius: 8px; padding: 20px;">
+                              <ul style="list-style: none; padding: 0; margin: 0;">
+                                  {Object.entries(product.specs).map(([key, value]) => (
+                                      <li style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eaeaea; color: #555;">
+                                          <strong style="color: #001a3b;">{key}</strong>
+                                          <span>{value}</span>
+                                      </li>
+                                  ))}
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </section>
+  
+  <Footer />
+</Layout>
+
+<style>
+/* Responsive layout for the grid */
+@media (max-width: 991px) {
+  .product-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .product-grid > .sidebar {
+    order: 2;
+  }
+  .product-grid > .content {
+    order: 1;
+    padding: 20px !important;
+  }
+  .content > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+  .page-title h1 {
+    font-size: 2rem !important;
+  }
+}
+@media (max-width: 767px) {
+  .product-grid {
+    gap: 30px !important;
+  }
+}
+</style>

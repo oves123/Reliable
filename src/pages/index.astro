@@ -1,0 +1,414 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout>
+  <Header />
+      <!-- Hero Section -->
+    <section class="hero carousel-container">
+        <div class="carousel-track" id="hero-carousel-track">
+            <!-- Slide 1 (Original) -->
+            <div class="carousel-slide" style="position: relative; overflow: hidden;">
+                <!-- Fallback background image (sits behind video) -->
+                <div class="hero-image" style="background-image: url('images/hero_mechanical_seal.png'); background-size: cover; background-position: center; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;"></div>
+                
+                <!-- Authentic CNC Manufacturing Video Background (Local MP4) -->
+                <video autoplay loop muted playsinline style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translateX(-50%) translateY(-50%); z-index: 1; object-fit: cover; opacity: 0.8;">
+                    <source src="images/industry_video.mp4" type="video/mp4">
+                </video>
+                
+                <div class="hero-overlay" style="z-index: 2; position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+                <div class="container" style="position: relative; z-index: 3;">
+                    <div class="hero-content" style="max-width: 900px;">
+                        <span class="hero-kicker"
+                            style="font-size: 0.75rem; margin-bottom: 0.75rem; display: block; color: var(--color-primary-navy);">RELY
+                            ON EXCELLENCE</span>
+                        <h1 class="hero-title"
+                            style="font-size: clamp(2.5rem, 4vw, 3.2rem); max-width: 100%; margin-bottom: 1rem; line-height: 1.1;">
+                            High-Performance<br>Mechanical Seals.</h1>
+                        <p class="hero-subtitle"
+                            style="max-width: 600px; margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.5;">Providing reliable sealing solutions for industrial rotating equipment worldwide. We offer extensive support in the field of sealing technology as a planning partner, supplier, and service partner.</p>
+                        <div class="hero-actions" style="margin-bottom: 2rem;">
+                            <a href="#" class="btn btn-primary"
+                                style="background-color: var(--color-primary-navy); border-color: var(--color-primary-navy); border-radius: 0; padding: 0.8rem 2.5rem; font-size: 0.95rem;">Learn
+                                more</a>
+                        </div>
+                        <div class="hero-badge"
+                            style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid var(--text-main); display: flex; align-items: center; justify-content: center; color: var(--text-main);">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="M9 12l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 (Products) -->
+            <div class="carousel-slide">
+                <div class="hero-image"
+                    style="background-image: url('images/product_seal_2_1790081868989.jpg'); background-size: cover; background-position: center;">
+                </div>
+                <div class="hero-overlay"
+                    style="background: linear-gradient(90deg, rgba(0, 159, 227, 1) 0%, rgba(0, 159, 227, 0.9) 45%, rgba(0, 159, 227, 0) 100%);">
+                </div>
+                <div class="container">
+                    <div class="hero-content" style="max-width: 900px;">
+                        <span class="hero-kicker"
+                            style="font-size: 0.75rem; margin-bottom: 0.75rem; display: block; color: white;">ADVANCED
+                            COMPONENTS</span>
+                        <h1 class="hero-title"
+                            style="font-size: clamp(2.5rem, 4vw, 3.2rem); max-width: 100%; margin-bottom: 1rem; line-height: 1.1; color: white;">
+                            Comprehensive range of<br>mechanical seals.</h1>
+                        <p class="hero-subtitle"
+                            style="max-width: 600px; margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.5; color: white;">From RM
+                            Series and Cartridge Seals to Rotary Pressure Joints, we offer Reliable sealing systems for
+                            handling extreme and persistent sealing problems.</p>
+                        <div class="hero-actions" style="margin-bottom: 2rem;">
+                            <a href="#" class="btn btn-primary"
+                                style="background-color: var(--color-accent-lime); border-color: var(--color-accent-lime); color: var(--color-primary-dark); border-radius: 0; padding: 0.8rem 2.5rem; font-size: 0.95rem;">View
+                                Products</a>
+                        </div>
+                        <div class="hero-badge"
+                            style="width: 35px; height: 35px; border-radius: 50%; background-color: white; display: flex; align-items: center; justify-content: center; color: var(--color-primary-dark);">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 (Mission) -->
+            <div class="carousel-slide">
+                <div class="hero-image"
+                    style="background-image: url('images/mission_hero_bg.jpg'); background-size: cover; background-position: center;">
+                </div>
+                <div class="hero-overlay"
+                    style="background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 60%, rgba(255, 255, 255, 0.2) 100%);">
+                </div>
+                <div class="container">
+                    <div class="hero-content" style="max-width: 900px;">
+                        <span class="hero-kicker"
+                            style="font-size: 0.75rem; margin-bottom: 0.75rem; display: block; color: var(--color-primary-navy);">OUR
+                            MISSION</span>
+                        <h1 class="hero-title"
+                            style="font-size: clamp(2.5rem, 4vw, 3.2rem); max-width: 100%; margin-bottom: 1rem; line-height: 1.1;">
+                            Continuous innovations<br>in sealing applications.</h1>
+                        <p class="hero-subtitle"
+                            style="max-width: 600px; margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.5;">Belief
+                            in the capabilities of our people to rapidly transfer ideas to reality and a firm faith in
+                            promising leak-free, maintenance-free, high quality standard products.</p>
+                        <div class="hero-actions" style="margin-bottom: 2rem;">
+                            <a href="#" class="btn btn-primary"
+                                style="background-color: var(--color-primary-navy); border-color: var(--color-primary-navy); border-radius: 0; padding: 0.8rem 2.5rem; font-size: 0.95rem;">Who
+                                We Are</a>
+                        </div>
+                        <div class="hero-badge"
+                            style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid var(--text-main); display: flex; align-items: center; justify-content: center; color: var(--text-main);">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control prev" onclick="moveHeroSlide(-1)">&#10094;</button>
+        <button class="carousel-control next" onclick="moveHeroSlide(1)">&#10095;</button>
+        <div class="carousel-indicators">
+            <button class="indicator active" onclick="setHeroSlide(0)"></button>
+            <button class="indicator" onclick="setHeroSlide(1)"></button>
+            <button class="indicator" onclick="setHeroSlide(2)"></button>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container stats-grid">
+            <div class="stat-item" data-aos="zoom-in" data-aos-delay="0">
+                <div class="stat-number" data-target="30">0</div>
+                <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                <div class="stat-number" data-target="50">0</div>
+                <span class="stat-plus">+</span>
+                <div class="stat-label">Countries Served</div>
+            </div>
+            <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                <div class="stat-number" data-target="10000">0</div>
+                <span class="stat-plus">+</span>
+                <div class="stat-label">Global Installations</div>
+            </div>
+            <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                <div class="stat-number" data-target="100">0</div>
+                <span class="stat-plus">%</span>
+                <div class="stat-label">Quality Assured</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="kicker">OUR PORTFOLIO</span>
+                <h2>Reliable Sealing Solutions</h2>
+                <p class="section-subtitle">Discover our comprehensive range of high-performance seals, supply systems, and couplings engineered for the most demanding industrial environments.</p>
+            </div>
+            <div class="product-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-image">
+                        <img src="images/product_seal_1_1790081847592.jpg" alt="Mechanical Seals">
+                    </div>
+                    <div class="product-info">
+                        <h3>Mechanical Seals</h3>
+                        <p>High-end standard and customized seals for pumps, agitators, and compressors.</p>
+                        <a href="#" class="learn-more">Learn more <span class="arrow">&#8594;</span></a>
+                    </div>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-image">
+                        <img src="images/product_seal_2_1790081868989.jpg" alt="Seal Supply Systems">
+                    </div>
+                    <div class="product-info">
+                        <h3>Seal Supply Systems</h3>
+                        <p>State-of-the-art systems to ensure optimal operating conditions for your seals.</p>
+                        <a href="#" class="learn-more">Learn more <span class="arrow">&#8594;</span></a>
+                    </div>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-image">
+                        <img src="images/product_seal_1_1790081847592.jpg" alt="Magnetic Couplings">
+                    </div>
+                    <div class="product-info">
+                        <h3>Magnetic Couplings</h3>
+                        <p>Hermetically sealed, leak-free power transmission for hazardous environments.</p>
+                        <a href="#" class="learn-more">Learn more <span class="arrow">&#8594;</span></a>
+                    </div>
+                </div>
+                <!-- Highlight Card -->
+                <div class="product-card highlight-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="highlight-content">
+                        <h3>Custom Engineered Solutions</h3>
+                        <p>Need a specialized sealing solution tailored to your exact specifications? Our engineering
+                            team is ready to assist.</p>
+                        <a href="#" class="btn highlight-btn">Inquire now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container why-choose-split">
+            <!-- Left Main Content -->
+            <div class="why-choose-content">
+                <span class="kicker">SERVICES</span>
+                <h2 class="why-main-title">Comprehensive seal service for industrial facilities</h2>
+                <p class="why-main-desc">Production systems need to work safely, reliably, and with maximum
+                    cost-effectiveness. So it is good to have access to an expert and efficient partner. With Reliable
+                    Industries, we offer customized service programs and flexible service for seals and gaskets. The
+                    service portfolio extends from consulting and engineering to individually-tailored service
+                    contracts.</p>
+
+                <h3 class="why-sub-title">This makes Reliable Industries unique:</h3>
+
+                <div class="why-list">
+                    <div class="why-item">
+                        <div class="why-item-header">
+                            <span class="why-check-icon"></span>
+                            <span class="why-item-title">Specialist</span>
+                            <span class="why-arrow-icon">&#8594;</span>
+                        </div>
+                        <p class="why-item-desc">Reliable Industries is one of the world's leading system suppliers of
+                            sealing technology</p>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-item-header">
+                            <span class="why-check-icon"></span>
+                            <span class="why-item-title">Know-how</span>
+                            <span class="why-arrow-icon">&#8594;</span>
+                        </div>
+                        <p class="why-item-desc">We understand the requirements of many different industries, and have
+                            in-depth knowledge of their varied processes</p>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-item-header">
+                            <span class="why-check-icon"></span>
+                            <span class="why-item-title">Comprehensive</span>
+                            <span class="why-arrow-icon">&#8594;</span>
+                        </div>
+                        <p class="why-item-desc">Our product and service portfolio offers solutions for all tasks</p>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-item-header">
+                            <span class="why-check-icon"></span>
+                            <span class="why-item-title">Professional</span>
+                            <span class="why-arrow-icon">&#8594;</span>
+                        </div>
+                        <p class="why-item-desc">A partner with application expertise and technical consultancy skills
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Contact Card -->
+            <div class="why-choose-contact">
+                <div class="contact-card">
+                    <div class="contact-deco-circle"></div>
+                    <span class="kicker contact-kicker">CONTACT</span>
+                    <h3 class="contact-title">We are happy to advise you</h3>
+                    <p class="contact-desc">Would you like personal advice, do you have any questions or would you like
+                        to order directly? We look forward to supporting you.</p>
+                    <a href="#" class="btn btn-primary btn-block">Contact an expert</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section (Interactive) -->
+    <section class="industries-section-new" style="background-color: var(--bg-light-grey);">
+        <div class="container">
+            <div class="industries-header" style="margin-bottom: 3rem;">
+                <span class="kicker">INDUSTRIES</span>
+                <h2 class="industries-title">Diverse solutions for numerous industries</h2>
+                <p class="industries-intro">Every industry has its special requirements. Reliable Industries is an internationally leading system provider of sealing technology. Our products and solutions are used successfully around the world.</p>
+            </div>
+
+            <div class="industries-split-new">
+            <div class="industry-image-left">
+                <div class="industry-image-track" id="ind-image-track">
+                    <!-- Images populated by JS -->
+                </div>
+                <div class="industry-nav-buttons">
+                    <button class="nav-btn prev" id="industry-prev-btn">&#8592;</button>
+                    <button class="nav-btn next" id="industry-next-btn">&#8594;</button>
+                </div>
+            </div>
+            <div class="industry-content-right">
+                <div class="industry-text-window">
+                    <div class="industry-text-track" id="ind-text-track">
+                        <!-- Text items populated by JS -->
+                    </div>
+                </div>
+
+                <div class="industry-links-grid" id="industry-links-container">
+                    <!-- Links populated by JS -->
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering & Innovation Section -->
+    <section class="innovation-section" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 40px;">
+                <span class="kicker">INNOVATION & SUPPORT</span>
+                <h2>Engineering & Resources</h2>
+            </div>
+            <div class="innovation-grid">
+                
+                <!-- Card 1 -->
+                <div class="innovation-card">
+                    <div class="innov-image">
+                        <img src="images/mission_hero_bg.jpg" alt="Meet our experts">
+                    </div>
+                    <div class="innov-content">
+                        <h3>Meet our experts</h3>
+                        <p>We actively engineer solutions and rigorously test them in our advanced R&D facility.</p>
+                        <a href="#" class="btn btn-cyan">Talk to an expert</a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="innovation-card">
+                    <div class="innov-image">
+                        <img src="images/engineering_cad.jpg" alt="Advanced Engineering">
+                    </div>
+                    <div class="innov-content">
+                        <h3>Advanced Engineering</h3>
+                        <p>Designing reliable sealing systems for extreme and persistent problems globally.</p>
+                        <a href="#" class="btn btn-cyan">Learn about R&D</a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="innovation-card">
+                    <div class="innov-image">
+                        <img src="images/product_seal_2_1790081868989.jpg" alt="Product video">
+                        <div class="play-btn-overlay">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="innov-content">
+                        <h3>Product video: Seals</h3>
+                        <p>Performance under severe conditions. <strong>Watch the video now!</strong></p>
+                        <a href="#" class="btn btn-outline-cyan">Watch now</a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="innovation-card">
+                    <div class="innov-image">
+                        <img src="images/support_portal.jpg" alt="Support Portal">
+                    </div>
+                    <div class="innov-content">
+                        <h3>Online Support</h3>
+                        <p>Check product specs, access manuals, and request custom modifications.</p>
+                        <a href="#" class="btn btn-cyan">To the Portal</a>
+                    </div>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="innovation-card">
+                    <div class="innov-image">
+                        <img src="images/certificate_iso_1790083146225.jpg" alt="Quality Assurance" style="object-fit: contain; padding: 10px;">
+                    </div>
+                    <div class="innov-content">
+                        <h3>Quality Assurance</h3>
+                        <p>ISO 9001:2015 certified, API 682, ATEX, and FDA compliant operations.</p>
+                        <a href="#" class="btn btn-cyan">View Certificates</a>
+                    </div>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="innovation-card">
+                    <div class="innov-image">
+                        <img src="images/industry_energy_1790083113983.jpg" alt="Global Network">
+                    </div>
+                    <div class="innov-content">
+                        <h3>Global Network</h3>
+                        <p>Local support worldwide. Find a service center near your facilities.</p>
+                        <a href="#" class="btn btn-cyan">Find Location</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+  <Footer />
+</Layout>

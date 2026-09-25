@@ -1,0 +1,262 @@
+[
+  {
+    "id": "single-spring-seal",
+    "slug": "single-spring-seal",
+    "name": "Single Spring Series Seal",
+    "category": "Mechanical Seals",
+    "categorySlug": "mechanical-seals",
+    "image": "/images/products/seal1.png",
+    "description": "Reliable single spring seals designed for standard industrial applications involving water, oils, and mild chemicals. Features a robust coil spring that resists clogging.",
+    "features": [
+      "Non-clogging single coil spring",
+      "Easy installation",
+      "Cost-effective"
+    ],
+    "specs": {
+      "Pressure": "Up to 15 bar",
+      "Temperature": "-20°C to 180°C",
+      "Speed": "Up to 15 m/s",
+      "Size Range": "10mm to 100mm"
+    }
+  },
+  {
+    "id": "multi-spring-seal",
+    "slug": "multi-spring-seal",
+    "name": "Multi Spring Series Seal",
+    "category": "Mechanical Seals",
+    "categorySlug": "mechanical-seals",
+    "image": "/images/products/seal2.png",
+    "description": "High-performance multi-spring seals providing uniform face loading. Ideal for high-speed centrifugal pumps and severe chemical applications.",
+    "features": [
+      "Uniform face pressure",
+      "Compact design",
+      "Teflon wedge construction"
+    ],
+    "specs": {
+      "Pressure": "Up to 25 bar",
+      "Temperature": "-40°C to 220°C",
+      "Speed": "Up to 20 m/s",
+      "Size Range": "14mm to 150mm"
+    }
+  },
+  {
+    "id": "cartridge-seal",
+    "slug": "cartridge-seal",
+    "name": "Heavy Duty Cartridge Seal",
+    "category": "Mechanical Seals",
+    "categorySlug": "mechanical-seals",
+    "image": "/images/products/seal3.png",
+    "description": "Pre-assembled cartridge seal that eliminates installation errors. Perfect for process pumps handling harsh slurries and corrosive liquids.",
+    "features": [
+      "Pre-assembled for easy install",
+      "Self-aligning faces",
+      "No shaft fretting"
+    ],
+    "specs": {
+      "Pressure": "Up to 35 bar",
+      "Temperature": "-20°C to 260°C",
+      "Speed": "Up to 25 m/s",
+      "Size Range": "20mm to 200mm"
+    }
+  },
+  {
+    "id": "agitator-seal",
+    "slug": "agitator-seal",
+    "name": "Agitator & Reactor Seal",
+    "category": "Mechanical Seals",
+    "categorySlug": "mechanical-seals",
+    "image": "/images/products/seal4.png",
+    "description": "Top-entry agitator and reactor seals designed to handle significant shaft runout. Available in single and double configurations.",
+    "features": [
+      "Handles large shaft deflection",
+      "Dry-running capability",
+      "FDA compliant materials"
+    ],
+    "specs": {
+      "Pressure": "Vacuum to 14 bar",
+      "Temperature": "-20°C to 200°C",
+      "Speed": "Up to 5 m/s",
+      "Size Range": "25mm to 150mm"
+    }
+  },
+  {
+    "id": "teflon-bellow-seal",
+    "slug": "teflon-bellow-seal",
+    "name": "Teflon Bellow Seal",
+    "category": "Mechanical Seals",
+    "categorySlug": "mechanical-seals",
+    "image": "/images/products/seal6.png",
+    "description": "Externally mounted Teflon bellow seals used for extremely corrosive acids and alkalis where metal parts cannot be exposed to the fluid.",
+    "features": [
+      "No metal parts in contact with fluid",
+      "Outside mounted",
+      "Replaceable seal faces"
+    ],
+    "specs": {
+      "Pressure": "Up to 10 bar",
+      "Temperature": "-20°C to 120°C",
+      "Speed": "Up to 15 m/s",
+      "Size Range": "20mm to 100mm"
+    }
+  },
+  {
+    "id": "metal-bellow-seal",
+    "slug": "metal-bellow-seal",
+    "name": "Welded Metal Bellow Seal",
+    "category": "Mechanical Seals",
+    "categorySlug": "mechanical-seals",
+    "image": "/images/products/seal7.png",
+    "description": "Edge-welded metal bellow seals designed for extreme temperature applications like hot oil pumps and refinery operations.",
+    "features": [
+      "Eliminates dynamic O-rings",
+      "High-temperature resistance",
+      "Self-cleaning bellows"
+    ],
+    "specs": {
+      "Pressure": "Up to 25 bar",
+      "Temperature": "-75°C to 400°C",
+      "Speed": "Up to 25 m/s",
+      "Size Range": "25mm to 100mm"
+    }
+  },
+  {
+    "id": "water-rotary-joint",
+    "slug": "water-rotary-joint",
+    "name": "Cooling Water Rotary Joint",
+    "category": "Rotary Joints",
+    "categorySlug": "rotary-joints",
+    "image": "/images/products/seal5.png",
+    "description": "Precision rotary joints for cooling water applications in printing, packaging, and textile machinery. Features low friction bearings.",
+    "features": [
+      "Low turning torque",
+      "Corrosion resistant housing",
+      "Silicon Carbide seal faces"
+    ],
+    "specs": {
+      "Pressure": "Up to 10 bar",
+      "Temperature": "Up to 120°C",
+      "Speed": "Up to 3000 RPM",
+      "Connections": "1/4\" to 3\""
+    }
+  },
+  {
+    "id": "steam-rotary-joint",
+    "slug": "steam-rotary-joint",
+    "name": "High Temp Steam Rotary Joint",
+    "category": "Rotary Joints",
+    "categorySlug": "rotary-joints",
+    "image": "/images/products/seal3.png",
+    "description": "Robust steam joints utilizing a spherical seal design for self-alignment. Used heavily in paper mills and corrugating machines.",
+    "features": [
+      "Self-aligning spherical seal",
+      "Carbon graphite bearings",
+      "Heavy-duty cast iron body"
+    ],
+    "specs": {
+      "Pressure": "Up to 17 bar",
+      "Temperature": "Up to 225°C",
+      "Speed": "Up to 400 RPM",
+      "Connections": "1/2\" to 4\""
+    }
+  },
+  {
+    "id": "hot-oil-joint",
+    "slug": "hot-oil-joint",
+    "name": "Thermal Oil Rotary Joint",
+    "category": "Rotary Joints",
+    "categorySlug": "rotary-joints",
+    "image": "/images/products/seal2.png",
+    "description": "Designed specifically for hot thermal oil applications. Features an elongated cooling zone to protect bearings from high temperatures.",
+    "features": [
+      "Built-in cooling fins",
+      "Antimony impregnated carbon seal",
+      "High-temp bearings"
+    ],
+    "specs": {
+      "Pressure": "Up to 10 bar",
+      "Temperature": "Up to 315°C",
+      "Speed": "Up to 350 RPM",
+      "Connections": "3/4\" to 3\""
+    }
+  },
+  {
+    "id": "multi-passage-joint",
+    "slug": "multi-passage-joint",
+    "name": "Multi-Passage Rotary Union",
+    "category": "Rotary Joints",
+    "categorySlug": "rotary-joints",
+    "image": "/images/products/seal4.png",
+    "description": "Custom engineered multi-passage joints for transferring multiple independent fluids (air, water, hydraulic oil) simultaneously.",
+    "features": [
+      "Multiple independent channels",
+      "Hardened steel rotor",
+      "Specialty polymer seals"
+    ],
+    "specs": {
+      "Passages": "2 to 12",
+      "Pressure": "Up to 350 bar",
+      "Speed": "Up to 500 RPM",
+      "Media": "Mixed"
+    }
+  },
+  {
+    "id": "thermosyphon",
+    "slug": "thermosyphon",
+    "name": "Thermosyphon Seal Support",
+    "category": "Support Systems",
+    "categorySlug": "support-systems",
+    "image": "/images/products/seal1.png",
+    "description": "API Plan 52/53A compliant thermosyphon vessels for supplying buffer or barrier fluid to double mechanical seals.",
+    "features": [
+      "Built-in cooling coil",
+      "Level gauge and switches",
+      "ASME U-Stamp available"
+    ],
+    "specs": {
+      "Capacity": "10 to 20 Liters",
+      "Pressure": "Up to 30 bar",
+      "Material": "SS 316 / Carbon Steel",
+      "Cooling": "Water coil"
+    }
+  },
+  {
+    "id": "cyclone-separator",
+    "slug": "cyclone-separator",
+    "name": "Cyclone Abrasive Separator",
+    "category": "Support Systems",
+    "categorySlug": "support-systems",
+    "image": "/images/products/seal6.png",
+    "description": "API Plan 31 cyclone separators used to remove solids from the flush fluid before it enters the mechanical seal chamber.",
+    "features": [
+      "No moving parts",
+      "High separation efficiency",
+      "Compact design"
+    ],
+    "specs": {
+      "Efficiency": "90% for particles > 10µm",
+      "Pressure": "Up to 60 bar",
+      "Material": "SS 316",
+      "Connections": "1/2\" NPT"
+    }
+  },
+  {
+    "id": "heat-exchanger",
+    "slug": "heat-exchanger",
+    "name": "Seal Cooler Heat Exchanger",
+    "category": "Support Systems",
+    "categorySlug": "support-systems",
+    "image": "/images/products/seal7.png",
+    "description": "API Plan 21/23 shell and tube heat exchangers designed to cool the flush fluid in high-temperature pumping applications.",
+    "features": [
+      "High thermal efficiency",
+      "Easily cleanable tubes",
+      "Compact footprint"
+    ],
+    "specs": {
+      "Cooling Area": "0.5 to 2.5 m²",
+      "Pressure": "Up to 100 bar",
+      "Material": "SS 316L",
+      "Type": "Shell & Tube"
+    }
+  }
+]

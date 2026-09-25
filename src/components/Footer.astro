@@ -1,0 +1,346 @@
+---
+---
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <div class="logo-text footer-logo">
+                    <h1>Reliable</h1>
+                    <h2>Industries</h2>
+                </div>
+                <p>Leading the way in advanced sealing technology for a sustainable future.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="footer-contact-info">
+                    <p><i class="fas fa-phone-alt"></i> +1-800-555-0199</p>
+                    <p><i class="fas fa-envelope"></i> info@reliableindustries.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Industrial Parkway, Suite 100, Global City</p>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Products & Solutions</h4>
+                <ul>
+                    <li><a href="/products/mechanical-seals/single-spring-seal">Single Spring Seals</a></li>
+                    <li><a href="/products/mechanical-seals/multi-spring-seal">Multi Spring Seals</a></li>
+                    <li><a href="/products/mechanical-seals/cartridge-seal">Cartridge Seals</a></li>
+                    <li><a href="/products/mechanical-seals/agitator-seal">Agitator Seals</a></li>
+                    <li><a href="/products/rotary-joints/water-rotary-joint">Rotary Joints</a></li>
+                    <li><a href="/products/support-systems/thermosyphon">Supply Systems</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Industries</h4>
+                <ul>
+                    <li><a href="#">Oil & Gas</a></li>
+                    <li><a href="#">Chemical Processing</a></li>
+                    <li><a href="#">Pharmaceutical</a></li>
+                    <li><a href="#">Power Generation</a></li>
+                    <li><a href="#">Water Systems</a></li>
+                    <li><a href="#">Food & Beverage</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Certifications</a></li>
+                    <li><a href="#">Download Center</a></li>
+                    <li><a href="#">Global Locations</a></li>
+                    <li><a href="#">Career Opportunities</a></li>
+                </ul>
+                <a href="#" class="btn btn-primary btn-sm" style="margin-top: 20px; border-radius: 50px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Request a Quote</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="copyright">&copy; 2026 Reliable Industries. All rights reserved.</div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Imprint</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script is:inline>
+        // Simple script for header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenuToggle.classList.toggle('active');
+                mainNav.classList.toggle('open');
+            });
+        }
+
+        // Tab switching logic
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelector('.tab.active').classList.remove('active');
+                tab.classList.add('active');
+            });
+        });
+
+        // Hero Carousel Logic
+        let currentHeroSlide = 0;
+        const heroTrack = document.getElementById('hero-carousel-track');
+        const heroSlides = document.querySelectorAll('.carousel-slide');
+        const heroIndicators = document.querySelectorAll('.carousel-indicators .indicator');
+
+        function updateHeroCarousel() {
+            heroTrack.style.transform = `translateX(-${currentHeroSlide * 100}%)`;
+            heroIndicators.forEach((ind, index) => {
+                ind.classList.toggle('active', index === currentHeroSlide);
+            });
+        }
+
+        function moveHeroSlide(direction) {
+            currentHeroSlide = (currentHeroSlide + direction + heroSlides.length) % heroSlides.length;
+            updateHeroCarousel();
+        }
+
+        function setHeroSlide(index) {
+            currentHeroSlide = index;
+            updateHeroCarousel();
+        }
+
+        // Auto-advance hero carousel every 5 seconds
+        setInterval(() => {
+            moveHeroSlide(1);
+        }, 5000);
+
+        // Industries Interactive Section Logic
+        const industriesData = [
+            {
+                title: "Energy Transition",
+                desc: "Leverage our sealing expertise in applications such as hydrogen, CCUS, LNG, alternative fuel production or sustainable plastics for a low-carbon future.",
+                image: "images/industry_energy_1790083113983.jpg"
+            },
+            {
+                title: "Oil and gas industry",
+                desc: "Robust mechanical seals for upstream and downstream processes, ensuring reliability in the most demanding extraction and refinement conditions.",
+                image: "images/hero_industrial_1790081823152.jpg"
+            },
+            {
+                title: "Refining technology",
+                desc: "Advanced sealing systems designed for high-temperature and high-pressure refinery applications to maximize plant availability.",
+                image: "images/engineering_cad.jpg"
+            },
+            {
+                title: "Petrochemical industry",
+                desc: "Reliable sealing solutions for critical pumps and compressors handling hazardous, volatile, and highly corrosive petrochemical fluids.",
+                image: "images/hero_industrial_1790081823152.jpg"
+            },
+            {
+                title: "Chemical industry",
+                desc: "Our seal solutions are robust, reliable and specially adapted to processes, such as in basic, fine and inorganic chemistry.",
+                image: "images/industry_chemical.jpg"
+            },
+            {
+                title: "Pharmaceutical industry",
+                desc: "To help you meet the challenges of a highly competitive, strictly regulated market we provide you with extensive support in sealing technology.",
+                image: "images/hero_pharma_light.jpg"
+            },
+            {
+                title: "Power plant technology",
+                desc: "High-performance seals for boiler feed pumps and cooling water systems in conventional and renewable power generation plants.",
+                image: "images/engineering_cad.jpg"
+            },
+            {
+                title: "Water applications",
+                desc: "Durable and efficient sealing technology for water transport, desalination, and wastewater treatment facilities.",
+                image: "images/industry_energy_1790083113983.jpg"
+            },
+            {
+                title: "Food processing industry",
+                desc: "Hygienic and FDA-compliant sealing solutions ensuring absolute purity and safety in food and beverage production.",
+                image: "images/hero_pharma_light.jpg"
+            }
+        ];
+
+        let currentIndIndex = 0;
+        const indImageTrack = document.getElementById('ind-image-track');
+        const indTextTrack = document.getElementById('ind-text-track');
+        const indLinksContainer = document.getElementById('industry-links-container');
+        
+        function initIndustriesCarousel() {
+            indImageTrack.innerHTML = '';
+            indTextTrack.innerHTML = '';
+            indLinksContainer.innerHTML = '';
+
+            industriesData.forEach((ind, index) => {
+                // Image
+                const img = document.createElement('img');
+                img.src = ind.image;
+                img.alt = ind.title;
+                indImageTrack.appendChild(img);
+
+                // Text
+                const textItem = document.createElement('div');
+                textItem.className = 'industry-text-item';
+                textItem.innerHTML = `
+                    <h3>${ind.title}</h3>
+                    <p>${ind.desc}</p>
+                    <a href="#" class="learn-more">Read more <span class="arrow">&#8594;</span></a>
+                `;
+                indTextTrack.appendChild(textItem);
+
+                // Link
+                const link = document.createElement('a');
+                link.textContent = ind.title;
+                if (index === currentIndIndex) {
+                    link.classList.add('active-link');
+                }
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if(currentIndIndex !== index) {
+                        changeIndustry(index);
+                    }
+                });
+                indLinksContainer.appendChild(link);
+            });
+            updateCarouselPosition();
+        }
+
+        function updateCarouselPosition() {
+            indImageTrack.style.transform = `translateX(-${currentIndIndex * 100}%)`;
+            indTextTrack.style.transform = `translateX(-${currentIndIndex * 100}%)`;
+            
+            // Update active link
+            Array.from(indLinksContainer.children).forEach((link, idx) => {
+                link.classList.toggle('active-link', idx === currentIndIndex);
+            });
+        }
+
+        function changeIndustry(newIndex) {
+            currentIndIndex = newIndex;
+            updateCarouselPosition();
+        }
+
+        document.getElementById('industry-prev-btn').addEventListener('click', () => {
+            let newIndex = currentIndIndex - 1;
+            if (newIndex < 0) newIndex = industriesData.length - 1;
+            changeIndustry(newIndex);
+        });
+
+        document.getElementById('industry-next-btn').addEventListener('click', () => {
+            let newIndex = currentIndIndex + 1;
+            if (newIndex >= industriesData.length) newIndex = 0;
+            changeIndustry(newIndex);
+        });
+
+        // Initial render
+        initIndustriesCarousel();
+
+        // Flyout Search Logic
+        const searchTrigger = document.getElementById('search-trigger');
+        const searchModal = document.getElementById('search-modal');
+        const closeSearch = document.getElementById('close-search');
+
+        if(searchTrigger && searchModal) {
+            searchTrigger.addEventListener('click', () => {
+                searchModal.classList.add('active');
+            });
+            closeSearch.addEventListener('click', () => {
+                searchModal.classList.remove('active');
+            });
+        }
+
+        // Stats Counter Animation using IntersectionObserver
+        const counters = document.querySelectorAll('.stat-number');
+        const observerOptions = {
+            threshold: 0.5
+        };
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                const counter = entry.target;
+                if (entry.isIntersecting) {
+                    if (counter.classList.contains('counting')) return;
+                    counter.classList.add('counting');
+                    
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000; 
+                    const increment = target / (duration / 16); 
+                    
+                    let current = 0;
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.innerText = Math.ceil(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCounter();
+                } else {
+                    counter.innerText = '0';
+                    counter.classList.remove('counting');
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+    </script>
+    <!-- AOS Animation JS -->
+    <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script is:inline>
+        /* ==========================================
+           Elite UX Masterclass JavaScript
+           ========================================== */
+        
+        // 1. Preloader Logic & AOS Initialization
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            if(preloader) {
+                preloader.classList.add('fade-out');
+                setTimeout(() => { 
+                    preloader.style.display = 'none'; 
+                    // Initialize AOS AFTER preloader finishes so offsets are correct
+                    AOS.init({
+                        duration: 800,
+                        once: true,
+                        offset: 100
+                    });
+                    AOS.refresh();
+                }, 600);
+            } else {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 100
+                });
+            }
+        });
+
+        // 2. Scroll Progress Bar
+        const scrollProgress = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            const totalScroll = document.documentElement.scrollTop;
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scroll = `${totalScroll / windowHeight * 100}%`;
+            if(scrollProgress) {
+                scrollProgress.style.width = scroll;
+            }
+        });
+
+        // Custom Cursor JS Removed
+    </script>
