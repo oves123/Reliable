@@ -161,10 +161,16 @@ import Footer from '../components/Footer.astro';
     <!-- Products Section -->
     <section class="products-section">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="kicker">OUR PORTFOLIO</span>
-                <h2>Reliable Sealing Solutions</h2>
-                <p class="section-subtitle">Discover our comprehensive range of high-performance seals, supply systems, and couplings engineered for the most demanding industrial environments.</p>
+            <div class="section-header carousel-header" data-aos="fade-up">
+                <div>
+                    <span class="kicker">OUR PORTFOLIO</span>
+                    <h2 style="margin-bottom: 10px;">Reliable Sealing Solutions</h2>
+                    <p class="section-subtitle" style="margin-bottom: 0;">Discover our comprehensive range of high-performance seals, supply systems, and couplings engineered for the most demanding industrial environments.</p>
+                </div>
+                <div class="portfolio-controls" style="display: flex; gap: 10px;">
+                    <button id="portfolio-prev" aria-label="Previous product" style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ddd; background: white; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: 0.3s; color: #001a3b;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='white'">&#10094;</button>
+                    <button id="portfolio-next" aria-label="Next product" style="width: 45px; height: 45px; border-radius: 50%; border: none; background: #009fe3; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: 0.3s; color: white;" onmouseover="this.style.background='#007ab0'" onmouseout="this.style.background='#009fe3'">&#10095;</button>
+                </div>
             </div>
             <div class="product-grid">
                 <!-- Product Card 1 -->
@@ -310,20 +316,24 @@ import Footer from '../components/Footer.astro';
                     </div>
                 </div>
 
-                <div class="industry-links-grid" id="industry-links-container">
-                    <!-- Links populated by JS -->
-                </div>
             </div>
             </div>
         </div>
     </section>
 
+
     <!-- Engineering & Innovation Section -->
-    <section class="innovation-section" style="background-color: #ffffff;">
+    <section class="innovation-section" style="background-color: #ffffff; padding-bottom: 0;">
         <div class="container">
-            <div class="section-header text-center" style="margin-bottom: 40px;">
-                <span class="kicker">INNOVATION & SUPPORT</span>
-                <h2>Engineering & Resources</h2>
+            <div class="section-header carousel-header" data-aos="fade-up">
+                <div>
+                    <span class="kicker">INNOVATION & SUPPORT</span>
+                    <h2 style="margin-bottom: 0;">Engineering & Resources</h2>
+                </div>
+                <div class="portfolio-controls" style="display: flex; gap: 10px;">
+                    <button id="innov-prev" aria-label="Previous" style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ddd; background: white; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: 0.3s; color: #001a3b;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='white'">&#10094;</button>
+                    <button id="innov-next" aria-label="Next" style="width: 45px; height: 45px; border-radius: 50%; border: none; background: #009fe3; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: 0.3s; color: white;" onmouseover="this.style.background='#007ab0'" onmouseout="this.style.background='#009fe3'">&#10095;</button>
+                </div>
             </div>
             <div class="innovation-grid">
                 
@@ -351,22 +361,7 @@ import Footer from '../components/Footer.astro';
                     </div>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="innovation-card">
-                    <div class="innov-image">
-                        <img src="images/product_seal_2_1790081868989.jpg" alt="Product video">
-                        <div class="play-btn-overlay">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="innov-content">
-                        <h3>Product video: Seals</h3>
-                        <p>Performance under severe conditions. <strong>Watch the video now!</strong></p>
-                        <a href="#" class="btn btn-outline-cyan">Watch now</a>
-                    </div>
-                </div>
+
 
                 <!-- Card 4 -->
                 <div class="innovation-card">
@@ -408,7 +403,109 @@ import Footer from '../components/Footer.astro';
         </div>
     </section>
 
+    <!-- Product Video Section -->
+    <section class="video-section" style="background-color: var(--bg-light-grey); padding: 2rem 0 0 0;">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 1.5rem;">
+                <span class="kicker">MEDIA</span>
+                <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Product video: Seals</h2>
+                <p>Performance under severe conditions. Watch the video now!</p>
+            </div>
+        </div>
+        <div class="container pb-4" style="margin-bottom: 4rem;">
+            <div class="youtube-grid">
+                <div class="youtube-wrapper">
+                    <iframe src="https://www.youtube.com/embed/p3oPn7aZlSg" title="Engineering Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="youtube-wrapper">
+                    <iframe src="https://www.youtube.com/embed/Ks70Q3N_kdo" title="Engineering Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="youtube-wrapper">
+                    <iframe src="https://www.youtube.com/embed/ljRpEzYK2dw" title="Engineering Video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="youtube-wrapper">
+                    <iframe src="https://www.youtube.com/embed/BaEHVpKc-1Q" title="Engineering Video 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="youtube-wrapper">
+                    <iframe src="https://www.youtube.com/embed/p3oPn7aZlSg" title="Engineering Video 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="youtube-wrapper">
+                    <iframe src="https://www.youtube.com/embed/Ks70Q3N_kdo" title="Engineering Video 6" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 
   <Footer />
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const setupCarousel = (gridSelector, prevId, nextId) => {
+            const grid = document.querySelector(gridSelector);
+            const prevBtn = document.getElementById(prevId);
+            const nextBtn = document.getElementById(nextId);
+
+            if(grid && prevBtn && nextBtn) {
+                // Function to get scroll amount based on card width + gap
+                const getScrollAmount = () => {
+                    const firstCard = grid.firstElementChild;
+                    if (firstCard) {
+                        const style = window.getComputedStyle(grid);
+                        const gap = parseFloat(style.getPropertyValue("gap")) || 0;
+                        return firstCard.offsetWidth + gap;
+                    }
+                    return 300; // fallback
+                };
+
+                prevBtn.addEventListener("click", () => {
+                    grid.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+                });
+
+                nextBtn.addEventListener("click", () => {
+                    grid.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+                });
+
+                // Automatic scrolling on mobile/tablet (max-width: 1024px)
+                let autoScrollInterval;
+                
+                const startAutoScroll = () => {
+                    if (window.innerWidth <= 1024) {
+                        autoScrollInterval = setInterval(() => {
+                            // Check if we've reached the end
+                            if (grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 10) {
+                                grid.scrollTo({ left: 0, behavior: "smooth" }); // Rewind
+                            } else {
+                                grid.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+                            }
+                        }, 3000); // 3 seconds interval
+                    }
+                };
+                
+                const stopAutoScroll = () => {
+                    clearInterval(autoScrollInterval);
+                };
+
+                // Start initially
+                startAutoScroll();
+
+                // Pause on hover/touch
+                grid.addEventListener("mouseenter", stopAutoScroll);
+                grid.addEventListener("mouseleave", startAutoScroll);
+                grid.addEventListener("touchstart", stopAutoScroll);
+                grid.addEventListener("touchend", startAutoScroll);
+                
+                // Re-evaluate on resize
+                window.addEventListener("resize", () => {
+                    stopAutoScroll();
+                    startAutoScroll();
+                });
+            }
+        };
+
+        setupCarousel(".product-grid", "portfolio-prev", "portfolio-next");
+        setupCarousel(".innovation-grid", "innov-prev", "innov-next");
+    });
+  </script>
 </Layout>

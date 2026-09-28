@@ -4,55 +4,226 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import products from '../../data/products.json';
 
-const categories = [...new Set(products.map(p => p.category))].map(name => ({
-  name,
-  slug: products.find(p => p.category === name).categorySlug
-}));
-
-// Map categories to some dummy images for the category cards
-const catImages = {
-  "Mechanical Seals": "/images/products/seal1.png",
-  "Rotary Joints": "/images/products/seal5.png",
-  "Support Systems": "/images/products/seal7.png"
-};
+const categories = [...new Set(products.map(p => p.category))].map(name => {
+  const catProducts = products.filter(p => p.category === name);
+  return {
+    name,
+    slug: catProducts[0].categorySlug,
+    image: catProducts[0].image
+  };
+});
 ---
 <Layout>
   <Header />
   
-  <section class="page-title" style="background-color: #001a3b; padding: 100px 0; text-align: center; color: white;">
+  <style>
+      .layout-wrapper {
+          display: flex;
+          gap: 30px;
+          flex-direction: column;
+      }
+      @media (min-width: 768px) {
+          .layout-wrapper {
+              flex-direction: row;
+          }
+      }
+      .filters-sidebar {
+          width: 100%;
+          background: white; 
+          padding: 24px; 
+          border-radius: 8px; 
+          box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+          border: 1px solid #eaeaea;
+      }
+      @media (min-width: 768px) {
+          .filters-sidebar {
+              width: 260px;
+              flex-shrink: 0;
+              position: sticky;
+              top: 100px;
+          }
+      }
+      .filter-label {
+          display: flex;
+          align-items: center;
+          padding: 10px 0; 
+          cursor: pointer;
+          font-size: 0.95rem;
+          color: #444;
+          transition: color 0.2s;
+      }
+      .filter-label:hover {
+          color: #009fe3;
+      }
+      .filter-label input[type="checkbox"] {
+          margin-right: 12px;
+          width: 16px;
+          height: 16px;
+          accent-color: #009fe3;
+          cursor: pointer;
+      }
+      .category-grid {
+          display: grid; 
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+          gap: 30px;
+      }
+      .category-card {
+          background: white; 
+          border: 1px solid #eaeaea; 
+          border-radius: 8px; 
+          overflow: hidden; 
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .category-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+          border-color: #d0d0d0;
+      }
+      .card-figure {
+          margin: 0; 
+          padding: 30px; 
+          text-align: center; 
+          background: #fafafa; 
+          border-bottom: 1px solid #eaeaea;
+      }
+      .card-img {
+          height: 160px; 
+          max-width: 100%; 
+          object-fit: contain;
+          mix-blend-mode: multiply;
+      }
+      .card-content {
+          padding: 24px; 
+          text-align: center;
+      }
+      .card-title {
+          font-size: 1.25rem; 
+          margin-bottom: 12px; 
+          font-weight: 600; 
+          color: #222;
+          transition: color 0.2s;
+      }
+      .category-card:hover .card-title {
+          color: #009fe3;
+      }
+      .card-link {
+          display: inline-block; 
+          color: #009fe3; 
+          font-weight: 600; 
+          text-decoration: none; 
+          font-size: 0.95rem;
+          transition: opacity 0.2s;
+      }
+      .card-link:hover {
+          opacity: 0.8;
+      }
+  </style>
+
+  <section class="page-title" style="background-color: #001a3b; padding: 40px 0; text-align: center; color: white;">
       <div class="container">
-          <h1 style="font-size: 3rem; font-weight: 700;">Product Categories</h1>
-          <p style="font-size: 1.1rem; color: #a0aec0; margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">
+          <h1 style="font-size: 2.5rem; font-weight: 700; margin: 0; letter-spacing: 0.5px;">Product Categories</h1>
+          <p style="font-size: 1.05rem; color: #a0aec0; margin-top: 10px; margin-bottom: 0; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">
               Explore our complete range of high-performance sealing solutions, rotary joints, and supply systems.
           </p>
       </div>
   </section>
 
-  <section class="categories-section" style="padding: 80px 0; background-color: #f4f5f8;">
-      <div class="container">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
-              {categories.map(cat => (
-                  <div class="category-card" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-                      <figure style="margin: 0; position: relative; padding: 50px 20px; text-align: center; background: #eef2f6; border-bottom: 3px solid #009fe3;">
-                          <a href={`/products/${cat.slug}`}>
-                              <img src={catImages[cat.name] || "/images/products/seal1.png"} alt={cat.name} style="height: 180px; object-fit: contain; mix-blend-mode: multiply; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                          </a>
-                      </figure>
-                      <div class="card-content" style="padding: 35px 30px;">
-                          <h3 style="font-size: 1.6rem; margin-bottom: 15px; font-weight: 700; color: #001a3b;">
-                              <a href={`/products/${cat.slug}`} style="color: inherit; text-decoration: none;">{cat.name}</a>
-                          </h3>
-                          <p style="color: #555; line-height: 1.6; margin-bottom: 25px;">
-                              View our full catalog of {cat.name.toLowerCase()} designed for maximum reliability in extreme environments.
-                          </p>
-                          <a href={`/products/${cat.slug}`} style="display: inline-block; padding: 12px 25px; background: #009fe3; color: white; border-radius: 5px; font-weight: 600; text-decoration: none; transition: background 0.3s ease;" onmouseover="this.style.background='#007ab0'" onmouseout="this.style.background='#009fe3'">
-                              View All Products <i class="fas fa-arrow-right" style="margin-left: 5px;"></i>
-                          </a>
+  <section class="categories-section" style="padding: 40px 0 80px; background-color: #f9f9f9;">
+      <div class="container layout-wrapper">
+          
+          <!-- Filters Sidebar -->
+          <aside class="filters-sidebar">
+              <h3 style="font-size: 1.15rem; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #009fe3; padding-bottom: 12px; color: #111;">Filter by Category</h3>
+              
+              <div class="filter-group">
+                  <label class="filter-label">
+                      <input type="checkbox" class="category-filter" value="Seal"> Mechanical Seals
+                  </label>
+                  <label class="filter-label">
+                      <input type="checkbox" class="category-filter" value="Joints"> Rotary Joints
+                  </label>
+                  <label class="filter-label">
+                      <input type="checkbox" class="category-filter" value="System|Thermosyphon"> Support Systems
+                  </label>
+              </div>
+          </aside>
+
+          <!-- Category Grid -->
+          <div style="flex-grow: 1;">
+              <div class="category-grid">
+                  {categories.map(cat => (
+                      <div class="category-card" data-name={cat.name}>
+                          <figure class="card-figure">
+                              <a href={`/products/${cat.slug}`}>
+                                  <img src={cat.image} alt={cat.name} class="card-img">
+                              </a>
+                          </figure>
+                          <div class="card-content">
+                              <h3 class="card-title">
+                                  <a href={`/products/${cat.slug}`} style="color: inherit; text-decoration: none;">{cat.name}</a>
+                              </h3>
+                              <a href={`/products/${cat.slug}`} class="card-link">
+                                  View Products &rarr;
+                              </a>
+                          </div>
                       </div>
-                  </div>
-              ))}
+                  ))}
+              </div>
+              <div id="no-results-msg" style="display: none; padding: 60px 20px; text-align: center; background: white; border: 1px dashed #ccc; border-radius: 8px;">
+                  <i class="fas fa-search" style="font-size: 2rem; color: #d0d0d0; margin-bottom: 15px; display: block;"></i>
+                  <p style="color: #666; font-size: 1.1rem; margin: 0;">No categories match the selected filters.</p>
+                  <button onclick="document.querySelectorAll('.category-filter').forEach(cb => cb.checked = false); document.querySelector('.category-filter').dispatchEvent(new Event('change'));" style="margin-top: 15px; padding: 8px 20px; background: #009fe3; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">Clear Filters</button>
+              </div>
           </div>
       </div>
   </section>
+
+  <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+          const checkboxes = document.querySelectorAll('.category-filter');
+          const cards = document.querySelectorAll('.category-card');
+          const noResultsMsg = document.getElementById('no-results-msg');
+
+          checkboxes.forEach(cb => {
+              cb.addEventListener('change', () => {
+                  const activeFilters = Array.from(checkboxes)
+                      .filter(i => i.checked)
+                      .map(i => i.value.split('|'));
+                  
+                  let visibleCount = 0;
+
+                  cards.forEach(card => {
+                      const catName = card.getAttribute('data-name');
+                      
+                      // If no filters selected, show all
+                      if (activeFilters.length === 0) {
+                          card.style.display = 'block';
+                          visibleCount++;
+                          return;
+                      }
+
+                      // Check if this card matches ANY active filter group
+                      const matches = activeFilters.some(filterGroup => {
+                          return filterGroup.some(keyword => catName.includes(keyword));
+                      });
+
+                      if (matches) {
+                          card.style.display = 'block';
+                          visibleCount++;
+                      } else {
+                          card.style.display = 'none';
+                      }
+                  });
+
+                  if (visibleCount === 0) {
+                      noResultsMsg.style.display = 'block';
+                  } else {
+                      noResultsMsg.style.display = 'none';
+                  }
+              });
+          });
+      });
+  </script>
+
   <Footer />
 </Layout>

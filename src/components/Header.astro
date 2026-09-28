@@ -46,7 +46,7 @@
     <!-- Main Header -->
     <header class="main-header">
         <div class="container header-content">
-            <a href="#" class="logo">
+            <a href="/" class="logo">
                 <div class="logo-text">
                     <div style="display: flex; gap: 6px; align-items: baseline;">
                         <h1>Reliable</h1>
@@ -63,38 +63,37 @@
                     <li class="has-mega-menu">
                         <a href="#" class="active">Products <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i></a>
                         <div class="mega-menu">
-                            <div class="mega-menu-grid">
-                                <!-- Featured Promo Column -->
-                                <div class="mega-menu-featured">
-                                    <h3>New RM Series</h3>
-                                    <p>Discover our latest heavy-duty cartridge seals engineered for maximum durability in extreme environments.</p>
-                                    <a href="#" class="btn-small" style="background: var(--color-primary-navy);">Explore Series</a>
-                                </div>
-                                
+                            <div class="mega-menu-grid" style="grid-template-columns: 1fr;">
                                 <!-- Links Columns -->
-                                <div class="mega-menu-columns">
+                                <div class="mega-menu-columns" style="gap: 3rem;">
                                     <div>
-                                        <h4><i class="fas fa-cogs"></i> Mechanical Seals</h4>
+                                        <h4><i class="fas fa-cogs"></i> Mechanical Seal</h4>
                                         <ul>
-                                            <li><a href="/products/mechanical-seals/single-spring-seal">Single Spring Seals</a></li>
-                                            <li><a href="/products/mechanical-seals/multi-spring-seal">Multi Spring Seals</a></li>
-                                            <li><a href="/products/mechanical-seals/cartridge-seal">Cartridge Seals</a></li>
-                                            <li><a href="/products/mechanical-seals/agitator-seal">Agitator Seals</a></li>
+                                            <li><a href="/products/multi-spring-series-seal">Multi Spring Series Seal</a></li>
+                                            <li><a href="/products/single-spring-series-seal">Single Spring Series Seal</a></li>
+                                            <li><a href="/products/dairy-seal">Dairy Seal</a></li>
+                                            <li><a href="/products/water-seal">Water Seal</a></li>
+                                            <li><a href="/products/cartridge-seal">Cartridge Seal</a></li>
+                                            <li><a href="/products/high-temp-seal">High Temp Seal</a></li>
+                                            <li><a href="/products/reactor-seal">Reactor Seal</a></li>
+                                            <li><a href="/products/agitator-seal">Agitator Seal</a></li>
                                         </ul>
                                     </div>
                                     <div>
                                         <h4><i class="fas fa-sync-alt"></i> Rotary Joints</h4>
                                         <ul>
-                                            <li><a href="/products/rotary-joints/water-rotary-joint">Water Rotary Joints</a></li>
-                                            <li><a href="/products/rotary-joints/steam-rotary-joint">Steam Rotary Joints</a></li>
-                                            <li><a href="/products/rotary-joints/water-rotary-joint">Hot Oil Joints</a></li>
+                                            <li><a href="/products/water-rotary-joints">Water Rotary Joints</a></li>
+                                            <li><a href="/products/hot-oil-rotary-joints">Hot Oil Rotary Joints</a></li>
+                                            <li><a href="/products/air-rotary-joints">Air Rotary Joints</a></li>
+                                            <li><a href="/products/hydrolic-rotary-joints">Hydraulic Rotary Joints</a></li>
+                                            <li><a href="/products/steam-rotary-joints">Steam Rotary Joints</a></li>
                                         </ul>
                                     </div>
                                     <div>
-                                        <h4><i class="fas fa-tools"></i> Support Systems</h4>
+                                        <h4><i class="fas fa-tools"></i> Seal Support System</h4>
                                         <ul>
-                                            <li><a href="/products/support-systems/thermosyphon">Thermosyphon</a></li>
-                                            <li><a href="#">Heat Exchangers</a></li>
+                                            <li><a href="/products/thermosyphon">Thermosyphon</a></li>
+                                            <li><a href="/products/heat-exchanged-system">Heat Exchanged System</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -220,11 +219,155 @@
         <div class="search-modal-content">
             <button class="close-search" id="close-search">&times;</button>
             <h2>What are you looking for?</h2>
-            <form>
-                <div class="search-input-group">
-                    <input type="text" placeholder="Type to search (e.g., 'Cartridge Seal')">
+            <form id="search-form" autocomplete="off" onsubmit="handleSearchSubmit(event)">
+                <div class="search-input-group" style="position: relative;">
+                    <input type="text" id="search-input" placeholder="Type to search (e.g., 'Cartridge Seal')" oninput="handleSearchInput(this.value)" onkeydown="handleSearchKeydown(event)">
                     <button type="submit"><i class="fas fa-search"></i></button>
                 </div>
+                <div id="search-suggestions" style="display:none; position:absolute; background:white; border:1px solid #e0e0e0; border-radius:0 0 8px 8px; max-height:320px; overflow-y:auto; width:100%; z-index:999; box-shadow: 0 8px 20px rgba(0,0,0,0.1);"></div>
             </form>
+            <p id="search-no-results" style="display:none; color:#666; margin-top:1rem; font-size:0.95rem;">No products found. Try a different keyword.</p>
         </div>
     </div>
+
+    <script is:inline>
+    // Embed product data for client-side search
+    const ALL_PRODUCTS = [
+        {"id":1,"name":"Reactor Seal","category":"Reactor Seal","slug":"reactor-seal-1","categorySlug":"reactor-seal"},
+        {"id":2,"name":"Agitator Seal","category":"Agitator Seal","slug":"agitator-seal-2","categorySlug":"agitator-seal"},
+        {"id":3,"name":"Thermosyphon","category":"Thermosyphon","slug":"thermosyphon-3","categorySlug":"thermosyphon"},
+        {"id":4,"name":"Heat Exchanger System","category":"Heat Exchanged System","slug":"heat-exchanger-system-4","categorySlug":"heat-exchanged-system"},
+        {"id":5,"name":"High Temp Seal Series","category":"High Temp Seal","slug":"high-temp-seal-series-5","categorySlug":"high-temp-seal"},
+        {"id":6,"name":"High Temp Seal Series","category":"High Temp Seal","slug":"high-temp-seal-series-6","categorySlug":"high-temp-seal"},
+        {"id":7,"name":"High Temp Seal Series","category":"High Temp Seal","slug":"high-temp-seal-series-7","categorySlug":"high-temp-seal"},
+        {"id":8,"name":"Reliable Cartridge seal Series","category":"Cartridge Seal","slug":"reliable-cartridge-seal-series-8","categorySlug":"cartridge-seal"},
+        {"id":9,"name":"Reliable Inside Mounted Single Spring Seal Series","category":"Single Spring Series Seal","slug":"reliable-inside-mounted-single-spring-seal-series-9","categorySlug":"single-spring-series-seal"},
+        {"id":10,"name":"Special Seal","category":"Mechanical Seal","slug":"special-seal-10","categorySlug":"mechanical-seal"},
+        {"id":11,"name":"Reliable Inside Mounted Single Spring Seal Series","category":"Single Spring Series Seal","slug":"reliable-inside-mounted-single-spring-seal-series-11","categorySlug":"single-spring-series-seal"},
+        {"id":12,"name":"Reliable Inside Mounted Single Spring Seal Series","category":"Single Spring Series Seal","slug":"reliable-inside-mounted-single-spring-seal-series-12","categorySlug":"single-spring-series-seal"},
+        {"id":13,"name":"Reliable Rubber Bellow Single Spring Seal Series","category":"Water Seal","slug":"reliable-rubber-bellow-single-spring-seal-series-13","categorySlug":"water-seal"},
+        {"id":14,"name":"Reliable Dairy Used Single Spring Seal Series","category":"Dairy Seal","slug":"reliable-dairy-used-single-spring-seal-series-14","categorySlug":"dairy-seal"},
+        {"id":15,"name":"Reliable Rotary Pressure Joints","category":"Rotary Joints","slug":"reliable-rotary-pressure-joints-15","categorySlug":"rotary-joints"},
+        {"id":16,"name":"01 RMF 60 - Monoflow Rotating Union","category":"Water Rotary Joints","slug":"01-rmf-60-this-is-monoflow-rotating-union-16","categorySlug":"water-rotary-joints"},
+        {"id":17,"name":"RDF 80 - Deoflow Rotating Union","category":"Water Rotary Joints","slug":"rdf-80---this-is-deofolw-rotating-union-17","categorySlug":"water-rotary-joints"},
+        {"id":18,"name":"RMF-CH-60 - Monoflow Rotating Union","category":"Water Rotary Joints","slug":"rmf---ch---60---this-is-monoflow-rotating-union-18","categorySlug":"water-rotary-joints"},
+        {"id":19,"name":"RDF-CH-80 - Deoflow Rotating Union","category":"Water Rotary Joints","slug":"rdf---ch---80---this-is-deofolw-rotating-union-19","categorySlug":"water-rotary-joints"},
+        {"id":20,"name":"RMF-FL 100 - Monoflow Rotating Union Flanged","category":"Water Rotary Joints","slug":"rmf-fl-100---this-is-monoflow-rotating-union-flanged-end-20","categorySlug":"water-rotary-joints"},
+        {"id":21,"name":"RDF FL 120 - Deoflow Rotating Union Flanged","category":"Water Rotary Joints","slug":"rdf-fl-120---this-is-deoflow-rotatiing-union-flanged-end-21","categorySlug":"water-rotary-joints"},
+        {"id":22,"name":"RMF-HT-140 - Monoflow High Temp Rotating Union","category":"Water Rotary Joints","slug":"rmf---ht-140---this-is-monoflow-high-tempreture-rotating-union-22","categorySlug":"water-rotary-joints"},
+        {"id":23,"name":"RMF-HT-140 - Monoflow High Temp Rotating Union","category":"Hot Oil Rotary Joints","slug":"rmf---ht-140---this-is-monoflow-high-tempreture-rotating-union-23","categorySlug":"hot-oil-rotary-joints"},
+        {"id":24,"name":"RDF-DSGQ-220 - Deoflow Flanged High Temp Rotating Union","category":"Hot Oil Rotary Joints","slug":"rdf---dsgq---220---this-is-deoflow-flanged-end-high-temp-rotating-union-24","categorySlug":"hot-oil-rotary-joints"},
+        {"id":25,"name":"RMF-HT 180 - Flanged End Rotating Union","category":"Hot Oil Rotary Joints","slug":"rmf---ht-180---this-is-flanged-end-rotating-union-25","categorySlug":"hot-oil-rotary-joints"},
+        {"id":26,"name":"RDF-HT 200 - Deoflow Flanged Rotating Union","category":"Hot Oil Rotary Joints","slug":"rdf---ht-200---this-is-deoflow-flanged-end-rotating-union-26","categorySlug":"hot-oil-rotary-joints"},
+        {"id":27,"name":"RDF-HT 200 - Deoflow Flanged Rotating Union","category":"Hot Oil Rotary Joints","slug":"rdf---ht-200---this-is-deoflow-flanged-end-rotating-union-27","categorySlug":"hot-oil-rotary-joints"},
+        {"id":28,"name":"RDF-DSGQ-220 - Deoflow Flanged High Temp Rotating Union","category":"Steam Rotary Joints","slug":"rdf---dsgq---220---this-is-deoflow-flanged-end-high-temp-rotating-union-28","categorySlug":"steam-rotary-joints"},
+        {"id":29,"name":"RMF-H-100 - Hydraulic Rotating Union","category":"Hydrolic Rotary Joints","slug":"rmf---h-100---this-is-hydraulic-rotating-union-29","categorySlug":"hydrolic-rotary-joints"},
+        {"id":30,"name":"RDF-H-150 - Hydraulic Rotating Union","category":"Hydrolic Rotary Joints","slug":"rdf--h-150---this-is-hydraulic-rotating-union-30","categorySlug":"hydrolic-rotary-joints"},
+        {"id":31,"name":"RDF-H-200 - Hydraulic Rotating Union","category":"Hydrolic Rotary Joints","slug":"rdf---h-200---this-is-hydraulic-rotating-union-31","categorySlug":"hydrolic-rotary-joints"},
+        {"id":32,"name":"RDF-H-200 - Hydraulic Rotating Union","category":"Hydrolic Rotary Joints","slug":"rdf---h-200---this-is-hydraulic-rotating-union-32","categorySlug":"hydrolic-rotary-joints"},
+        {"id":33,"name":"Inside Mounting Multi Spring Seal Series","category":"Multi Spring Series Seal","slug":"inside-mounting-multi-spring-seal-series-33","categorySlug":"multi-spring-series-seal"},
+        {"id":34,"name":"Inside Mounting Multi Spring Seal Series","category":"Multi Spring Series Seal","slug":"inside-mounting-multi-spring-seal-series-34","categorySlug":"multi-spring-series-seal"},
+        {"id":35,"name":"Inside Mounting Multi Spring Seal Series","category":"Multi Spring Series Seal","slug":"inside-mounting-multi-spring-seal-series-35","categorySlug":"multi-spring-series-seal"},
+        {"id":36,"name":"Outside Mounting Multi Spring Seal Series","category":"Multi Spring Series Seal","slug":"outside-mounting-multi-spring-seal-series-36","categorySlug":"multi-spring-series-seal"},
+        {"id":37,"name":"Outside Mounting Multi Spring Seal Series","category":"Multi Spring Series Seal","slug":"outside-mounting-multi-spring-seal-series-37","categorySlug":"multi-spring-series-seal"},
+        {"id":38,"name":"Special Seal","category":"Multi Spring Series Seal","slug":"special-seal-38","categorySlug":"multi-spring-series-seal"},
+        {"id":39,"name":"Reliable Inside Mounted Single Spring Seal Series","category":"Single Spring Series Seal","slug":"reliable-inside-mounted-single-spring-seal-series-39","categorySlug":"single-spring-series-seal"},
+        {"id":40,"name":"Reliable Inside Mounted Single Spring Seal Series","category":"Single Spring Series Seal","slug":"reliable-inside-mounted-single-spring-seal-series-40","categorySlug":"single-spring-series-seal"},
+        {"id":41,"name":"Reliable Inside Mounted Single Spring Seal Series","category":"Single Spring Series Seal","slug":"reliable-inside-mounted-single-spring-seal-series-41","categorySlug":"single-spring-series-seal"},
+        {"id":42,"name":"Reliable Rubber Bellow Single Spring Seal Series","category":"Water Seal","slug":"reliable-rubber-bellow-single-spring-seal-series-42","categorySlug":"water-seal"},
+        {"id":43,"name":"Reliable Rubber Bellow Single Spring Seal Series","category":"Water Seal","slug":"reliable-rubber-bellow-single-spring-seal-series-43","categorySlug":"water-seal"},
+        {"id":44,"name":"Reliable Dairy Used Single Spring Seal Series","category":"Dairy Seal","slug":"reliable-dairy-used-single-spring-seal-series-44","categorySlug":"dairy-seal"},
+        {"id":45,"name":"Reliable Dairy Used Single Spring Seal Series","category":"Dairy Seal","slug":"reliable-dairy-used-single-spring-seal-series-45","categorySlug":"dairy-seal"},
+        {"id":46,"name":"Reliable Dairy Used Single Spring Seal Series","category":"Dairy Seal","slug":"reliable-dairy-used-single-spring-seal-series-46","categorySlug":"dairy-seal"},
+        {"id":47,"name":"High Temp Seal Series","category":"High Temp Seal","slug":"high-temp-seal-series-47","categorySlug":"high-temp-seal"},
+        {"id":48,"name":"Reliable Cartridge seal Series","category":"Cartridge Seal","slug":"reliable-cartridge-seal-series-48","categorySlug":"cartridge-seal"},
+        {"id":49,"name":"Reliable Cartridge seal Series","category":"Cartridge Seal","slug":"reliable-cartridge-seal-series-49","categorySlug":"cartridge-seal"},
+        {"id":50,"name":"Reliable Cartridge seal Series","category":"Cartridge Seal","slug":"reliable-cartridge-seal-series-50","categorySlug":"cartridge-seal"}
+    ];
+
+    let selectedIndex = -1;
+    let filteredResults = [];
+
+    function handleSearchInput(query) {
+        const q = query.trim().toLowerCase();
+        const box = document.getElementById('search-suggestions');
+        const noResults = document.getElementById('search-no-results');
+        selectedIndex = -1;
+
+        if (q.length < 2) {
+            box.style.display = 'none';
+            noResults.style.display = 'none';
+            return;
+        }
+
+        filteredResults = ALL_PRODUCTS.filter(p =>
+            p.name.toLowerCase().includes(q) ||
+            p.category.toLowerCase().includes(q)
+        );
+
+        if (filteredResults.length === 0) {
+            box.style.display = 'none';
+            noResults.style.display = 'block';
+            return;
+        }
+
+        noResults.style.display = 'none';
+        box.innerHTML = filteredResults.slice(0, 10).map((p, i) => `
+            <a href="/products/${p.categorySlug}/${p.slug}"
+               data-index="${i}"
+               style="display:flex; align-items:center; gap:12px; padding:12px 16px; border-bottom:1px solid #f0f0f0; text-decoration:none; color:#333; transition:background 0.2s;"
+               onmouseover="this.style.background='#f0f8ff'"
+               onmouseout="this.style.background='white'">
+                <i class="fas fa-cog" style="color:#009fe3; font-size:0.85rem; flex-shrink:0;"></i>
+                <div>
+                    <div style="font-weight:600; font-size:0.9rem; color:#001a3b;">${p.name}</div>
+                    <div style="font-size:0.78rem; color:#888;">${p.category}</div>
+                </div>
+            </a>
+        `).join('');
+        box.style.display = 'block';
+    }
+
+    function handleSearchKeydown(e) {
+        const box = document.getElementById('search-suggestions');
+        const items = box.querySelectorAll('a');
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            selectedIndex = Math.max(selectedIndex - 1, 0);
+        } else if (e.key === 'Enter') {
+            if (selectedIndex >= 0 && items[selectedIndex]) {
+                e.preventDefault();
+                window.location.href = items[selectedIndex].href;
+                return;
+            }
+        }
+        items.forEach((el, i) => {
+            el.style.background = i === selectedIndex ? '#e8f4fd' : 'white';
+        });
+    }
+
+    function handleSearchSubmit(e) {
+        e.preventDefault();
+        const q = document.getElementById('search-input').value.trim().toLowerCase();
+        if (!q) return;
+        const match = ALL_PRODUCTS.find(p =>
+            p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)
+        );
+        if (match) {
+            window.location.href = `/products/${match.categorySlug}/${match.slug}`;
+        } else {
+            document.getElementById('search-no-results').style.display = 'block';
+        }
+    }
+
+    // Close suggestions when clicking outside
+    document.addEventListener('click', function(e) {
+        const box = document.getElementById('search-suggestions');
+        if (box && !box.contains(e.target) && e.target.id !== 'search-input') {
+            box.style.display = 'none';
+        }
+    });
+    </script>

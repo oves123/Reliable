@@ -121,9 +121,38 @@
         }
 
         // Auto-advance hero carousel every 5 seconds
-        setInterval(() => {
+        let heroInterval = setInterval(() => {
             moveHeroSlide(1);
         }, 5000);
+
+        // Touch Swipe Logic for Hero Carousel
+        let heroTouchStartX = 0;
+        let heroTouchEndX = 0;
+
+        heroTrack.addEventListener('touchstart', e => {
+            heroTouchStartX = e.changedTouches[0].screenX;
+            clearInterval(heroInterval); // Pause auto-scroll on touch
+        });
+
+        heroTrack.addEventListener('touchend', e => {
+            heroTouchEndX = e.changedTouches[0].screenX;
+            handleHeroSwipe();
+            // Resume auto-scroll
+            heroInterval = setInterval(() => {
+                moveHeroSlide(1);
+            }, 5000);
+        });
+
+        function handleHeroSwipe() {
+            if (heroTouchEndX < heroTouchStartX - 50) {
+                // Swiped Left
+                moveHeroSlide(1);
+            }
+            if (heroTouchEndX > heroTouchStartX + 50) {
+                // Swiped Right
+                moveHeroSlide(-1);
+            }
+        }
 
         // Industries Interactive Section Logic
         const industriesData = [
@@ -177,12 +206,11 @@
         let currentIndIndex = 0;
         const indImageTrack = document.getElementById('ind-image-track');
         const indTextTrack = document.getElementById('ind-text-track');
-        const indLinksContainer = document.getElementById('industry-links-container');
         
         function initIndustriesCarousel() {
+            if(!indImageTrack || !indTextTrack) return;
             indImageTrack.innerHTML = '';
             indTextTrack.innerHTML = '';
-            indLinksContainer.innerHTML = '';
 
             industriesData.forEach((ind, index) => {
                 // Image
@@ -200,32 +228,14 @@
                     <a href="#" class="learn-more">Read more <span class="arrow">&#8594;</span></a>
                 `;
                 indTextTrack.appendChild(textItem);
-
-                // Link
-                const link = document.createElement('a');
-                link.textContent = ind.title;
-                if (index === currentIndIndex) {
-                    link.classList.add('active-link');
-                }
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if(currentIndIndex !== index) {
-                        changeIndustry(index);
-                    }
-                });
-                indLinksContainer.appendChild(link);
             });
             updateCarouselPosition();
         }
 
         function updateCarouselPosition() {
+            if(!indImageTrack || !indTextTrack) return;
             indImageTrack.style.transform = `translateX(-${currentIndIndex * 100}%)`;
             indTextTrack.style.transform = `translateX(-${currentIndIndex * 100}%)`;
-            
-            // Update active link
-            Array.from(indLinksContainer.children).forEach((link, idx) => {
-                link.classList.toggle('active-link', idx === currentIndIndex);
-            });
         }
 
         function changeIndustry(newIndex) {

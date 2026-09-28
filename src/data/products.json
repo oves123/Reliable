@@ -1,262 +1,1604 @@
 [
   {
-    "id": "single-spring-seal",
-    "slug": "single-spring-seal",
-    "name": "Single Spring Series Seal",
-    "category": "Mechanical Seals",
-    "categorySlug": "mechanical-seals",
-    "image": "/images/products/seal1.png",
-    "description": "Reliable single spring seals designed for standard industrial applications involving water, oils, and mild chemicals. Features a robust coil spring that resists clogging.",
-    "features": [
-      "Non-clogging single coil spring",
-      "Easy installation",
-      "Cost-effective"
+    "id": 1,
+    "name": "Reactor Seal",
+    "category": "Reactor Seal",
+    "Size": "20mm -160mm",
+    "Temp": "0 to 160°C",
+    "images": [
+      "images/sealproduct/drysealreactor_gr.png"
     ],
+    "img": "images/sealproduct/drysealreactor.png",
+    "Press": "0 to 15 Kg/cm²",
+    "RPM": "0 TO 1400",
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications.",
+    "seal_types": [
+      {
+        "type": "RAG REB2 DRY",
+        "description_paragraph": "Cartridge Type Ready-made Factory Assembled Tested Unit. Developed for Mixer, Reactor, for Dry running application for handling Dry Powder, Solvent, Grease, Oil, Hydrocarbon, etc."
+      },
+      {
+        "type": "RAG REB2 WET",
+        "description_paragraph": "Cartridge Type Ready-made Factory Assembled Tested Unit. Developed for Mixer, Reactor, for wet application this can take more Temp then the Dry seal. All other application as above."
+      }
+    ],
+    "categorySlug": "reactor-seal",
+    "slug": "reactor-seal-1",
+    "image": "/images/sealproduct/drysealreactor.png",
     "specs": {
-      "Pressure": "Up to 15 bar",
-      "Temperature": "-20°C to 180°C",
-      "Speed": "Up to 15 m/s",
-      "Size Range": "10mm to 100mm"
-    }
+      "Size": "20mm -160mm",
+      "Temp": "0 to 160°C",
+      "Press": "0 to 15 Kg/cm²",
+      "R P M": "0 TO 1400"
+    },
+    "features": [
+      "RAG REB2 DRY: Cartridge Type Ready-made Factory Assembled Tested Unit. Developed for Mixer, Reactor, for Dry running application for handling Dry Powder, Solvent, Grease, Oil, Hydrocarbon, etc.",
+      "RAG REB2 WET: Cartridge Type Ready-made Factory Assembled Tested Unit. Developed for Mixer, Reactor, for wet application this can take more Temp then the Dry seal. All other application as above."
+    ]
   },
   {
-    "id": "multi-spring-seal",
-    "slug": "multi-spring-seal",
-    "name": "Multi Spring Series Seal",
-    "category": "Mechanical Seals",
-    "categorySlug": "mechanical-seals",
-    "image": "/images/products/seal2.png",
-    "description": "High-performance multi-spring seals providing uniform face loading. Ideal for high-speed centrifugal pumps and severe chemical applications.",
-    "features": [
-      "Uniform face pressure",
-      "Compact design",
-      "Teflon wedge construction"
+    "id": 2,
+    "name": "Agitator Seal",
+    "category": "Agitator Seal",
+    "Size": "20mm -160mm",
+    "Temp": "0 to 250°C",
+    "images": [
+      "images/sealproduct/agiator_gr.png"
     ],
+    "Prees": "0 to 35 Kg/cm²",
+    "RPM": "0 TO 900",
+    "img": "images/sealproduct/agiator_01.png",
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications.",
+    "seal_types": [
+      {
+        "type": "RAGT RM20BW / RM20",
+        "description_paragraph": "Cartridge Type Ready-made Factory Assembled Tested Unit. Developed for SS, Gas Line Agitator, Mixer for handling various liquid Hydrocarbon, Oil Refineries, Solvent, Pharma Products, Chemical Petrochemicals, Food Products etc."
+      }
+    ],
+    "categorySlug": "agitator-seal",
+    "slug": "agitator-seal-2",
+    "image": "/images/sealproduct/agiator_01.png",
     "specs": {
-      "Pressure": "Up to 25 bar",
-      "Temperature": "-40°C to 220°C",
-      "Speed": "Up to 20 m/s",
-      "Size Range": "14mm to 150mm"
-    }
+      "Size": "20mm -160mm",
+      "Temp": "0 to 250°C",
+      "Prees": "0 to 35 Kg/cm²",
+      "R P M": "0 TO 900"
+    },
+    "features": [
+      "RAGT RM20BW / RM20: Cartridge Type Ready-made Factory Assembled Tested Unit. Developed for SS, Gas Line Agitator, Mixer for handling various liquid Hydrocarbon, Oil Refineries, Solvent, Pharma Products, Chemical Petrochemicals, Food Products etc."
+    ]
   },
   {
-    "id": "cartridge-seal",
-    "slug": "cartridge-seal",
-    "name": "Heavy Duty Cartridge Seal",
-    "category": "Mechanical Seals",
-    "categorySlug": "mechanical-seals",
-    "image": "/images/products/seal3.png",
-    "description": "Pre-assembled cartridge seal that eliminates installation errors. Perfect for process pumps handling harsh slurries and corrosive liquids.",
-    "features": [
-      "Pre-assembled for easy install",
-      "Self-aligning faces",
-      "No shaft fretting"
+    "id": 3,
+    "name": "Thermosyphon",
+    "category": "Thermosyphon",
+    "MOCorShell": "Carbon Steel/SS304/SS316",
+    "CoolingCoil": "SS 316/SS304",
+    "EmptyWeight": "34 TO 35 Kg",
+    "Capacity": "7.5 Lbs",
+    "CoolingWaterFlow": "10 Ltr/Min",
+    "images": [
+      "images/sealproduct/thermos_gr.png"
     ],
+    "Temp": "150°C",
+    "Press": "15 Bar",
+    "img": "images/sealproduct/Thermosyphon_front.png",
+    "description": "Thermosyphon System basically used as Strage & Pressurizing Unit for Double Mechanical Seal. For Bringing Down Barrier Fluid Temp. Which is Coming From Seal Chamber to Thermosyphon. This is very Effective for Increasing the Seal life.",
+    "categorySlug": "thermosyphon",
+    "slug": "thermosyphon-3",
+    "image": "/images/sealproduct/Thermosyphon_front.png",
     "specs": {
-      "Pressure": "Up to 35 bar",
-      "Temperature": "-20°C to 260°C",
-      "Speed": "Up to 25 m/s",
-      "Size Range": "20mm to 200mm"
-    }
+      "M O Cor Shell": "Carbon Steel/SS304/SS316",
+      "Cooling Coil": "SS 316/SS304",
+      "Empty Weight": "34 TO 35 Kg",
+      "Capacity": "7.5 Lbs",
+      "Cooling Water Flow": "10 Ltr/Min",
+      "Temp": "150°C",
+      "Press": "15 Bar"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ]
   },
   {
-    "id": "agitator-seal",
-    "slug": "agitator-seal",
-    "name": "Agitator & Reactor Seal",
-    "category": "Mechanical Seals",
-    "categorySlug": "mechanical-seals",
-    "image": "/images/products/seal4.png",
-    "description": "Top-entry agitator and reactor seals designed to handle significant shaft runout. Available in single and double configurations.",
-    "features": [
-      "Handles large shaft deflection",
-      "Dry-running capability",
-      "FDA compliant materials"
-    ],
+    "id": 4,
+    "name": "Heat Exchanger System",
+    "category": "Heat Exchanged System",
+    "MOCofouterShell": "Carbon Steel/SS304/SS316",
+    "MOCofTube": "SS 316/SS304",
+    "ORing": "Viton",
+    "Capacity": "7.5 Lbs",
+    "CoolingWaterFlow": "10 Ltr/Min",
+    "Press": "46 kg/CM of Coil",
+    "Press_1": "10 Kg/CM of Shell",
+    "Coolingarea": " 0.8 M²",
+    "img": "images/sealproduct/heat_exchanger_system.png",
+    "description": "Basically Used For Bringing Down The Temp of Flushing Fluid before entering to Seal Chamber. When Seal is used with API Plan 21A, 23A & 23B. This system is very effctive for increasing the seal life.",
+    "categorySlug": "heat-exchanged-system",
+    "slug": "heat-exchanger-system-4",
+    "image": "/images/sealproduct/heat_exchanger_system.png",
     "specs": {
-      "Pressure": "Vacuum to 14 bar",
-      "Temperature": "-20°C to 200°C",
-      "Speed": "Up to 5 m/s",
-      "Size Range": "25mm to 150mm"
-    }
+      "M O Cofouter Shell": "Carbon Steel/SS304/SS316",
+      "M O Cof Tube": "SS 316/SS304",
+      "O Ring": "Viton",
+      "Capacity": "7.5 Lbs",
+      "Cooling Water Flow": "10 Ltr/Min",
+      "Press": "46 kg/CM of Coil",
+      "Press 1": "10 Kg/CM of Shell",
+      "Coolingarea": " 0.8 M²"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ]
   },
   {
-    "id": "teflon-bellow-seal",
-    "slug": "teflon-bellow-seal",
-    "name": "Teflon Bellow Seal",
-    "category": "Mechanical Seals",
-    "categorySlug": "mechanical-seals",
-    "image": "/images/products/seal6.png",
-    "description": "Externally mounted Teflon bellow seals used for extremely corrosive acids and alkalis where metal parts cannot be exposed to the fluid.",
-    "features": [
-      "No metal parts in contact with fluid",
-      "Outside mounted",
-      "Replaceable seal faces"
+    "id": 5,
+    "name": "High Temp Seal Series",
+    "category": "High Temp Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 300°C",
+    "images": [
+      "images/sealproduct/high_temp_seal_gr_01.jpg"
     ],
+    "img": "images/sealproduct/high_temp_seal_01.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "description": "Multiple Spring Seal is developed for high Temp slurry type liquid like a DFA, Grease, Thermic fluid, Bleach slurry, Gel, Sugar syrup, Tomato katuchup, Pharma Liquid, Pigment etc.Speciality of this seal is no liquid contact to spring, Direction can be used Clockwise/ Anti clockwise.",
+    "categorySlug": "high-temp-seal",
+    "slug": "high-temp-seal-series-5",
+    "image": "/images/sealproduct/high_temp_seal_01.jpg",
     "specs": {
-      "Pressure": "Up to 10 bar",
-      "Temperature": "-20°C to 120°C",
-      "Speed": "Up to 15 m/s",
-      "Size Range": "20mm to 100mm"
-    }
+      "Size": "10--100mm",
+      "Temp": "0 TO 300°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ]
   },
   {
-    "id": "metal-bellow-seal",
-    "slug": "metal-bellow-seal",
-    "name": "Welded Metal Bellow Seal",
-    "category": "Mechanical Seals",
-    "categorySlug": "mechanical-seals",
-    "image": "/images/products/seal7.png",
-    "description": "Edge-welded metal bellow seals designed for extreme temperature applications like hot oil pumps and refinery operations.",
-    "features": [
-      "Eliminates dynamic O-rings",
-      "High-temperature resistance",
-      "Self-cleaning bellows"
+    "id": 6,
+    "name": "High Temp Seal Series",
+    "category": "High Temp Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 300°C",
+    "images": [
+      "images/sealproduct/high_temp_seal_gr_02.jpg"
     ],
+    "img": "images/sealproduct/high_temp_seal_02.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "description": "Single Coil Mechanical Seal Specialy Developed for high temp for Handling Thermic Fluid, Hot Water, DO Edible Oil, Dies Chemical, Petrochemical, etc.Direction can be used Clockwise/ Anti clockwise ",
+    "categorySlug": "high-temp-seal",
+    "slug": "high-temp-seal-series-6",
+    "image": "/images/sealproduct/high_temp_seal_02.jpg",
     "specs": {
-      "Pressure": "Up to 25 bar",
-      "Temperature": "-75°C to 400°C",
-      "Speed": "Up to 25 m/s",
-      "Size Range": "25mm to 100mm"
-    }
+      "Size": "10--100mm",
+      "Temp": "0 TO 300°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ]
   },
   {
-    "id": "water-rotary-joint",
-    "slug": "water-rotary-joint",
-    "name": "Cooling Water Rotary Joint",
+    "id": 7,
+    "name": "High Temp Seal Series",
+    "category": "High Temp Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 400°C",
+    "images": [
+      "images/sealproduct/high_temp_seal_gr_03.jpg"
+    ],
+    "img": "images/sealproduct/high_temp_seal_03.jpg",
+    "Press": "0 TO 35 Kg/cm²",
+    "description": "Metal Bellow Series developed for Chemical, Process Ind, Refinery, Petrochemical, Marine Services, Pharma Ind, for handling high Temp Fluid like a Thermic Fluid, Oil, Hot Water, Highly Corrosive liquid DFA, DO, etc.Direction can be used Clockwise or Anti clockwise.",
+    "categorySlug": "high-temp-seal",
+    "slug": "high-temp-seal-series-7",
+    "image": "/images/sealproduct/high_temp_seal_03.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 400°C",
+      "Press": "0 TO 35 Kg/cm²"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Reliable Cartridge seal Series",
+    "category": "Cartridge Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/catreage_gr_01.jpg"
+    ],
+    "img": "images/sealproduct/catreage_01.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "direction": "Can be Used clockwise or anti clockwise.",
+    "info": "But before purchasing the please specify the rotation of pump from Motor side.",
+    "description": "Cartridge Type Seals are developed handling for various types of liquid types of liquid like a edible oil chemical, Petrochemical, Clean, and Hot water, Beverages, Chilled water, Brine, Alcohol, Pharma products, etc.Readymade unit easy for installation.",
+    "categorySlug": "cartridge-seal",
+    "slug": "reliable-cartridge-seal-series-8",
+    "image": "/images/sealproduct/catreage_01.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: Can be Used clockwise or anti clockwise.",
+      "But before purchasing the please specify the rotation of pump from Motor side."
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Reliable Inside Mounted Single Spring Seal Series",
+    "category": "Single Spring Series Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/reliable_single_seal_rts_2.jpg"
+    ],
+    "img": "images/sealproduct/singlespring_front_1.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "info": "But before purchasing please specify the direction of pump from Motor side.",
+    "direction": "You can use clockwise or anti clockwise",
+    "description": "Developed for Handling Light Slurry Type Liquid like a Petrochemical, Edible Oil, Acids, Thermic Fluid, Slovent Hot Water, Sewage Water, Bleach Slurry, Dies, Colors, Brine, Beverages, Sugarcane, Juice, Sugar Syrup, Tomato Sauce, Fruit Juice, Milk, Hydrocarban, Sea, Water, Pharma Chemicals etc.",
+    "categorySlug": "single-spring-series-seal",
+    "slug": "reliable-inside-mounted-single-spring-seal-series-9",
+    "image": "/images/sealproduct/singlespring_front_1.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: You can use clockwise or anti clockwise",
+      "But before purchasing please specify the direction of pump from Motor side."
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Special Seal",
+    "category": "Mechanical Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/special_seal.png",
+      "images/sealproduct/special_seal_f.png"
+    ],
+    "img": "images/sealproduct/inside_mounting_multi_spr_f_01.png",
+    "Press": "0 TO 10 Kg/cm²",
+    "info": "In this Seal Liquid does not contact to spring.",
+    "description": "Balance - Unbalance Multispring or wave spring of Mechanical Seals developed for handling Light Abrasive slurry, Sewage water, Sugar syrup, Dies, Tomato sauce, Raw juice, Pigments etc.",
+    "categorySlug": "mechanical-seal",
+    "slug": "special-seal-10",
+    "image": "/images/sealproduct/inside_mounting_multi_spr_f_01.png",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "In this Seal Liquid does not contact to spring."
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Reliable Inside Mounted Single Spring Seal Series",
+    "category": "Single Spring Series Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/reliable_single_seal_rts_3.jpg"
+    ],
+    "img": "images/sealproduct/singlespring_front_2.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "info": "But before purchasing please specify the direction of pump from Motor side.",
+    "direction": "You can use clockwise or anti clockwise",
+    "description": "Developed for Handling Light Slurry Type Liquid like a Petrochemical, Edible Oil, Acids, Thermic Fluid, Slovent Hot Water, Sewage Water, Bleach Slurry, Dies, Colors, Brine, Beverages, Sugarcane, Juice, Sugar Syrup, Tomato Sauce, Fruit Juice, Milk, Hydrocarban, Sea, Water, Pharma Chemicals etc.",
+    "categorySlug": "single-spring-series-seal",
+    "slug": "reliable-inside-mounted-single-spring-seal-series-11",
+    "image": "/images/sealproduct/singlespring_front_2.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: You can use clockwise or anti clockwise",
+      "But before purchasing please specify the direction of pump from Motor side."
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Reliable Inside Mounted Single Spring Seal Series",
+    "category": "Single Spring Series Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/reliable_single_seal_rts_4.jpg"
+    ],
+    "img": "images/sealproduct/singlespring_front_3.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "info": "But before purchasing please specify the direction of pump from Motor side.",
+    "direction": "You can use clockwise or anti clockwise",
+    "description": "Developed for Handling Light Slurry Type Liquid like a Petrochemical, Edible Oil, Acids, Thermic Fluid, Slovent Hot Water, Sewage Water, Bleach Slurry, Dies, Colors, Brine, Beverages, Sugarcane, Juice, Sugar Syrup, Tomato Sauce, Fruit Juice, Milk, Hydrocarban, Sea, Water, Pharma Chemicals etc.",
+    "categorySlug": "single-spring-series-seal",
+    "slug": "reliable-inside-mounted-single-spring-seal-series-12",
+    "image": "/images/sealproduct/singlespring_front_3.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: You can use clockwise or anti clockwise",
+      "But before purchasing please specify the direction of pump from Motor side."
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Reliable Rubber Bellow Single Spring Seal Series",
+    "category": "Water Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/rubber_below_gr1.jpg"
+    ],
+    "img": "images/sealproduct/rubber_below_01.jpg",
+    "Press": "0 TO 8 Kg/cm²",
+    "direction": "Can be used clockwise or anti clockwise",
+    "description": "Short Length & Full Length Rubber bellow seals series specially developed for handling for Dewatering pump, Oil pump, Chilling water pump, ETP pump, etc.",
+    "categorySlug": "water-seal",
+    "slug": "reliable-rubber-bellow-single-spring-seal-series-13",
+    "image": "/images/sealproduct/rubber_below_01.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 8 Kg/cm²"
+    },
+    "features": [
+      "Direction: Can be used clockwise or anti clockwise"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Reliable Dairy Used Single Spring Seal Series",
+    "category": "Dairy Seal",
+    "Size": "22MM--50.8MM",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/dairy_seal_gr_1.jpg"
+    ],
+    "img": "images/sealproduct/dairyseal_1.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "pump": "Alfa Laval, ALC2, ALC3, FMOS, FM, EM, GM, LKH 10, LKH 20",
+    "pump_2": "Fristum,Zutech,Zectron,G.D.IDMC",
+    "description": "Standard series of Mechanical Seal. Developed for Pharma, Dairy, Beverages, Food, Distillery Plant for handling various liquid like a Hot & Chilling Water, DM Water, Milk, Sugar Syrup, Aqua Water, Brine, Caustic etc.",
+    "categorySlug": "dairy-seal",
+    "slug": "reliable-dairy-used-single-spring-seal-series-14",
+    "image": "/images/sealproduct/dairyseal_1.jpg",
+    "specs": {
+      "Size": "22MM--50.8MM",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²",
+      "Pump": "Alfa Laval, ALC2, ALC3, FMOS, FM, EM, GM, LKH 10, LKH 20",
+      "Pump 2": "Fristum,Zutech,Zectron,G.D.IDMC"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Reliable Rotary Pressure Joints",
+    "model_no": "RDM Series / RTM Series",
     "category": "Rotary Joints",
+    "images": [
+      "images/sealproduct/rotaryjoints_01.png",
+      "images/sealproduct/rotaryjoints_02.png",
+      "images/sealproduct/rotaryjoints_03.png",
+      "images/sealproduct/rotaryjoints_04.png"
+    ],
+    "img": "images/sealproduct/rotaryjoints_01.png",
+    "common_specs": {
+      "Sizes": "3/8\" to 4\"",
+      "Media": "Water, Steam, Hot Oil, Air, Vacuum",
+      "Type": "Mono & Duoflow Services"
+    },
+    "description": "RELIABLE provides a complete range of Rotary Presure Joints in all environment like Water,Hot Water Air,Hydraulic,Vacuum,Coolant & Hot Oil(i.e.Thermic Fluid)",
+    "applications": [
+      "Paper Industries",
+      "All Dryers & Chemicals",
+      "Textile Industries",
+      "Corrugators",
+      "Food Processing Industries",
+      "PVC Film & Soap Industries"
+    ],
     "categorySlug": "rotary-joints",
-    "image": "/images/products/seal5.png",
-    "description": "Precision rotary joints for cooling water applications in printing, packaging, and textile machinery. Features low friction bearings.",
-    "features": [
-      "Low turning torque",
-      "Corrosion resistant housing",
-      "Silicon Carbide seal faces"
-    ],
+    "slug": "reliable-rotary-pressure-joints-15",
+    "image": "/images/sealproduct/rotaryjoints_01.png",
     "specs": {
-      "Pressure": "Up to 10 bar",
-      "Temperature": "Up to 120°C",
-      "Speed": "Up to 3000 RPM",
-      "Connections": "1/4\" to 3\""
-    }
+      "Sizes": "3/8\" to 4\"",
+      "Media": "Water, Steam, Hot Oil, Air, Vacuum",
+      "Type": "Mono & Duoflow Services",
+      "Model no": "RDM Series / RTM Series"
+    },
+    "features": [
+      "Application: Paper Industries",
+      "Application: All Dryers & Chemicals",
+      "Application: Textile Industries",
+      "Application: Corrugators",
+      "Application: Food Processing Industries",
+      "Application: PVC Film & Soap Industries"
+    ]
   },
   {
-    "id": "steam-rotary-joint",
-    "slug": "steam-rotary-joint",
-    "name": "High Temp Steam Rotary Joint",
-    "category": "Rotary Joints",
-    "categorySlug": "rotary-joints",
-    "image": "/images/products/seal3.png",
-    "description": "Robust steam joints utilizing a spherical seal design for self-alignment. Used heavily in paper mills and corrugating machines.",
-    "features": [
-      "Self-aligning spherical seal",
-      "Carbon graphite bearings",
-      "Heavy-duty cast iron body"
+    "id": 16,
+    "name": "01 RMF 60 THIS IS MONOFLOW ROTATING UNION",
+    "Thread": "NPT, BSP, UNF, AND MM",
+    "Rotaryjoinsizeavilable": " 1/4 TO 3",
+    "category": "Water Rotary Joints",
+    "direction": "Right Hand & Left Hand Thread",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil",
+    "temperature_range": "0°C to 150°C",
+    "pressure": "0 to 15 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "bearing": "SKF / FAG, Steel Cage, Rubber Cage, C3/C4 Clearance",
+    "rpm": "1000 to 1500",
+    "face_combination": "Carbon, Silicon Carbide, Tungsten Carbide, Ceramic, Stellite, Recralloy (with surface finish)",
+    "eye_bolts": "SS 304, Cast Steel (for alignment of rotary union)",
+    "images": [
+      "images/sealproduct/waterrotatingunion.jpg"
     ],
+    "img": "images/sealproduct/waterrotatingunion.jpg",
+    "categorySlug": "water-rotary-joints",
+    "slug": "01-rmf-60-this-is-monoflow-rotating-union-16",
+    "image": "/images/sealproduct/waterrotatingunion.jpg",
     "specs": {
-      "Pressure": "Up to 17 bar",
-      "Temperature": "Up to 225°C",
-      "Speed": "Up to 400 RPM",
-      "Connections": "1/2\" to 4\""
-    }
+      "Thread": "NPT, BSP, UNF, AND MM",
+      "Rotaryjoinsizeavilable": " 1/4 TO 3",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil",
+      "Temperature range": "0°C to 150°C",
+      "Pressure": "0 to 15 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Bearing": "SKF / FAG, Steel Cage, Rubber Cage, C3/C4 Clearance",
+      "Rpm": "1000 to 1500",
+      "Face combination": "Carbon, Silicon Carbide, Tungsten Carbide, Ceramic, Stellite, Recralloy (with surface finish)",
+      "Eye bolts": "SS 304, Cast Steel (for alignment of rotary union)"
+    },
+    "features": [
+      "Direction: Right Hand & Left Hand Thread"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
   },
   {
-    "id": "hot-oil-joint",
-    "slug": "hot-oil-joint",
-    "name": "Thermal Oil Rotary Joint",
-    "category": "Rotary Joints",
-    "categorySlug": "rotary-joints",
-    "image": "/images/products/seal2.png",
-    "description": "Designed specifically for hot thermal oil applications. Features an elongated cooling zone to protect bearings from high temperatures.",
-    "features": [
-      "Built-in cooling fins",
-      "Antimony impregnated carbon seal",
-      "High-temp bearings"
+    "id": 17,
+    "category": "Water Rotary Joints",
+    "name": "RDF 80 - THIS IS DEOFOLW ROTATING UNION ",
+    "thread": "NPT, BSP, UNF, AND MM",
+    "direction": "Right Hand & Left Hand Thread",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil",
+    "temperature_range": "0°C to 150°C",
+    "pressure": "0 to 15 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "bearing": "SKF / FAG, Steel Cage, Rubber Cage, C3/C4 Clearance",
+    "rpm": "1000 to 1500",
+    "face_combination": "Carbon, Silicon Carbide, Tungsten Carbide, Ceramic, Stellite, Recralloy",
+    "siphon_elbow": "Available in SS 304 & Cast Steel with screwed or rotating siphon pipe",
+    "siphon_pipe_direction": "Right Hand or Left Hand",
+    "images": [
+      "images/sealproduct/deofolwrotatingunion.png"
     ],
+    "img": "images/sealproduct/deofolwrotatingunion.png",
+    "categorySlug": "water-rotary-joints",
+    "slug": "rdf-80-this-is-deofolw-rotating-union-17",
+    "image": "/images/sealproduct/deofolwrotatingunion.png",
     "specs": {
-      "Pressure": "Up to 10 bar",
-      "Temperature": "Up to 315°C",
-      "Speed": "Up to 350 RPM",
-      "Connections": "3/4\" to 3\""
-    }
+      "Thread": "NPT, BSP, UNF, AND MM",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil",
+      "Temperature range": "0°C to 150°C",
+      "Pressure": "0 to 15 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Bearing": "SKF / FAG, Steel Cage, Rubber Cage, C3/C4 Clearance",
+      "Rpm": "1000 to 1500",
+      "Face combination": "Carbon, Silicon Carbide, Tungsten Carbide, Ceramic, Stellite, Recralloy",
+      "Siphon elbow": "Available in SS 304 & Cast Steel with screwed or rotating siphon pipe",
+      "Siphon pipe direction": "Right Hand or Left Hand"
+    },
+    "features": [
+      "Direction: Right Hand & Left Hand Thread"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
   },
   {
-    "id": "multi-passage-joint",
-    "slug": "multi-passage-joint",
-    "name": "Multi-Passage Rotary Union",
-    "category": "Rotary Joints",
-    "categorySlug": "rotary-joints",
-    "image": "/images/products/seal4.png",
-    "description": "Custom engineered multi-passage joints for transferring multiple independent fluids (air, water, hydraulic oil) simultaneously.",
-    "features": [
-      "Multiple independent channels",
-      "Hardened steel rotor",
-      "Specialty polymer seals"
+    "id": 18,
+    "category": "Water Rotary Joints",
+    "name": "RMF - CH - 60 - THIS IS MONOFLOW ROTATING UNION",
+    "thread": "NPT, BSP, UNF, MM",
+    "rotary_joint_size_available": "3/4” to 2”",
+    "direction": "Right Hand & Left Hand Thread",
+    "media": "Chilled Water",
+    "temperature_range": "0°C to 80°C",
+    "pressure": "0 to 5 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "bearing": "SKF/FAG, Steel Cage, Rubber Cage",
+    "rpm": "1000 to 1200",
+    "face_combination": "Carbon, Silicon Carbide, Tungsten Carbide, Ceramic, Stellite, Recralloy with surface finish",
+    "eye_bolts": "SS 304, Cast Steel for alignment of rotary union",
+    "images": [
+      "images/sealproduct/chillwaterone.png"
     ],
+    "img": "images/sealproduct/chillwaterone.png",
+    "categorySlug": "water-rotary-joints",
+    "slug": "rmf-ch-60-this-is-monoflow-rotating-union-18",
+    "image": "/images/sealproduct/chillwaterone.png",
     "specs": {
-      "Passages": "2 to 12",
-      "Pressure": "Up to 350 bar",
-      "Speed": "Up to 500 RPM",
-      "Media": "Mixed"
-    }
+      "Thread": "NPT, BSP, UNF, MM",
+      "Rotary joint size available": "3/4” to 2”",
+      "Media": "Chilled Water",
+      "Temperature range": "0°C to 80°C",
+      "Pressure": "0 to 5 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Bearing": "SKF/FAG, Steel Cage, Rubber Cage",
+      "Rpm": "1000 to 1200",
+      "Face combination": "Carbon, Silicon Carbide, Tungsten Carbide, Ceramic, Stellite, Recralloy with surface finish",
+      "Eye bolts": "SS 304, Cast Steel for alignment of rotary union"
+    },
+    "features": [
+      "Direction: Right Hand & Left Hand Thread"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
   },
   {
-    "id": "thermosyphon",
-    "slug": "thermosyphon",
-    "name": "Thermosyphon Seal Support",
-    "category": "Support Systems",
-    "categorySlug": "support-systems",
-    "image": "/images/products/seal1.png",
-    "description": "API Plan 52/53A compliant thermosyphon vessels for supplying buffer or barrier fluid to double mechanical seals.",
-    "features": [
-      "Built-in cooling coil",
-      "Level gauge and switches",
-      "ASME U-Stamp available"
+    "id": 19,
+    "category": "Water Rotary Joints",
+    "name": "RDF - CH - 80 - THIS IS DEOFOLW ROTATING UNION",
+    "thread": "NPT, BSP, UNF, MM",
+    "direction": "Right Hand & Left Hand Thread",
+    "media": "Chilled Water",
+    "temperature_range": "0°C to 80°C",
+    "pressure": "0 to 5 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "bearing": "SKF / FAG, Steel Cage, Rubber Cage",
+    "rpm": "1000 to 1200",
+    "face_combination": "Carbon, Silicon Carbide, Tungsten Carbide, Ceramic, Stellite, Recralloy",
+    "siphon_elbow": "Available in SS 304 / Cast Steel with screwed or rotating siphon pipe",
+    "siphon_pipe_direction": "Right Hand or Left Hand",
+    "images": [
+      "images/sealproduct/chillwatertwo.png"
     ],
+    "img": "images/sealproduct/chillwatertwo.png",
+    "categorySlug": "water-rotary-joints",
+    "slug": "rdf-ch-80-this-is-deofolw-rotating-union-19",
+    "image": "/images/sealproduct/chillwatertwo.png",
     "specs": {
-      "Capacity": "10 to 20 Liters",
-      "Pressure": "Up to 30 bar",
-      "Material": "SS 316 / Carbon Steel",
-      "Cooling": "Water coil"
-    }
+      "Thread": "NPT, BSP, UNF, MM",
+      "Media": "Chilled Water",
+      "Temperature range": "0°C to 80°C",
+      "Pressure": "0 to 5 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Bearing": "SKF / FAG, Steel Cage, Rubber Cage",
+      "Rpm": "1000 to 1200",
+      "Face combination": "Carbon, Silicon Carbide, Tungsten Carbide, Ceramic, Stellite, Recralloy",
+      "Siphon elbow": "Available in SS 304 / Cast Steel with screwed or rotating siphon pipe",
+      "Siphon pipe direction": "Right Hand or Left Hand"
+    },
+    "features": [
+      "Direction: Right Hand & Left Hand Thread"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
   },
   {
-    "id": "cyclone-separator",
-    "slug": "cyclone-separator",
-    "name": "Cyclone Abrasive Separator",
-    "category": "Support Systems",
-    "categorySlug": "support-systems",
-    "image": "/images/products/seal6.png",
-    "description": "API Plan 31 cyclone separators used to remove solids from the flush fluid before it enters the mechanical seal chamber.",
-    "features": [
-      "No moving parts",
-      "High separation efficiency",
-      "Compact design"
+    "id": 20,
+    "category": "Water Rotary Joints",
+    "name": "RMF-FL 100 - THIS IS MONOFLOW ROTATING UNION FLANGED END ",
+    "flange_available": "Thread Type / QRC Type",
+    "rotary_joint_size_available": "1/2” to 3”",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil",
+    "temperature_range": "0°C to 150°C",
+    "pressure": "0 to 15 kg/cm²",
+    "rpm": "1000 to 1500",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "bearing": "SKF / FAG, Steel Cage, Rubber Cage, C3/C4 Clearance",
+    "face_combination": "Carbon, Silicon Carbide, Tungsten Carbide, Ceramic, Stellite, Recralloy with surface finish",
+    "testing": "0 to 1 bar tested on light band machine",
+    "eye_bolts": "SS 304, Cast Steel for alignment of rotary union",
+    "images": [
+      "images/sealproduct/manflowrotating_4.png"
     ],
+    "img": "images/sealproduct/manflowrotating_4.png",
+    "categorySlug": "water-rotary-joints",
+    "slug": "rmf-fl-100-this-is-monoflow-rotating-union-flanged-end-20",
+    "image": "/images/sealproduct/manflowrotating_4.png",
     "specs": {
-      "Efficiency": "90% for particles > 10µm",
-      "Pressure": "Up to 60 bar",
-      "Material": "SS 316",
-      "Connections": "1/2\" NPT"
-    }
+      "Flange available": "Thread Type / QRC Type",
+      "Rotary joint size available": "1/2” to 3”",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil",
+      "Temperature range": "0°C to 150°C",
+      "Pressure": "0 to 15 kg/cm²",
+      "Rpm": "1000 to 1500",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Bearing": "SKF / FAG, Steel Cage, Rubber Cage, C3/C4 Clearance",
+      "Face combination": "Carbon, Silicon Carbide, Tungsten Carbide, Ceramic, Stellite, Recralloy with surface finish",
+      "Testing": "0 to 1 bar tested on light band machine",
+      "Eye bolts": "SS 304, Cast Steel for alignment of rotary union"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
   },
   {
-    "id": "heat-exchanger",
-    "slug": "heat-exchanger",
-    "name": "Seal Cooler Heat Exchanger",
-    "category": "Support Systems",
-    "categorySlug": "support-systems",
-    "image": "/images/products/seal7.png",
-    "description": "API Plan 21/23 shell and tube heat exchangers designed to cool the flush fluid in high-temperature pumping applications.",
-    "features": [
-      "High thermal efficiency",
-      "Easily cleanable tubes",
-      "Compact footprint"
+    "id": 21,
+    "category": "Water Rotary Joints",
+    "name": "RDF FL 120 - THIS IS DEOFLOW ROTATIING UNION FLANGED END ",
+    "flange_available": "Thread Type / QRC Type",
+    "rotary_joint_size_available": "1/2” to 3”",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, and Hot Oil",
+    "temperature_range": "0°C to 150°C",
+    "pressure": "0 to 15 kg/cm²",
+    "rpm": "1000 to 1500",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "304, 316, Cast Steel",
+    "bearing": "SKF / FAG, Steel Cage, Rubber Cage, C3 / C4 Clearance",
+    "face_combination": "Carbon, Silicon Carbide, Tungsten Carbide, Ceramic, Stellite, Recralloy with surface finish",
+    "testing": "0 to 1 bar tested on light band machine",
+    "eye_bolts": "SS 304, Cast Steel for alignment of rotary union",
+    "siphon_elbow": "Can be provided screwed end RH / LH or rotating type siphon tube",
+    "images": [
+      "images/sealproduct/120_deofoldrotating.png"
     ],
+    "img": "images/sealproduct/120_deofoldrotating.png",
+    "categorySlug": "water-rotary-joints",
+    "slug": "rdf-fl-120-this-is-deoflow-rotatiing-union-flanged-end-21",
+    "image": "/images/sealproduct/120_deofoldrotating.png",
     "specs": {
-      "Cooling Area": "0.5 to 2.5 m²",
-      "Pressure": "Up to 100 bar",
-      "Material": "SS 316L",
-      "Type": "Shell & Tube"
-    }
+      "Flange available": "Thread Type / QRC Type",
+      "Rotary joint size available": "1/2” to 3”",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, and Hot Oil",
+      "Temperature range": "0°C to 150°C",
+      "Pressure": "0 to 15 kg/cm²",
+      "Rpm": "1000 to 1500",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "304, 316, Cast Steel",
+      "Bearing": "SKF / FAG, Steel Cage, Rubber Cage, C3 / C4 Clearance",
+      "Face combination": "Carbon, Silicon Carbide, Tungsten Carbide, Ceramic, Stellite, Recralloy with surface finish",
+      "Testing": "0 to 1 bar tested on light band machine",
+      "Eye bolts": "SS 304, Cast Steel for alignment of rotary union",
+      "Siphon elbow": "Can be provided screwed end RH / LH or rotating type siphon tube"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 22,
+    "category": "Water Rotary Joints",
+    "name": "RMF - HT-140 - THIS IS MONOFLOW HIGH TEMPRETURE ROTATING UNION.",
+    "rotary_joint_size_available": "1/2” to 3”",
+    "direction": "Right Hand & Left Hand Thread",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+    "temperature_range": "0°C to 350°C",
+    "pressure": "0 to 25 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "guide_ring": "Antimony Carbon",
+    "sealing_ring": "Antimony Carbon",
+    "rpm": "400 to 500",
+    "images": [
+      "images/sealproduct/monoflowhightemp_1.png"
+    ],
+    "img": "images/sealproduct/monoflowhightemp_1.png",
+    "categorySlug": "water-rotary-joints",
+    "slug": "rmf-ht-140-this-is-monoflow-high-tempreture-rotating-union-22",
+    "image": "/images/sealproduct/monoflowhightemp_1.png",
+    "specs": {
+      "Rotary joint size available": "1/2” to 3”",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+      "Temperature range": "0°C to 350°C",
+      "Pressure": "0 to 25 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Guide ring": "Antimony Carbon",
+      "Sealing ring": "Antimony Carbon",
+      "Rpm": "400 to 500"
+    },
+    "features": [
+      "Direction: Right Hand & Left Hand Thread"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 23,
+    "category": "Hot Oil Rotary Joints",
+    "name": "RMF - HT-140 - THIS IS MONOFLOW HIGH TEMPRETURE ROTATING UNION.",
+    "rotary_joint_size_available": "1/2” to 3”",
+    "direction": "Right Hand & Left Hand Thread",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+    "temperature_range": "0°C to 350°C",
+    "pressure": "0 to 25 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "guide_ring": "Antimony Carbon",
+    "sealing_ring": "Antimony Carbon",
+    "rpm": "400 to 500",
+    "images": [
+      "images/sealproduct/monoflowhightemp_1.png"
+    ],
+    "img": "images/sealproduct/monoflowhightemp_1.png",
+    "categorySlug": "hot-oil-rotary-joints",
+    "slug": "rmf-ht-140-this-is-monoflow-high-tempreture-rotating-union-23",
+    "image": "/images/sealproduct/monoflowhightemp_1.png",
+    "specs": {
+      "Rotary joint size available": "1/2” to 3”",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+      "Temperature range": "0°C to 350°C",
+      "Pressure": "0 to 25 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Guide ring": "Antimony Carbon",
+      "Sealing ring": "Antimony Carbon",
+      "Rpm": "400 to 500"
+    },
+    "features": [
+      "Direction: Right Hand & Left Hand Thread"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 24,
+    "category": "Hot Oil Rotary Joints",
+    "name": "RDF - DSGQ - 220 - THIS IS DEOFLOW FLANGED END HIGH TEMP ROTATING UNION.",
+    "rotary_joint_size_available": "1/2” to 3”",
+    "direction": "Right Hand & Left Hand Thread",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+    "temperature_range": "0°C to 350°C",
+    "pressure": "0 to 25 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "guide_ring": "Antimony Carbon",
+    "sealing_ring": "Antimony Carbon",
+    "rpm": "400 to 500",
+    "images": [
+      "images/sealproduct/monoflowhightemp_2.png"
+    ],
+    "img": "images/sealproduct/monoflowhightemp_2.png",
+    "categorySlug": "hot-oil-rotary-joints",
+    "slug": "rdf-dsgq-220-this-is-deoflow-flanged-end-high-temp-rotating-union-24",
+    "image": "/images/sealproduct/monoflowhightemp_2.png",
+    "specs": {
+      "Rotary joint size available": "1/2” to 3”",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+      "Temperature range": "0°C to 350°C",
+      "Pressure": "0 to 25 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Guide ring": "Antimony Carbon",
+      "Sealing ring": "Antimony Carbon",
+      "Rpm": "400 to 500"
+    },
+    "features": [
+      "Direction: Right Hand & Left Hand Thread"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 25,
+    "category": "Hot Oil Rotary Joints",
+    "name": "RMF - HT 180 - THIS IS FLANGED END ROTATING UNION ",
+    "rotary_joint_size_available": "1/2” to 3”",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+    "temperature_range": "0°C to 350°C",
+    "pressure": "0 to 25 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "guide_ring": "Antimony Carbon",
+    "sealing_ring": "Antimony Carbon",
+    "rpm": "400 to 500",
+    "images": [
+      "images/sealproduct/monoflowhightemp_3.png"
+    ],
+    "img": "images/sealproduct/monoflowhightemp_3.png",
+    "categorySlug": "hot-oil-rotary-joints",
+    "slug": "rmf-ht-180-this-is-flanged-end-rotating-union-25",
+    "image": "/images/sealproduct/monoflowhightemp_3.png",
+    "specs": {
+      "Rotary joint size available": "1/2” to 3”",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+      "Temperature range": "0°C to 350°C",
+      "Pressure": "0 to 25 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Guide ring": "Antimony Carbon",
+      "Sealing ring": "Antimony Carbon",
+      "Rpm": "400 to 500"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 26,
+    "category": "Hot Oil Rotary Joints",
+    "name": "RDF - HT 200 - THIS IS DEOFLOW FLANGED END ROTATING UNION",
+    "rotary_joint_size_available": "1/2” to 3”",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+    "temperature_range": "0°C to 350°C",
+    "pressure": "0 to 25 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "guide_ring": "Antimony Carbon",
+    "sealing_ring": "Antimony Carbon",
+    "rpm": "400 to 500",
+    "images": [
+      "images/sealproduct/monoflowhightemp_3.png"
+    ],
+    "img": "images/sealproduct/monoflowhightemp_3.png",
+    "categorySlug": "hot-oil-rotary-joints",
+    "slug": "rdf-ht-200-this-is-deoflow-flanged-end-rotating-union-26",
+    "image": "/images/sealproduct/monoflowhightemp_3.png",
+    "specs": {
+      "Rotary joint size available": "1/2” to 3”",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+      "Temperature range": "0°C to 350°C",
+      "Pressure": "0 to 25 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Guide ring": "Antimony Carbon",
+      "Sealing ring": "Antimony Carbon",
+      "Rpm": "400 to 500"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 27,
+    "category": "Hot Oil Rotary Joints",
+    "name": "RDF - HT 200 - THIS IS DEOFLOW FLANGED END ROTATING UNION",
+    "rotary_joint_size_available": "1/2” to 3”",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+    "temperature_range": "0°C to 350°C",
+    "pressure": "0 to 25 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "guide_ring": "Antimony Carbon",
+    "sealing_ring": "Antimony Carbon",
+    "rpm": "400 to 500",
+    "images": [
+      "images/sealproduct/monoflowhightemp_4.png"
+    ],
+    "img": "images/sealproduct/monoflowhightemp_4.png",
+    "categorySlug": "hot-oil-rotary-joints",
+    "slug": "rdf-ht-200-this-is-deoflow-flanged-end-rotating-union-27",
+    "image": "/images/sealproduct/monoflowhightemp_4.png",
+    "specs": {
+      "Rotary joint size available": "1/2” to 3”",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+      "Temperature range": "0°C to 350°C",
+      "Pressure": "0 to 25 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Guide ring": "Antimony Carbon",
+      "Sealing ring": "Antimony Carbon",
+      "Rpm": "400 to 500"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 28,
+    "category": "Steam Rotary Joints",
+    "name": "RDF - DSGQ - 220 - THIS IS DEOFLOW FLANGED END HIGH TEMP ROTATING UNION.",
+    "rotary_joint_size_available": "3”, 3 ½”, 4”",
+    "media": "Hot Oil, Hot Water, Thermic Fluid",
+    "temperature_range": "0°C to 350°C",
+    "pressure": "30 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel, C.I, SS 304",
+    "seal_ring": "Antimony Carbon",
+    "guide_ring": "Antimony Carbon",
+    "rpm": "400 to 450",
+    "siphon_pipe": "Screw end RH / LH or rotating",
+    "images": [
+      "images/sealproduct/monoflowhightemp_5.png"
+    ],
+    "img": "images/sealproduct/monoflowhightemp_5.png",
+    "categorySlug": "steam-rotary-joints",
+    "slug": "rdf-dsgq-220-this-is-deoflow-flanged-end-high-temp-rotating-union-28",
+    "image": "/images/sealproduct/monoflowhightemp_5.png",
+    "specs": {
+      "Rotary joint size available": "3”, 3 ½”, 4”",
+      "Media": "Hot Oil, Hot Water, Thermic Fluid",
+      "Temperature range": "0°C to 350°C",
+      "Pressure": "30 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel, C.I, SS 304",
+      "Seal ring": "Antimony Carbon",
+      "Guide ring": "Antimony Carbon",
+      "Rpm": "400 to 450",
+      "Siphon pipe": "Screw end RH / LH or rotating"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 29,
+    "category": "Hydrolic Rotary Joints",
+    "name": "RMF - H-100 - THIS IS HYDRAULIC ROTATING UNION",
+    "thread": "Flanged",
+    "media": "Hydraulic Oil",
+    "temperature_range": "0°C to 80°C",
+    "pressure": "Oil 100 to 150 bar",
+    "rotor": "SS 316",
+    "bearing": "SKF / FAG, Steel Cage, Rubber Cage",
+    "rpm": "500 to 700",
+    "images": [
+      "images/sealproduct/hydrolic_1.png"
+    ],
+    "img": "images/sealproduct/hydrolic_1.png",
+    "categorySlug": "hydrolic-rotary-joints",
+    "slug": "rmf-h-100-this-is-hydraulic-rotating-union-29",
+    "image": "/images/sealproduct/hydrolic_1.png",
+    "specs": {
+      "Thread": "Flanged",
+      "Media": "Hydraulic Oil",
+      "Temperature range": "0°C to 80°C",
+      "Pressure": "Oil 100 to 150 bar",
+      "Rotor": "SS 316",
+      "Bearing": "SKF / FAG, Steel Cage, Rubber Cage",
+      "Rpm": "500 to 700"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 30,
+    "category": "Hydrolic Rotary Joints",
+    "name": "RDF – H-150 - THIS IS HYDRAULIC ROTATING UNION",
+    "thread": "NPT, BSP, UNF, MM",
+    "direction": "Right Hand & Left Hand Thread",
+    "media": "Hydraulic Oil",
+    "temperature_range": "0°C to 80°C",
+    "pressure": "0 to 250 bar",
+    "moc_of_body": "SS 316",
+    "rotor": "SS 316",
+    "bearing": "SKF / FAG, Steel Cage, Rubber Cage",
+    "rpm": "500 to 700",
+    "rotary_joint_size_available": "3/4 to 2 1/2",
+    "images": [
+      "images/sealproduct/hydrolic_2.png"
+    ],
+    "img": "images/sealproduct/hydrolic_2.png",
+    "categorySlug": "hydrolic-rotary-joints",
+    "slug": "rdf-h-150-this-is-hydraulic-rotating-union-30",
+    "image": "/images/sealproduct/hydrolic_2.png",
+    "specs": {
+      "Thread": "NPT, BSP, UNF, MM",
+      "Media": "Hydraulic Oil",
+      "Temperature range": "0°C to 80°C",
+      "Pressure": "0 to 250 bar",
+      "Moc of body": "SS 316",
+      "Rotor": "SS 316",
+      "Bearing": "SKF / FAG, Steel Cage, Rubber Cage",
+      "Rpm": "500 to 700",
+      "Rotary joint size available": "3/4 to 2 1/2"
+    },
+    "features": [
+      "Direction: Right Hand & Left Hand Thread"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 31,
+    "category": "Hydrolic Rotary Joints",
+    "name": "RDF - H-200 - THIS IS HYDRAULIC ROTATING UNION",
+    "media": "Hydraulic Oil",
+    "temperature_range": "0°C to 80°C",
+    "pressure": "0 to 250 bar",
+    "moc_of_body": "SS 316",
+    "rotor": "SS 316",
+    "bearing": "SKF / FAG, Steel Cage, Rubber Cage",
+    "rpm": "500 to 700",
+    "images": [
+      "images/sealproduct/hydrolic_3.png"
+    ],
+    "img": "images/sealproduct/hydrolic_3.png",
+    "categorySlug": "hydrolic-rotary-joints",
+    "slug": "rdf-h-200-this-is-hydraulic-rotating-union-31",
+    "image": "/images/sealproduct/hydrolic_3.png",
+    "specs": {
+      "Media": "Hydraulic Oil",
+      "Temperature range": "0°C to 80°C",
+      "Pressure": "0 to 250 bar",
+      "Moc of body": "SS 316",
+      "Rotor": "SS 316",
+      "Bearing": "SKF / FAG, Steel Cage, Rubber Cage",
+      "Rpm": "500 to 700"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 32,
+    "category": "Hydrolic Rotary Joints",
+    "name": "RDF - H-200 - THIS IS HYDRAULIC ROTATING UNION",
+    "media": "Hydraulic Oil",
+    "temperature_range": "0°C to 80°C",
+    "pressure": "0 to 250 bar",
+    "moc_of_body": "SS 316",
+    "rotor": "SS 316",
+    "bearing": "SKF / FAG, Steel Cage, Rubber Cage",
+    "rpm": "500 to 700",
+    "images": [
+      "images/sealproduct/hydrolic_3.png"
+    ],
+    "img": "images/sealproduct/hydrolic_3.png",
+    "categorySlug": "hydrolic-rotary-joints",
+    "slug": "rdf-h-200-this-is-hydraulic-rotating-union-32",
+    "image": "/images/sealproduct/hydrolic_3.png",
+    "specs": {
+      "Media": "Hydraulic Oil",
+      "Temperature range": "0°C to 80°C",
+      "Pressure": "0 to 250 bar",
+      "Moc of body": "SS 316",
+      "Rotor": "SS 316",
+      "Bearing": "SKF / FAG, Steel Cage, Rubber Cage",
+      "Rpm": "500 to 700"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 33,
+    "name": "Inside Mounting Multi Spring Seal Series",
+    "category": "Multi Spring Series Seal",
+    "direction": "You can use clockwise or anti clockwise",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/inside_RM20.jpg"
+    ],
+    "img": "images/sealproduct/multisprintseal_1.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "description": "Balance - Unbalance Mechanical seals are developed for handling Clean & Clear media. like a kerosene, Petrol & Disel, Alkaly, Ethenol, Amines, Acetic Acid, Brine, DM Water, Chemical Petrochemical, Oil, Liquor, Hot & Chilled Water, Haxane, Misela oil, Chromic Acid etc.Also Gases like a LPG, Aceton, Amonia, Freon etc.",
+    "categorySlug": "multi-spring-series-seal",
+    "slug": "inside-mounting-multi-spring-seal-series-33",
+    "image": "/images/sealproduct/multisprintseal_1.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: You can use clockwise or anti clockwise"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Inside Mounting Multi Spring Seal Series",
+    "category": "Multi Spring Series Seal",
+    "direction": "You can use clockwise or anti clockwise",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/mountingrm20b.jpg"
+    ],
+    "img": "images/sealproduct/multisprintseal_2.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "description": "Balance - Unbalance Mechanical seals are developed for handling Clean & Clear media. like a kerosene, Petrol & Disel, Alkaly, Ethenol, Amines, Acetic Acid, Brine, DM Water, Chemical Petrochemical, Oil, Liquor, Hot & Chilled Water, Haxane, Misela oil, Chromic Acid etc.Also Gases like a LPG, Aceton, Amonia, Freon etc.",
+    "categorySlug": "multi-spring-series-seal",
+    "slug": "inside-mounting-multi-spring-seal-series-34",
+    "image": "/images/sealproduct/multisprintseal_2.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: You can use clockwise or anti clockwise"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Inside Mounting Multi Spring Seal Series",
+    "category": "Multi Spring Series Seal",
+    "direction": "You can use clockwise or anti clockwise",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/mountingspringrdmo.jpg"
+    ],
+    "img": "images/sealproduct/multisprintseal_3.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "description": "Balance - Unbalance Mechanical seals are developed for handling Clean & Clear media. like a kerosene, Petrol & Disel, Alkaly, Ethenol, Amines, Acetic Acid, Brine, DM Water, Chemical Petrochemical, Oil, Liquor, Hot & Chilled Water, Haxane, Misela oil, Chromic Acid etc.Also Gases like a LPG, Aceton, Amonia, Freon etc.",
+    "categorySlug": "multi-spring-series-seal",
+    "slug": "inside-mounting-multi-spring-seal-series-35",
+    "image": "/images/sealproduct/multisprintseal_3.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: You can use clockwise or anti clockwise"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Outside Mounting Multi Spring Seal Series",
+    "category": "Multi Spring Series Seal",
+    "direction": "Can use clockwise or anti clockwise",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/ousidemountingrtm40.jpg"
+    ],
+    "img": "images/sealproduct/outsidemounting_1.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "description": "Balance-Unbalance Mechanical Seals are developed for handling Corrosive Liquid like a Acids, Caustic, Organic Chemical etc. Specially of this Seal is easy for Installation and Cleaning",
+    "categorySlug": "multi-spring-series-seal",
+    "slug": "outside-mounting-multi-spring-seal-series-36",
+    "image": "/images/sealproduct/outsidemounting_1.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: Can use clockwise or anti clockwise"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Outside Mounting Multi Spring Seal Series",
+    "category": "Multi Spring Series Seal",
+    "direction": "Can use clockwise or anti clockwise",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/outsidemountingreb2.jpg"
+    ],
+    "img": "images/sealproduct/outsidemounting_2.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "description": "Balance-Unbalance Mechanical Seals are developed for handling Corrosive Liquid like a Acids, Caustic, Organic Chemical etc. Specially of this Seal is easy for Installation and Cleaning",
+    "categorySlug": "multi-spring-series-seal",
+    "slug": "outside-mounting-multi-spring-seal-series-37",
+    "image": "/images/sealproduct/outsidemounting_2.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: Can use clockwise or anti clockwise"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Special Seal",
+    "category": "Multi Spring Series Seal",
+    "direction": "Can use clockwise or anti clockwise",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/specialseal.jpg"
+    ],
+    "img": "images/sealproduct/specialsealrm22.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "description": "Balance-Unbalance Multispring or Wave spring of Mechanical Seals are Developed for handling Light Abrasive slurry, Sewage water, Sugar syrup, Dies, Tomato sauce, Raw juice, Pigments etc. In this Seal Liquid does not Contact to Spring.",
+    "categorySlug": "multi-spring-series-seal",
+    "slug": "special-seal-38",
+    "image": "/images/sealproduct/specialsealrm22.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: Can use clockwise or anti clockwise"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Reliable Inside Mounted Single Spring Seal Series",
+    "category": "Single Spring Series Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/reliable_single_seal_rts_5.jpg"
+    ],
+    "img": "images/sealproduct/singlespring_front_3.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "info": "But before purchasing please specify the direction of pump from Motor side.",
+    "direction": "You can use clockwise or anti clockwise",
+    "description": "Developed for Handling Light Slurry Type Liquid like a Petrochemical, Edible Oil, Acids, Thermic Fluid, Slovent Hot Water, Sewage Water, Bleach Slurry, Dies, Colors, Brine, Beverages, Sugarcane, Juice, Sugar Syrup, Tomato Sauce, Fruit Juice, Milk, Hydrocarban, Sea, Water, Pharma Chemicals etc.",
+    "categorySlug": "single-spring-series-seal",
+    "slug": "reliable-inside-mounted-single-spring-seal-series-39",
+    "image": "/images/sealproduct/singlespring_front_3.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: You can use clockwise or anti clockwise",
+      "But before purchasing please specify the direction of pump from Motor side."
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Reliable Inside Mounted Single Spring Seal Series",
+    "category": "Single Spring Series Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/reliable_single_seal_rts_6.jpg"
+    ],
+    "img": "images/sealproduct/singlespring_front_4.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "info": "But before purchasing please specify the direction of pump from Motor side.",
+    "direction": "You can use clockwise or anti clockwise",
+    "description": "Developed for Handling Light Slurry Type Liquid like a Petrochemical, Edible Oil, Acids, Thermic Fluid, Slovent Hot Water, Sewage Water, Bleach Slurry, Dies, Colors, Brine, Beverages, Sugarcane, Juice, Sugar Syrup, Tomato Sauce, Fruit Juice, Milk, Hydrocarban, Sea, Water, Pharma Chemicals etc.",
+    "categorySlug": "single-spring-series-seal",
+    "slug": "reliable-inside-mounted-single-spring-seal-series-40",
+    "image": "/images/sealproduct/singlespring_front_4.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: You can use clockwise or anti clockwise",
+      "But before purchasing please specify the direction of pump from Motor side."
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Reliable Inside Mounted Single Spring Seal Series",
+    "category": "Single Spring Series Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/reliable_single_seal_rts_7.jpg"
+    ],
+    "img": "images/sealproduct/singlespring_front_5.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "info": "But before purchasing please specify the direction of pump from Motor side.",
+    "direction": "You can use clockwise or anti clockwise",
+    "description": "Developed for Handling Light Slurry Type Liquid like a Petrochemical, Edible Oil, Acids, Thermic Fluid, Slovent Hot Water, Sewage Water, Bleach Slurry, Dies, Colors, Brine, Beverages, Sugarcane, Juice, Sugar Syrup, Tomato Sauce, Fruit Juice, Milk, Hydrocarban, Sea, Water, Pharma Chemicals etc.",
+    "categorySlug": "single-spring-series-seal",
+    "slug": "reliable-inside-mounted-single-spring-seal-series-41",
+    "image": "/images/sealproduct/singlespring_front_5.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: You can use clockwise or anti clockwise",
+      "But before purchasing please specify the direction of pump from Motor side."
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Reliable Rubber Bellow Single Spring Seal Series",
+    "category": "Water Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/rubber_below_gr2.jpg"
+    ],
+    "img": "images/sealproduct/rubber_below_02.jpg",
+    "Press": "0 TO 8 Kg/cm²",
+    "direction": "Can be used clockwise or anti clockwise",
+    "description": "Short Length & Full Length Rubber bellow seals series specially developed for handling for Dewatering pump, Oil pump, Chilling water pump, ETP pump, etc.",
+    "categorySlug": "water-seal",
+    "slug": "reliable-rubber-bellow-single-spring-seal-series-42",
+    "image": "/images/sealproduct/rubber_below_02.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 8 Kg/cm²"
+    },
+    "features": [
+      "Direction: Can be used clockwise or anti clockwise"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Reliable Rubber Bellow Single Spring Seal Series",
+    "category": "Water Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/rubber_below_gr3.jpg"
+    ],
+    "img": "images/sealproduct/rubber_below_03.jpg",
+    "Press": "0 TO 8 Kg/cm²",
+    "direction": "Can be used clockwise or anti clockwise",
+    "description": "Short Length & Full Length Rubber bellow seals series specially developed for handling for Dewatering pump, Oil pump, Chilling water pump, ETP pump, etc.",
+    "categorySlug": "water-seal",
+    "slug": "reliable-rubber-bellow-single-spring-seal-series-43",
+    "image": "/images/sealproduct/rubber_below_03.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 8 Kg/cm²"
+    },
+    "features": [
+      "Direction: Can be used clockwise or anti clockwise"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Reliable Dairy Used Single Spring Seal Series",
+    "category": "Dairy Seal",
+    "Size": "22MM--50.8MM",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/dairy_seal_gr_2.jpg"
+    ],
+    "img": "images/sealproduct/dairyseal_2.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "pump": "Alfa Laval, ALC2, ALC3, FMOS, FM, EM, GM, LKH 10, LKH 20",
+    "pump_2": "Fristum,Zutech,Zectron,G.D.IDMC",
+    "description": "Standard series of Mechanical Seal. Developed for Pharma, Dairy, Beverages, Food, Distillery Plant for handling various liquid like a Hot & Chilling Water, DM Water, Milk, Sugar Syrup, Aqua Water, Brine, Caustic etc.",
+    "categorySlug": "dairy-seal",
+    "slug": "reliable-dairy-used-single-spring-seal-series-44",
+    "image": "/images/sealproduct/dairyseal_2.jpg",
+    "specs": {
+      "Size": "22MM--50.8MM",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²",
+      "Pump": "Alfa Laval, ALC2, ALC3, FMOS, FM, EM, GM, LKH 10, LKH 20",
+      "Pump 2": "Fristum,Zutech,Zectron,G.D.IDMC"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Reliable Dairy Used Single Spring Seal Series",
+    "category": "Dairy Seal",
+    "Size": "22MM--50.8MM",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/dairy_seal_gr_3.jpg"
+    ],
+    "img": "images/sealproduct/dairyseal_3.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "pump": "Alfa Laval, ALC2, ALC3, FMOS, FM, EM, GM, LKH 10, LKH 20",
+    "pump_2": "Fristum,Zutech,Zectron,G.D.IDMC",
+    "description": "Standard series of Mechanical Seal. Developed for Pharma, Dairy, Beverages, Food, Distillery Plant for handling various liquid like a Hot & Chilling Water, DM Water, Milk, Sugar Syrup, Aqua Water, Brine, Caustic etc.",
+    "categorySlug": "dairy-seal",
+    "slug": "reliable-dairy-used-single-spring-seal-series-45",
+    "image": "/images/sealproduct/dairyseal_3.jpg",
+    "specs": {
+      "Size": "22MM--50.8MM",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²",
+      "Pump": "Alfa Laval, ALC2, ALC3, FMOS, FM, EM, GM, LKH 10, LKH 20",
+      "Pump 2": "Fristum,Zutech,Zectron,G.D.IDMC"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Reliable Dairy Used Single Spring Seal Series",
+    "category": "Dairy Seal",
+    "Size": "22MM--50.8MM",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/dairy_seal_gr_4.jpg"
+    ],
+    "img": "images/sealproduct/dairyseal_4.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "pump": "Alfa Laval, ALC2, ALC3, FMOS, FM, EM, GM, LKH 10, LKH 20",
+    "pump_2": "Fristum,Zutech,Zectron,G.D.IDMC",
+    "description": "Standard series of Mechanical Seal. Developed for Pharma, Dairy, Beverages, Food, Distillery Plant for handling various liquid like a Hot & Chilling Water, DM Water, Milk, Sugar Syrup, Aqua Water, Brine, Caustic etc.",
+    "categorySlug": "dairy-seal",
+    "slug": "reliable-dairy-used-single-spring-seal-series-46",
+    "image": "/images/sealproduct/dairyseal_4.jpg",
+    "specs": {
+      "Size": "22MM--50.8MM",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²",
+      "Pump": "Alfa Laval, ALC2, ALC3, FMOS, FM, EM, GM, LKH 10, LKH 20",
+      "Pump 2": "Fristum,Zutech,Zectron,G.D.IDMC"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "High Temp Seal Series",
+    "category": "High Temp Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 400°C",
+    "images": [
+      "images/sealproduct/high_temp_seal_gr_04.jpg"
+    ],
+    "img": "images/sealproduct/high_temp_seal_04.jpg",
+    "Press": "0 TO 35 Kg/cm²",
+    "description": "Metal Bellow Series developed for Chemical, Process Ind, Refinery, Petrochemical, Marine Services, Pharma Ind, for handling high Temp Fluid like a Thermic Fluid, Oil, Hot Water, Highly Corrosive liquid DFA, DO, etc.Direction can be used Clockwise or Anti clockwise.",
+    "categorySlug": "high-temp-seal",
+    "slug": "high-temp-seal-series-47",
+    "image": "/images/sealproduct/high_temp_seal_04.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 400°C",
+      "Press": "0 TO 35 Kg/cm²"
+    },
+    "features": [
+      "High performance reliability",
+      "Designed for severe conditions",
+      "Long operating life",
+      "Easy installation and maintenance"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Reliable Cartridge seal Series",
+    "category": "Cartridge Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/catreage_gr_02.jpg"
+    ],
+    "img": "images/sealproduct/catreage_02.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "direction": "Can be Used clockwise or anti clockwise.",
+    "info": "But before purchasing the please specify the rotation of pump from Motor side.",
+    "description": "Cartridge Type Seals are developed handling for various types of liquid types of liquid like a edible oil chemical, Petrochemical, Clean, and Hot water, Beverages, Chilled water, Brine, Alcohol, Pharma products, etc.Readymade unit easy for installation.",
+    "categorySlug": "cartridge-seal",
+    "slug": "reliable-cartridge-seal-series-48",
+    "image": "/images/sealproduct/catreage_02.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: Can be Used clockwise or anti clockwise.",
+      "But before purchasing the please specify the rotation of pump from Motor side."
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Reliable Cartridge seal Series",
+    "category": "Cartridge Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/catreage_gr_03.jpg"
+    ],
+    "img": "images/sealproduct/catreage_03.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "direction": "Can be Used clockwise or anti clockwise.",
+    "info": "But before purchasing the please specify the rotation of pump from Motor side.",
+    "description": "Cartridge Type Seals are developed handling for various types of liquid types of liquid like a edible oil chemical, Petrochemical, Clean, and Hot water, Beverages, Chilled water, Brine, Alcohol, Pharma products, etc.Readymade unit easy for installation.",
+    "categorySlug": "cartridge-seal",
+    "slug": "reliable-cartridge-seal-series-49",
+    "image": "/images/sealproduct/catreage_03.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: Can be Used clockwise or anti clockwise.",
+      "But before purchasing the please specify the rotation of pump from Motor side."
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Reliable Cartridge seal Series",
+    "category": "Cartridge Seal",
+    "Size": "10--100mm",
+    "Temp": "0 TO 180°C",
+    "images": [
+      "images/sealproduct/catreage_gr_04.jpg"
+    ],
+    "img": "images/sealproduct/catreage_04.jpg",
+    "Press": "0 TO 10 Kg/cm²",
+    "direction": "Can be Used clockwise or anti clockwise.",
+    "info": "But before purchasing the please specify the rotation of pump from Motor side.",
+    "description": "Cartridge Type Seals are developed handling for various types of liquid types of liquid like a edible oil chemical, Petrochemical, Clean, and Hot water, Beverages, Chilled water, Brine, Alcohol, Pharma products, etc.Readymade unit easy for installation.",
+    "categorySlug": "cartridge-seal",
+    "slug": "reliable-cartridge-seal-series-50",
+    "image": "/images/sealproduct/catreage_04.jpg",
+    "specs": {
+      "Size": "10--100mm",
+      "Temp": "0 TO 180°C",
+      "Press": "0 TO 10 Kg/cm²"
+    },
+    "features": [
+      "Direction: Can be Used clockwise or anti clockwise.",
+      "But before purchasing the please specify the rotation of pump from Motor side."
+    ]
   }
 ]

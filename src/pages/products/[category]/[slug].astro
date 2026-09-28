@@ -16,9 +16,9 @@ const categoryProducts = products.filter(p => p.category === product.category);
 ---
 <Layout>
   <Header />
-  <section class="page-title" style="background-color: #001a3b; padding: 60px 0; color: white;">
+  <section class="page-title" style="background-color: #001a3b; padding: 15px 0; color: white;">
       <div class="container">
-          <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 15px;">{product.name}</h1>
+          <h1 style="font-size: 2.2rem; font-weight: 700; margin: 0 0 5px 0;">{product.name}</h1>
           <div style="color: #009fe3; font-weight: 500;">
               <a href="/" style="color: white; text-decoration: none;">Home</a> <span style="margin: 0 10px;">/</span>
               <a href={`/products/${product.categorySlug}`} style="color: white; text-decoration: none;">{product.category}</a> <span style="margin: 0 10px;">/</span>
@@ -27,9 +27,9 @@ const categoryProducts = products.filter(p => p.category === product.category);
       </div>
   </section>
 
-  <section class="product-details" style="padding: 80px 0; background: #fdfdfd;">
+  <section class="product-details" style="padding: 20px 0; background: #fdfdfd;">
       <div class="container">
-          <div class="product-grid" style="display: grid; grid-template-columns: 300px 1fr; gap: 50px; align-items: start;">
+          <div class="product-grid">
               
               <!-- Sidebar -->
               <div class="sidebar">
@@ -62,17 +62,43 @@ const categoryProducts = products.filter(p => p.category === product.category);
               </div>
               
               <!-- Main Content -->
-              <div class="content" style="background: white; padding: 40px; border-radius: 8px; border: 1px solid #eaeaea;">
-                  <div style="text-align: center; margin-bottom: 40px; padding: 40px; background: #f9f9f9; border-radius: 8px;">
-                      <img src={product.image} alt={product.name} style="max-width: 100%; height: auto; max-height: 400px; mix-blend-mode: multiply;">
+              <div class="content">
+                  
+                  <!-- Product Image Zoom -->
+                  <div class="zoom-container" style="text-align: center; margin-bottom: 40px; background: #f9f9f9; border-radius: 8px; overflow: hidden; position: relative; cursor: crosshair; padding: 20px;">
+                      <img id="product-img" src={product.image} alt={product.name} style="width: 100%; height: auto; max-height: 550px; object-fit: contain; display: block; margin: 0 auto; transition: transform 0.1s ease-out; transform-origin: center center; mix-blend-mode: multiply;">
                   </div>
+                  
+                  <script is:inline>
+                      document.addEventListener('DOMContentLoaded', () => {
+                          const container = document.querySelector('.zoom-container');
+                          const img = document.getElementById('product-img');
+
+                          if(container && img) {
+                              container.addEventListener('mousemove', (e) => {
+                                  const rect = container.getBoundingClientRect();
+                                  
+                                  const x = (e.clientX - rect.left) / rect.width;
+                                  const y = (e.clientY - rect.top) / rect.height;
+
+                                  img.style.transformOrigin = `${x * 100}% ${y * 100}%`;
+                                  img.style.transform = 'scale(2.5)';
+                              });
+
+                              container.addEventListener('mouseleave', () => {
+                                  img.style.transform = 'scale(1)';
+                                  img.style.transformOrigin = 'center center';
+                              });
+                          }
+                      });
+                  </script>
                   
                   <h2 style="font-size: 2rem; font-weight: 700; color: #001a3b; margin-bottom: 20px;">Overview</h2>
                   <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 40px;">
                       {product.description}
                   </p>
                   
-                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                  <div class="specs-grid">
                       <div>
                           <h3 style="font-size: 1.5rem; font-weight: 700; color: #001a3b; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
                               <i class="fas fa-check-circle" style="color: #009fe3;"></i> Key Features
@@ -113,28 +139,52 @@ const categoryProducts = products.filter(p => p.category === product.category);
 </Layout>
 
 <style>
+/* Default Desktop Layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.content {
+  background: white; 
+  padding: 40px; 
+  border-radius: 8px; 
+  border: 1px solid #eaeaea;
+}
+
+.specs-grid {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 40px;
+}
+
 /* Responsive layout for the grid */
 @media (max-width: 991px) {
   .product-grid {
-    grid-template-columns: 1fr !important;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 40px;
   }
-  .product-grid > .sidebar {
-    order: 2;
+  .sidebar {
+    width: 100%;
   }
-  .product-grid > .content {
-    order: 1;
-    padding: 20px !important;
+  .content {
+    width: 100%;
+    padding: 20px;
   }
-  .content > div:last-child {
-    grid-template-columns: 1fr !important;
+  .specs-grid {
+    grid-template-columns: 1fr;
   }
   .page-title h1 {
     font-size: 2rem !important;
   }
 }
+
 @media (max-width: 767px) {
   .product-grid {
-    gap: 30px !important;
+    gap: 30px;
   }
 }
 </style>

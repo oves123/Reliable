@@ -1202,8 +1202,9 @@ h3 {
     }
 
     .stats-grid {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 3rem;
+        padding-top: 2rem;
     }
 
     .hero-title {
@@ -1887,6 +1888,7 @@ h3 {
     background-color: var(--color-primary-navy);
     color: white;
     padding: 0.5rem 0;
+    margin-top: 3rem;
 }
 
 .stats-grid {
@@ -2330,4 +2332,113 @@ h3 {
 }
 @keyframes spin {
     to { transform: rotate(360deg); }
+}
+
+/* Portfolio & Innovation Carousel for Mobile */
+@media (max-width: 1024px) {
+    .carousel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 20px;
+        text-align: left !important;
+    }
+    .carousel-header .section-subtitle {
+        margin-left: 0;
+    }
+    .product-grid,
+    .innovation-grid {
+        display: flex !important;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        padding-bottom: 20px;
+        gap: 20px;
+    }
+    .product-grid::-webkit-scrollbar,
+    .innovation-grid::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+    .product-grid > .product-card,
+    .innovation-grid > .innovation-card {
+        flex: 0 0 85%;
+        min-width: 280px;
+        scroll-snap-align: start;
+    }
+    .portfolio-controls,
+    .innovation-controls {
+        display: flex !important;
+    }
+}
+@media (min-width: 1025px) {
+    .portfolio-controls,
+    .innovation-controls {
+        display: none !important;
+    }
+}
+
+/* Mobile Overrides */
+@media (max-width: 768px) {
+    .carousel-control {
+        display: none !important;
+    }
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 0.5rem !important;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    .stat-number {
+        font-size: 1.4rem !important;
+    }
+    .stat-plus {
+        font-size: 1.1rem !important;
+    }
+    .stat-label {
+        font-size: 0.55rem !important;
+        letter-spacing: 0px !important;
+        line-height: 1.2 !important;
+        margin-top: 5px !important;
+    }
+    .youtube-grid {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+    .youtube-wrapper {
+        flex: 0 0 85% !important;
+        scroll-snap-align: center;
+    }
+}
+
+/* YouTube Grid Styles */
+.youtube-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.youtube-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.youtube-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
