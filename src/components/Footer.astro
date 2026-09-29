@@ -88,6 +88,27 @@
             });
         }
 
+        // Mobile Submenu Toggle Logic
+        const megaMenuLinks = document.querySelectorAll('.has-mega-menu > a');
+        megaMenuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const parent = link.parentElement;
+                    
+                    // Toggle current submenu
+                    parent.classList.toggle('active-mobile-submenu');
+                    
+                    // Optionally close others
+                    megaMenuLinks.forEach(otherLink => {
+                        if (otherLink !== link) {
+                            otherLink.parentElement.classList.remove('active-mobile-submenu');
+                        }
+                    });
+                }
+            });
+        });
+
         // Tab switching logic
         const tabs = document.querySelectorAll('.tab');
         tabs.forEach(tab => {

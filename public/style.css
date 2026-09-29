@@ -1536,20 +1536,21 @@ h3 {
     .main-nav {
         position: fixed;
         top: 60px; /* Adjust based on header height */
-        left: -100%;
-        width: 100%;
+        right: -100%;
+        width: 85%;
+        max-width: 400px;
         height: calc(100vh - 60px);
         background-color: var(--bg-white);
         flex-direction: column;
-        transition: left 0.3s ease;
+        transition: right 0.3s ease;
         overflow-y: auto;
         padding: 2rem;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        box-shadow: -10px 0 15px rgba(0,0,0,0.1);
         z-index: 1000;
     }
 
     .main-nav.open {
-        left: 0;
+        right: 0;
     }
 
     .main-nav ul {
@@ -1958,13 +1959,26 @@ h3 {
         padding: 1rem 0;
         display: none;
     }
-    .has-mega-menu:hover .mega-menu {
+    .has-mega-menu.active-mobile-submenu .mega-menu {
         display: block;
+    }
+    .mega-menu-featured {
+        display: none !important;
     }
     .mega-menu-grid {
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
         padding: 0;
+    }
+    .mega-menu-columns {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        width: 100%;
+    }
+    .mega-menu-columns > div {
+        width: 100%;
+        margin-bottom: 1rem;
     }
     .stats-grid {
         grid-template-columns: 1fr 1fr;
