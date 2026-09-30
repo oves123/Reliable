@@ -1,0 +1,453 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Header />
+  
+  <main class="contact-page">
+    <!-- Hero Section -->
+    <section class="contact-hero">
+      <div class="container">
+        <span class="kicker">Get in Touch</span>
+        <h1>Contact Our Experts</h1>
+        <p>Whether you need a custom quote, technical support, or have a general inquiry, our team of sealing experts is ready to assist you.</p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="contact-content">
+      <div class="container">
+        <div class="contact-grid">
+          
+          <!-- Contact Info -->
+          <div class="contact-info-panel">
+            <h2>Let's build something <span class="highlight">Reliable</span> together.</h2>
+            <p class="subtitle">Reach out to our global headquarters or fill out the form, and a representative will get back to you within 24 hours.</p>
+            
+            <div class="info-blocks">
+              <div class="info-block">
+                <div class="icon-circle">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="info-text">
+                  <h3>Headquarters</h3>
+                  <p>AF-02, 03, 04 Saraf Kaskar Ind. Prem Co-op. Soc. Ltd.,<br>S.V.Road, Oshiwara, Jogeshwari (W),<br>Mumbai - 400102</p>
+                </div>
+              </div>
+              
+              <div class="info-block">
+                <div class="icon-circle">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="info-text">
+                  <h3>Email Us</h3>
+                  <p><a href="mailto:info@reliableseal.com">info@reliableseal.com</a><br>sales@reliableseal.com</p>
+                </div>
+              </div>
+              
+              <div class="info-block">
+                <div class="icon-circle">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="info-text">
+                  <h3>Call Us</h3>
+                  <p>+91- 78880 65557<br>+91- 78880 65558<br>+91- 78880 65559</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="social-connect">
+              <h3>Connect With Us</h3>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Contact Form -->
+          <div class="contact-form-panel">
+            <div class="form-card">
+              <h2>Send a Message</h2>
+              <p>Fill out the form below and we will get back to you promptly.</p>
+              
+              <form action="#" method="POST" class="reliable-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required placeholder="John">
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required placeholder="Doe">
+                  </div>
+                </div>
+                
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="email">Business Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="john@company.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="company">Company Name *</label>
+                  <input type="text" id="company" name="company" required placeholder="Your Company Ltd.">
+                </div>
+                
+                <div class="form-group">
+                  <label for="inquiryType">Reason for Inquiry *</label>
+                  <div class="select-wrapper">
+                    <select id="inquiryType" name="inquiryType" required>
+                      <option value="" disabled selected>Select an option...</option>
+                      <option value="quote">Request a Quote</option>
+                      <option value="technical">Technical Support</option>
+                      <option value="partnership">Partnership / Distribution</option>
+                      <option value="other">General Inquiry</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-icon"></i>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="message">Message / Details *</label>
+                  <textarea id="message" name="message" rows="5" required placeholder="Please describe your requirements, operating conditions, or the product you are interested in..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary form-submit-btn">
+                  Send Message <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
+                </button>
+                <p class="form-disclaimer">By submitting this form, you agree to our <a href="#">Privacy Policy</a> and consent to being contacted regarding your inquiry.</p>
+              </form>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+/* Page Layout */
+.contact-page {
+  background-color: #fdfdfd;
+}
+
+/* Hero Section */
+.contact-hero {
+  background: linear-gradient(135deg, #001a3b 0%, #003B6D 100%);
+  color: white;
+  padding: 80px 0 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.contact-hero .kicker {
+  color: #009fe3;
+  margin-bottom: 15px;
+}
+
+.contact-hero h1 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.contact-hero p {
+  font-size: 1.15rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #c2d5e6;
+  line-height: 1.7;
+}
+
+/* Contact Content Section */
+.contact-content {
+  padding: 60px 0 100px;
+  position: relative;
+  z-index: 10;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Contact Info Panel */
+.contact-info-panel {
+  padding: 20px 40px 0 0;
+}
+
+.contact-info-panel h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #001a3b;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.contact-info-panel h2 .highlight {
+  color: #009fe3;
+}
+
+.contact-info-panel .subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.info-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.info-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.icon-circle {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 159, 227, 0.1);
+  color: #009fe3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.info-text h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #001a3b;
+  margin-bottom: 5px;
+}
+
+.info-text p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.info-text a {
+  color: #009fe3;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.info-text a:hover {
+  text-decoration: underline;
+}
+
+.social-connect h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #001a3b;
+  margin-bottom: 15px;
+}
+
+.social-connect .social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-connect .social-links a {
+  width: 40px;
+  height: 40px;
+  background: #f0f4f8;
+  color: #003B6D;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-connect .social-links a:hover {
+  background: #009fe3;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Form Panel */
+.contact-form-panel {
+  background: white;
+  border-radius: 12px;
+  padding: 50px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eaeaea;
+}
+
+.form-card h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #001a3b;
+  margin-bottom: 10px;
+}
+
+.form-card > p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #001a3b;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #111;
+  background-color: #fbfbfb;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #009fe3;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(0, 159, 227, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #777;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.select-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  margin-top: 10px;
+  background-color: #009fe3;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-submit-btn:hover {
+  background-color: #007bb5;
+}
+
+.form-disclaimer {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.form-disclaimer a {
+  color: #009fe3;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .contact-content {
+    margin-top: 0;
+    padding-top: 60px;
+  }
+  
+  .contact-hero {
+    padding: 60px 0;
+  }
+  
+  .contact-info-panel {
+    padding: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .contact-form-panel {
+    padding: 30px 20px;
+  }
+}
+</style>
