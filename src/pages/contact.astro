@@ -6,10 +6,17 @@ import { sanityClient } from 'sanity:client';
 import groq from 'groq';
 
 const siteSettings = await sanityClient.fetch(groq`*[_type == "siteSettings"][0]`);
+const contactData = await sanityClient.fetch(groq`*[_type == "contactPage"][0]`);
 
 const address = siteSettings?.address || "AF-02, 03, 04 Saraf Kaskar Ind. Prem Co-op. Soc. Ltd.,\nS.V.Road, Oshiwara, Jogeshwari (W),\nMumbai - 400102";
 const email = siteSettings?.email || "info@reliableseal.com";
 const phoneNumbers = siteSettings?.phoneNumbers || ["+91- 78880 65557", "+91- 78880 65558", "+91- 78880 65559"];
+
+const heroSubtitle = contactData?.heroSubtitle || "Get in Touch";
+const heroTitle = contactData?.heroTitle || "Contact Our Experts";
+const heroDescription = contactData?.heroDescription || "Whether you need a custom quote, technical support, or have a general inquiry, our team of sealing experts is ready to assist you.";
+const mainTitle = contactData?.mainTitle || "Let's build something <span class=\"highlight\">Reliable</span> together.";
+const mainSubtitle = contactData?.mainSubtitle || "Reach out to our global headquarters or fill out the form, and a representative will get back to you within 24 hours.";
 ---
 
 <Layout>
@@ -19,9 +26,9 @@ const phoneNumbers = siteSettings?.phoneNumbers || ["+91- 78880 65557", "+91- 78
     <!-- Hero Section -->
     <section class="contact-hero">
       <div class="container">
-        <span class="kicker">Get in Touch</span>
-        <h1>Contact Our Experts</h1>
-        <p>Whether you need a custom quote, technical support, or have a general inquiry, our team of sealing experts is ready to assist you.</p>
+        <span class="kicker">{heroSubtitle}</span>
+        <h1>{heroTitle}</h1>
+        <p>{heroDescription}</p>
       </div>
     </section>
 
@@ -32,8 +39,8 @@ const phoneNumbers = siteSettings?.phoneNumbers || ["+91- 78880 65557", "+91- 78
           
           <!-- Contact Info -->
           <div class="contact-info-panel">
-            <h2>Let's build something <span class="highlight">Reliable</span> together.</h2>
-            <p class="subtitle">Reach out to our global headquarters or fill out the form, and a representative will get back to you within 24 hours.</p>
+            <h2 set:html={mainTitle}></h2>
+            <p class="subtitle">{mainSubtitle}</p>
             
             <div class="info-blocks">
               <div class="info-block">
