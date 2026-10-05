@@ -13,6 +13,21 @@ const heroDescription = homePage?.heroDescription || "Providing reliable sealing
 const missionSubtitle = homePage?.missionSubtitle || "OUR MISSION";
 const missionTitle = homePage?.missionTitle || "Continuous innovations in sealing applications.";
 const missionDescription = homePage?.missionDescription || "Belief in the capabilities of our people to rapidly transfer ideas to reality and a firm faith in promising leak-free, maintenance-free, high quality standard products.";
+
+const stats = homePage?.stats || [
+  { number: 50, suffix: '+', label: 'Countries Served' },
+  { number: 10000, suffix: '+', label: 'Global Installations' },
+  { number: 100, suffix: '%', label: 'Quality Assured' }
+];
+
+const whyChooseUsTitle = homePage?.whyChooseUsTitle || "Comprehensive seal service for industrial facilities";
+const whyChooseUsDescription = homePage?.whyChooseUsDescription || "Production systems need to work safely, reliably, and with maximum cost-effectiveness. So it is good to have access to an expert and efficient partner. With Reliable Industries, we offer customized service programs and flexible service for seals and gaskets. The service portfolio extends from consulting and engineering to individually-tailored service contracts.";
+const features = homePage?.features || [
+  { title: 'Specialist', description: 'Expert technical advice tailored to your specific application requirements.' },
+  { title: 'Reliable', description: 'Dependable products and services that ensure continuous operation.' },
+  { title: 'Fast', description: 'Quick turnaround times to minimize your system downtime.' },
+  { title: 'Global', description: 'Worldwide support network ready to assist wherever you are.' }
+];
 ---
 <Layout title={homePage?.seoTitle} description={homePage?.seoDescription}>
   <Header />
@@ -147,21 +162,13 @@ const missionDescription = homePage?.missionDescription || "Belief in the capabi
                 <div class="stat-number" data-target="30">0</div>
                 <div class="stat-label">Years of Experience</div>
             </div>
-            <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
-                <div class="stat-number" data-target="50">0</div>
-                <span class="stat-plus">+</span>
-                <div class="stat-label">Countries Served</div>
-            </div>
-            <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
-                <div class="stat-number" data-target="10000">0</div>
-                <span class="stat-plus">+</span>
-                <div class="stat-label">Global Installations</div>
-            </div>
-            <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
-                <div class="stat-number" data-target="100">0</div>
-                <span class="stat-plus">%</span>
-                <div class="stat-label">Quality Assured</div>
-            </div>
+            {stats.map((stat: any, index: number) => (
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay={(index + 1) * 100}>
+                    <div class="stat-number" data-target={stat.number}>0</div>
+                    {stat.suffix && <span class="stat-plus">{stat.suffix}</span>}
+                    <div class="stat-label">{stat.label}</div>
+                </div>
+            ))}
         </div>
     </section>
 
@@ -232,54 +239,22 @@ const missionDescription = homePage?.missionDescription || "Belief in the capabi
             <!-- Left Main Content -->
             <div class="why-choose-content">
                 <span class="kicker">SERVICES</span>
-                <h2 class="why-main-title">Comprehensive seal service for industrial facilities</h2>
-                <p class="why-main-desc">Production systems need to work safely, reliably, and with maximum
-                    cost-effectiveness. So it is good to have access to an expert and efficient partner. With Reliable
-                    Industries, we offer customized service programs and flexible service for seals and gaskets. The
-                    service portfolio extends from consulting and engineering to individually-tailored service
-                    contracts.</p>
+                <h2 class="why-main-title">{whyChooseUsTitle}</h2>
+                <p class="why-main-desc">{whyChooseUsDescription}</p>
 
                 <h3 class="why-sub-title">This makes Reliable Industries unique:</h3>
 
                 <div class="why-list">
-                    <div class="why-item">
-                        <div class="why-item-header">
-                            <span class="why-check-icon"></span>
-                            <span class="why-item-title">Specialist</span>
-                            <span class="why-arrow-icon">&#8594;</span>
+                    {features.map((feature: any) => (
+                        <div class="why-item">
+                            <div class="why-item-header">
+                                <span class="why-check-icon"></span>
+                                <span class="why-item-title">{feature.title}</span>
+                                <span class="why-arrow-icon">&#8594;</span>
+                            </div>
+                            <p class="why-item-desc">{feature.description}</p>
                         </div>
-                        <p class="why-item-desc">Reliable Industries is one of the world's leading system suppliers of
-                            sealing technology</p>
-                    </div>
-
-                    <div class="why-item">
-                        <div class="why-item-header">
-                            <span class="why-check-icon"></span>
-                            <span class="why-item-title">Know-how</span>
-                            <span class="why-arrow-icon">&#8594;</span>
-                        </div>
-                        <p class="why-item-desc">We understand the requirements of many different industries, and have
-                            in-depth knowledge of their varied processes</p>
-                    </div>
-
-                    <div class="why-item">
-                        <div class="why-item-header">
-                            <span class="why-check-icon"></span>
-                            <span class="why-item-title">Comprehensive</span>
-                            <span class="why-arrow-icon">&#8594;</span>
-                        </div>
-                        <p class="why-item-desc">Our product and service portfolio offers solutions for all tasks</p>
-                    </div>
-
-                    <div class="why-item">
-                        <div class="why-item-header">
-                            <span class="why-check-icon"></span>
-                            <span class="why-item-title">Professional</span>
-                            <span class="why-arrow-icon">&#8594;</span>
-                        </div>
-                        <p class="why-item-desc">A partner with application expertise and technical consultancy skills
-                        </p>
-                    </div>
+                    ))}
                 </div>
             </div>
 

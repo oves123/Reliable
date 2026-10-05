@@ -1,6 +1,10 @@
 ---
----
+import { sanityClient } from 'sanity:client';
+import groq from 'groq';
 
+const navData = await sanityClient.fetch(groq`*[_type == "navigation"][0]`);
+const menuItems = navData?.menuItems || [];
+---
     <!-- Elite UX: Preloader -->
     <div id="preloader">
         <div class="loader-spinner"></div>
@@ -60,145 +64,34 @@
             </button>
             <nav class="main-nav">
                 <ul>
-                    <li class="has-mega-menu">
-                        <a href="#" class="active">Products <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i></a>
-                        <div class="mega-menu">
-                            <div class="mega-menu-grid" style="grid-template-columns: 1fr;">
-                                <!-- Links Columns -->
-                                <div class="mega-menu-columns" style="gap: 3rem;">
-                                    <div>
-                                        <h4><i class="fas fa-cogs"></i> Mechanical Seal</h4>
-                                        <ul>
-                                            <li><a href="/products/multi-spring-series-seal">Multi Spring Series Seal</a></li>
-                                            <li><a href="/products/single-spring-series-seal">Single Spring Series Seal</a></li>
-                                            <li><a href="/products/dairy-seal">Dairy Seal</a></li>
-                                            <li><a href="/products/water-seal">Water Seal</a></li>
-                                            <li><a href="/products/cartridge-seal">Cartridge Seal</a></li>
-                                            <li><a href="/products/high-temp-seal">High Temp Seal</a></li>
-                                            <li><a href="/products/reactor-seal">Reactor Seal</a></li>
-                                            <li><a href="/products/agitator-seal">Agitator Seal</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h4><i class="fas fa-sync-alt"></i> Rotary Joints</h4>
-                                        <ul>
-                                            <li><a href="/products/water-rotary-joints">Water Rotary Joints</a></li>
-                                            <li><a href="/products/hot-oil-rotary-joints">Hot Oil Rotary Joints</a></li>
-                                            <li><a href="/products/air-rotary-joints">Air Rotary Joints</a></li>
-                                            <li><a href="/products/hydrolic-rotary-joints">Hydraulic Rotary Joints</a></li>
-                                            <li><a href="/products/steam-rotary-joints">Steam Rotary Joints</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h4><i class="fas fa-tools"></i> Seal Support System</h4>
-                                        <ul>
-                                            <li><a href="/products/thermosyphon">Thermosyphon</a></li>
-                                            <li><a href="/products/heat-exchanged-system">Heat Exchanged System</a></li>
-                                        </ul>
+                                        {menuItems.map((item: any) => (
+                        <li class="has-mega-menu">
+                            <a href={item.link} class={item.title === 'Products' ? 'active' : ''}>{item.title} <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i></a>
+                            <div class="mega-menu">
+                                <div class="mega-menu-grid" style={item.promo ? '' : 'grid-template-columns: 1fr;'}>
+                                    {item.promo && (
+                                        <div class="mega-menu-featured" style="background: linear-gradient(135deg, rgba(0, 159, 227, 0.1), rgba(0, 0, 0, 0.05)); border: 1px solid rgba(0, 0, 0, 0.1);">
+                                            <h3>{item.promo.title}</h3>
+                                            <p>{item.promo.description}</p>
+                                            <a href={item.promo.buttonUrl} class="btn-small" style="background: var(--color-primary-navy);">{item.promo.buttonText}</a>
+                                        </div>
+                                    )}
+                                    <div class="mega-menu-columns" style={item.promo ? '' : 'gap: 3rem;'}>
+                                        {item.columns?.map((col: any) => (
+                                            <div>
+                                                <h4>{col.columnTitle}</h4>
+                                                <ul>
+                                                    {col.links?.map((link: any) => (
+                                                        <li><a href={link.url}>{link.title}</a></li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                    <li class="has-mega-menu">
-                        <a href="#">Services <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i></a>
-                        <div class="mega-menu">
-                            <div class="mega-menu-grid">
-                                <!-- Featured Promo Column -->
-                                <div class="mega-menu-featured" style="background: linear-gradient(135deg, rgba(0, 159, 227, 0.1), rgba(0, 0, 0, 0.05)); border: 1px solid rgba(0, 0, 0, 0.1);">
-                                    <h3>Comprehensive Support</h3>
-                                    <p>From installation to predictive maintenance, our service team ensures your systems run perfectly.</p>
-                                    <a href="#" class="btn-small" style="background: var(--color-primary-navy);">View Service Plans</a>
-                                </div>
-                                
-                                <!-- Links Columns -->
-                                <div class="mega-menu-columns">
-                                    <div>
-                                        <h4><i class="fas fa-wrench"></i> Maintenance</h4>
-                                        <ul>
-                                            <li><a href="#">Repair & Refurbishment</a></li>
-                                            <li><a href="#">On-Site Installation</a></li>
-                                            <li><a href="#">Predictive Maintenance</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h4><i class="fas fa-graduation-cap"></i> Consulting</h4>
-                                        <ul>
-                                            <li><a href="#">Engineering Support</a></li>
-                                            <li><a href="#">Technical Training</a></li>
-                                            <li><a href="#">Failure Analysis</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="has-mega-menu">
-                        <a href="#">Industries <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i></a>
-                        <div class="mega-menu">
-                            <div class="mega-menu-grid">
-                                <!-- Featured Promo Column -->
-                                <div class="mega-menu-featured" style="background: linear-gradient(135deg, rgba(0, 159, 227, 0.1), rgba(0, 0, 0, 0.05)); border: 1px solid rgba(0, 0, 0, 0.1);">
-                                    <h3>Engineered for Oil & Gas</h3>
-                                    <p>Read our latest case study on how we eliminated leakage in extreme high-pressure pumping systems.</p>
-                                    <a href="#" class="btn-small" style="background: var(--color-primary-navy);">Read Case Study</a>
-                                </div>
-                                
-                                <!-- Links Columns -->
-                                <div class="mega-menu-columns">
-                                    <div>
-                                        <h4><i class="fas fa-industry"></i> Primary Sectors</h4>
-                                        <ul>
-                                            <li><a href="#">Oil & Gas Exploration</a></li>
-                                            <li><a href="#">Chemical Processing</a></li>
-                                            <li><a href="#">Pharmaceutical Labs</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h4><i class="fas fa-bolt"></i> Utilities & Energy</h4>
-                                        <ul>
-                                            <li><a href="#">Power Generation</a></li>
-                                            <li><a href="#">Water & Wastewater Systems</a></li>
-                                            <li><a href="#">Food & Beverage</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="has-mega-menu">
-                        <a href="#">Company <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i></a>
-                        <div class="mega-menu">
-                            <div class="mega-menu-grid">
-                                <!-- Featured Promo Column -->
-                                <div class="mega-menu-featured" style="background: linear-gradient(135deg, rgba(0, 159, 227, 0.1), rgba(0, 0, 0, 0.05)); border: 1px solid rgba(0, 0, 0, 0.1);">
-                                    <h3>Pioneers in Sealing</h3>
-                                    <p>Over 30 years of global leadership in industrial sealing technology and engineering excellence.</p>
-                                    <a href="#" class="btn-small" style="background: var(--color-primary-navy);">Our History</a>
-                                </div>
-                                
-                                <!-- Links Columns -->
-                                <div class="mega-menu-columns">
-                                    <div>
-                                        <h4><i class="fas fa-building"></i> About Us</h4>
-                                        <ul>
-                                            <li><a href="#">Corporate Profile</a></li>
-                                            <li><a href="#">Global Locations</a></li>
-                                            <li><a href="#">Certifications</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h4><i class="fas fa-users"></i> Careers</h4>
-                                        <ul>
-                                            <li><a href="#">Job Opportunities</a></li>
-                                            <li><a href="#">Working with Us</a></li>
-                                            <li><a href="#">Apprenticeships</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    ))}
                     <li>
                         <button class="search-trigger" id="search-trigger">
                             <i class="fas fa-search"></i>
