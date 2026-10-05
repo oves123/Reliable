@@ -2,17 +2,28 @@
 import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
-import products from '../../../data/products.json';
+import { sanityClient } from 'sanity:client';
+import groq from 'groq';
+import { urlFor } from '../../../utils/sanity';
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const products = await sanityClient.fetch(groq`*[_type == "product"]{
+    "slug": slug.current,
+    categorySlug,
+    category
+  }`);
   return products.map(product => ({
     params: { category: product.categorySlug, slug: product.slug },
-    props: { product },
+    props: { category: product.category, slug: product.slug },
   }));
 }
 
-const { product } = Astro.props;
-const categoryProducts = products.filter(p => p.category === product.category);
+const { category, slug } = Astro.props;
+const product = await sanityClient.fetch(groq`*[_type == "product" && slug.current == $slug][0]`, { slug });
+if (product.image) {
+  product.image = urlFor(product.image).url();
+}
+product.slug = product.slug?.current || product.slug;
 ---
 <Layout>
   <Header />

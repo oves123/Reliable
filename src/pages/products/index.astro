@@ -2,14 +2,28 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import products from '../../data/products.json';
+import { sanityClient } from 'sanity:client';
+import groq from 'groq';
+import { urlFor } from '../../utils/sanity';
+
+const products = await sanityClient.fetch(groq`*[_type == "product"]{
+  name,
+  "slug": slug.current,
+  category,
+  categorySlug,
+  image,
+  description,
+  specs,
+  features,
+  seal_types
+}`);
 
 const categories = [...new Set(products.map(p => p.category))].map(name => {
   const catProducts = products.filter(p => p.category === name);
   return {
     name,
     slug: catProducts[0].categorySlug,
-    image: catProducts[0].image
+    image: catProducts[0].image ? urlFor(catProducts[0].image).url() : ''
   };
 });
 ---

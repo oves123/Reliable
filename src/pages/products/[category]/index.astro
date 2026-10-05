@@ -2,9 +2,15 @@
 import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
-import products from '../../../data/products.json';
+import { sanityClient } from 'sanity:client';
+import groq from 'groq';
+import { urlFor } from '../../../utils/sanity';
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const products = await sanityClient.fetch(groq`*[_type == "product"]{
+    category,
+    categorySlug
+  }`);
   const categories = [...new Set(products.map(p => p.category))];
   return categories.map(cat => ({
     params: { category: products.find(p => p.category === cat).categorySlug },
@@ -13,7 +19,18 @@ export function getStaticPaths() {
 }
 
 const { categoryName } = Astro.props;
-const categoryProducts = products.filter(p => p.category === categoryName);
+const categoryProductsData = await sanityClient.fetch(groq`*[_type == "product" && category == $cat]{
+  name,
+  "slug": slug.current,
+  categorySlug,
+  image,
+  description
+}`, { cat: categoryName });
+
+const categoryProducts = categoryProductsData.map(p => ({
+  ...p,
+  image: p.image ? urlFor(p.image).url() : ''
+}));
 ---
 <Layout>
   <Header />
