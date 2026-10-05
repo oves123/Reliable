@@ -2,6 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { sanityClient } from 'sanity:client';
+import groq from 'groq';
+
+const siteSettings = await sanityClient.fetch(groq`*[_type == "siteSettings"][0]`);
+
+const address = siteSettings?.address || "AF-02, 03, 04 Saraf Kaskar Ind. Prem Co-op. Soc. Ltd.,\nS.V.Road, Oshiwara, Jogeshwari (W),\nMumbai - 400102";
+const email = siteSettings?.email || "info@reliableseal.com";
+const phoneNumbers = siteSettings?.phoneNumbers || ["+91- 78880 65557", "+91- 78880 65558", "+91- 78880 65559"];
 ---
 
 <Layout>
@@ -34,7 +42,7 @@ import Footer from '../components/Footer.astro';
                 </div>
                 <div class="info-text">
                   <h3>Headquarters</h3>
-                  <p>AF-02, 03, 04 Saraf Kaskar Ind. Prem Co-op. Soc. Ltd.,<br>S.V.Road, Oshiwara, Jogeshwari (W),<br>Mumbai - 400102</p>
+                  <p set:html={address.replace(/\n/g, '<br>')}></p>
                 </div>
               </div>
               
@@ -44,7 +52,7 @@ import Footer from '../components/Footer.astro';
                 </div>
                 <div class="info-text">
                   <h3>Email Us</h3>
-                  <p><a href="mailto:info@reliableseal.com">info@reliableseal.com</a><br>sales@reliableseal.com</p>
+                  <p><a href={`mailto:${email}`}>{email}</a></p>
                 </div>
               </div>
               
@@ -54,7 +62,14 @@ import Footer from '../components/Footer.astro';
                 </div>
                 <div class="info-text">
                   <h3>Call Us</h3>
-                  <p>+91- 78880 65557<br>+91- 78880 65558<br>+91- 78880 65559</p>
+                  <p>
+                      {phoneNumbers.map((phone: string, idx: number) => (
+                          <Fragment key={idx}>
+                              {phone}
+                              {idx < phoneNumbers.length - 1 && <br />}
+                          </Fragment>
+                      ))}
+                  </p>
                 </div>
               </div>
             </div>

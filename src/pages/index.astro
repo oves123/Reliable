@@ -2,8 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { sanityClient } from 'sanity:client';
+import groq from 'groq';
+
+const homePage = await sanityClient.fetch(groq`*[_type == "homePage"][0]`);
+
+const heroSubtitle = homePage?.heroSubtitle || "RELY ON EXCELLENCE";
+const heroTitle = homePage?.heroTitle || "High-Performance<br>Mechanical Seals.";
+const heroDescription = homePage?.heroDescription || "Providing reliable sealing solutions for industrial rotating equipment worldwide. We offer extensive support in the field of sealing technology as a planning partner, supplier, and service partner.";
+const missionSubtitle = homePage?.missionSubtitle || "OUR MISSION";
+const missionTitle = homePage?.missionTitle || "Continuous innovations in sealing applications.";
+const missionDescription = homePage?.missionDescription || "Belief in the capabilities of our people to rapidly transfer ideas to reality and a firm faith in promising leak-free, maintenance-free, high quality standard products.";
 ---
-<Layout>
+<Layout title={homePage?.seoTitle} description={homePage?.seoDescription}>
   <Header />
       <!-- Hero Section -->
     <section class="hero carousel-container">
@@ -22,13 +33,12 @@ import Footer from '../components/Footer.astro';
                 <div class="container" style="position: relative; z-index: 3;">
                     <div class="hero-content" style="max-width: 900px;">
                         <span class="hero-kicker"
-                            style="font-size: 0.75rem; margin-bottom: 0.75rem; display: block; color: var(--color-primary-navy);">RELY
-                            ON EXCELLENCE</span>
+                            style="font-size: 0.75rem; margin-bottom: 0.75rem; display: block; color: var(--color-primary-navy);">{heroSubtitle}</span>
                         <h1 class="hero-title"
-                            style="font-size: clamp(2.5rem, 4vw, 3.2rem); max-width: 100%; margin-bottom: 1rem; line-height: 1.1;">
-                            High-Performance<br>Mechanical Seals.</h1>
+                            style="font-size: clamp(2.5rem, 4vw, 3.2rem); max-width: 100%; margin-bottom: 1rem; line-height: 1.1;" set:html={heroTitle}>
+                        </h1>
                         <p class="hero-subtitle"
-                            style="max-width: 600px; margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.5;">Providing reliable sealing solutions for industrial rotating equipment worldwide. We offer extensive support in the field of sealing technology as a planning partner, supplier, and service partner.</p>
+                            style="max-width: 600px; margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.5;">{heroDescription}</p>
                         <div class="hero-actions" style="margin-bottom: 2rem;">
                             <a href="#" class="btn btn-primary"
                                 style="background-color: var(--color-primary-navy); border-color: var(--color-primary-navy); border-radius: 0; padding: 0.8rem 2.5rem; font-size: 0.95rem;">Learn
@@ -95,15 +105,12 @@ import Footer from '../components/Footer.astro';
                 <div class="container">
                     <div class="hero-content" style="max-width: 900px;">
                         <span class="hero-kicker"
-                            style="font-size: 0.75rem; margin-bottom: 0.75rem; display: block; color: var(--color-primary-navy);">OUR
-                            MISSION</span>
+                            style="font-size: 0.75rem; margin-bottom: 0.75rem; display: block; color: var(--color-primary-navy);">{missionSubtitle}</span>
                         <h1 class="hero-title"
-                            style="font-size: clamp(2.5rem, 4vw, 3.2rem); max-width: 100%; margin-bottom: 1rem; line-height: 1.1;">
-                            Continuous innovations<br>in sealing applications.</h1>
+                            style="font-size: clamp(2.5rem, 4vw, 3.2rem); max-width: 100%; margin-bottom: 1rem; line-height: 1.1;" set:html={missionTitle}>
+                        </h1>
                         <p class="hero-subtitle"
-                            style="max-width: 600px; margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.5;">Belief
-                            in the capabilities of our people to rapidly transfer ideas to reality and a firm faith in
-                            promising leak-free, maintenance-free, high quality standard products.</p>
+                            style="max-width: 600px; margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.5;">{missionDescription}</p>
                         <div class="hero-actions" style="margin-bottom: 2rem;">
                             <a href="#" class="btn btn-primary"
                                 style="background-color: var(--color-primary-navy); border-color: var(--color-primary-navy); border-radius: 0; padding: 0.8rem 2.5rem; font-size: 0.95rem;">Who

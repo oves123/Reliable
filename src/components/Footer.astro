@@ -1,4 +1,12 @@
 ---
+import { sanityClient } from 'sanity:client';
+import groq from 'groq';
+
+const siteSettings = await sanityClient.fetch(groq`*[_type == "siteSettings"][0]`);
+
+const address = siteSettings?.address || "AF-02, 03, 04 Saraf Kaskar Ind. Prem Co-op. Soc. Ltd.,\nS.V.Road, Oshiwara, Jogeshwari (W),\nMumbai - 400102";
+const email = siteSettings?.email || "info@reliableseal.com";
+const phoneNumbers = siteSettings?.phoneNumbers || ["+91- 78880 65557", "+91- 78880 65558", "+91- 78880 65559"];
 ---
     <!-- Footer -->
     <footer class="main-footer">
@@ -15,9 +23,16 @@
                     <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
                 <div class="footer-contact-info">
-                    <p style="align-items: flex-start;"><i class="fas fa-map-marker-alt" style="margin-top: 4px;"></i> <span>AF-02, 03, 04 Saraf Kaskar Ind. Prem Co-op. Soc. Ltd.,<br>S.V.Road, Oshiwara, Jogeshwari (W),<br>Mumbai - 400102</span></p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@reliableseal.com">info@reliableseal.com</a></p>
-                    <p style="align-items: flex-start;"><i class="fas fa-phone-alt" style="margin-top: 4px;"></i> <span>+91- 78880 65557<br>+91- 78880 65558<br>+91- 78880 65559</span></p>
+                    <p style="align-items: flex-start;"><i class="fas fa-map-marker-alt" style="margin-top: 4px;"></i> <span set:html={address.replace(/\n/g, '<br>')}></span></p>
+                    <p><i class="fas fa-envelope"></i> <a href={`mailto:${email}`}>{email}</a></p>
+                    <p style="align-items: flex-start;"><i class="fas fa-phone-alt" style="margin-top: 4px;"></i> <span>
+                        {phoneNumbers.map((phone: string, idx: number) => (
+                            <Fragment key={idx}>
+                                {phone}
+                                {idx < phoneNumbers.length - 1 && <br />}
+                            </Fragment>
+                        ))}
+                    </span></p>
                 </div>
             </div>
             <div class="footer-col">
