@@ -24,6 +24,18 @@ if (product.image) {
   product.image = urlFor(product.image).url();
 }
 product.slug = product.slug?.current || product.slug;
+
+const categoryProductsData = await sanityClient.fetch(groq`*[_type == "product" && category == $cat]{
+  name,
+  "slug": slug.current,
+  categorySlug,
+  image
+}`, { cat: category });
+
+const categoryProducts = categoryProductsData.map((p: any) => ({
+  ...p,
+  image: p.image ? urlFor(p.image).url() : ''
+}));
 ---
 <Layout>
   <Header />
