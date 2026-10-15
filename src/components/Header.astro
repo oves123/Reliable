@@ -1,9 +1,112 @@
 ---
 import { sanityClient } from 'sanity:client';
 import groq from 'groq';
+import productsData from '../data/products.json';
 
 const navData = await sanityClient.fetch(groq`*[_type == "navigation"][0]`);
 const menuItems = navData?.menuItems || [];
+
+// Group products for the detailed Sealmatic-style mega menu
+const productGroups = [
+  {
+    id: 'cartridge',
+    title: 'Standard Cartridge Seals',
+    slug: 'cartridge-seal',
+    products: productsData.filter(p => p.categorySlug === 'cartridge-seal').slice(0, 9)
+  },
+  {
+    id: 'single-spring',
+    title: 'Single Spring Series Seals',
+    slug: 'single-spring-series-seal',
+    products: productsData.filter(p => p.categorySlug === 'single-spring-series-seal').slice(0, 9)
+  },
+  {
+    id: 'multi-spring',
+    title: 'Multi Spring Series Seals',
+    slug: 'multi-spring-series-seal',
+    products: productsData.filter(p => p.categorySlug === 'multi-spring-series-seal').slice(0, 9)
+  },
+  {
+    id: 'water-rotary',
+    title: 'Water Rotary Joints',
+    slug: 'water-rotary-joints',
+    products: productsData.filter(p => p.categorySlug === 'water-rotary-joints').slice(0, 9)
+  },
+  {
+    id: 'hot-oil-rotary',
+    title: 'Hot Oil & Steam Rotary Joints',
+    slug: 'hot-oil-rotary-joints',
+    products: productsData.filter(p => p.categorySlug === 'hot-oil-rotary-joints' || p.categorySlug === 'steam-rotary-joints').slice(0, 9)
+  },
+  {
+    id: 'hydraulic-rotary',
+    title: 'Hydraulic Rotary Joints',
+    slug: 'hydrolic-rotary-joints',
+    products: productsData.filter(p => p.categorySlug === 'hydrolic-rotary-joints').slice(0, 9)
+  },
+  {
+    id: 'reactor-agitator',
+    title: 'Reactor & Agitator Seals',
+    slug: 'reactor-seal',
+    products: productsData.filter(p => p.categorySlug === 'reactor-seal' || p.categorySlug === 'agitator-seal').slice(0, 9)
+  },
+  {
+    id: 'high-temp',
+    title: 'High Temp Seals',
+    slug: 'high-temp-seal',
+    products: productsData.filter(p => p.categorySlug === 'high-temp-seal').slice(0, 9)
+  },
+  {
+    id: 'support-systems',
+    title: 'Supply Systems & Heat Exchangers',
+    slug: 'thermosyphon',
+    products: productsData.filter(p => p.categorySlug === 'thermosyphon' || p.categorySlug === 'heat-exchanged-system').slice(0, 9)
+  },
+  {
+    id: 'dairy-water',
+    title: 'Dairy & Water Bellow Seals',
+    slug: 'water-seal',
+    products: productsData.filter(p => p.categorySlug === 'water-seal' || p.categorySlug === 'dairy-seal').slice(0, 9)
+  }
+];
+
+// Helper to extract cleanly formatted specs for mega-menu cards
+function getProductSpecs(prod: any) {
+  const specs: { label: string; value: string }[] = [];
+  const raw = prod.specs || {};
+
+  const rawSize = raw.Size || prod.Size;
+  if (rawSize) {
+    const cleanedSize = String(rawSize)
+      .replace(/--/g, ' - ')
+      .replace(/- -/g, ' - ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    specs.push({ label: 'Size', value: cleanedSize });
+  }
+
+  const rawTemp = raw.Temp || prod.Temp;
+  if (rawTemp) {
+    const cleanedTemp = String(rawTemp)
+      .replace(/\bTO\b/gi, 'to')
+      .replace(/\s+/g, ' ')
+      .trim();
+    specs.push({ label: 'Temp', value: cleanedTemp });
+  }
+
+  if (specs.length < 2) {
+    const rawPress = raw.Press || prod.Press || raw.Prees || prod.Prees;
+    if (rawPress) {
+      specs.push({ label: 'Press', value: String(rawPress).trim() });
+    }
+  }
+
+  if (specs.length === 0 && (raw.Capacity || prod.Capacity)) {
+    specs.push({ label: 'Cap', value: String(raw.Capacity || prod.Capacity).trim() });
+  }
+
+  return specs;
+}
 ---
     <!-- Elite UX: Preloader -->
     <div id="preloader">
@@ -39,7 +142,7 @@ const menuItems = navData?.menuItems || [];
                 <span>Reliable Industries Group</span>
             </div>
             <div class="utility-right">
-                <a href="#">Download Center</a>
+                <a href="/brochures/product_brochure.pdf" download="Reliable_Product_Brochure.pdf">Download Center</a>
                 <a href="/contact">Contact</a>
                 <a href="#">myReliable Portal ↗</a>
                 <a href="#">Language: EN</a>
@@ -64,32 +167,95 @@ const menuItems = navData?.menuItems || [];
             </button>
             <nav class="main-nav">
                 <ul>
-                                        {menuItems.map((item: any) => (
+                    {menuItems.map((item: any) => (
                         <li class="has-mega-menu">
-                            <a href={item.link} class={item.title === 'Products' ? 'active' : ''}>{item.title} <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i></a>
-                            <div class="mega-menu">
-                                <div class="mega-menu-grid" style={item.promo ? '' : 'grid-template-columns: 1fr;'}>
-                                    {item.promo && (
-                                        <div class="mega-menu-featured" style="background: linear-gradient(135deg, rgba(0, 159, 227, 0.1), rgba(0, 0, 0, 0.05)); border: 1px solid rgba(0, 0, 0, 0.1);">
-                                            <h3>{item.promo.title}</h3>
-                                            <p>{item.promo.description}</p>
-                                            <a href={item.promo.buttonUrl} class="btn-small" style="background: var(--color-primary-navy);">{item.promo.buttonText}</a>
+                            <a href={item.link} class={item.title === 'Products' ? 'active' : ''}>
+                                {item.title} <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i>
+                            </a>
+                            {item.title === 'Products' ? (
+                                <div class="mega-menu products-mega-menu">
+                                    <div class="products-mega-layout">
+                                        <!-- Left Categories Sidebar -->
+                                        <div class="products-mega-sidebar">
+                                            {productGroups.map((group, gIdx) => (
+                                                <a href={`/products/${group.slug}`} 
+                                                   class={`cat-tab-btn ${gIdx === 0 ? 'active' : ''}`}
+                                                   data-group-id={group.id}
+                                                   onclick={`switchMegaTab('${group.id}', this, event)`}
+                                                   onmouseover={`switchMegaTab('${group.id}', this, event)`}>
+                                                    <span>{group.title}</span>
+                                                    <i class="fas fa-chevron-right"></i>
+                                                </a>
+                                            ))}
                                         </div>
-                                    )}
-                                    <div class="mega-menu-columns" style={item.promo ? '' : 'gap: 3rem;'}>
-                                        {item.columns?.map((col: any) => (
-                                            <div>
-                                                <h4>{col.columnTitle}</h4>
-                                                <ul>
-                                                    {col.links?.map((link: any) => (
-                                                        <li><a href={link.url}>{link.title}</a></li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        ))}
+                                        <!-- Right Products Detail Grid Panel -->
+                                        <div class="products-mega-panel">
+                                            {productGroups.map((group, gIdx) => (
+                                                <div class="group-panel-content" id={`panel-${group.id}`} style={gIdx === 0 ? 'display: block;' : 'display: none;'}>
+                                                    <div class="products-mega-grid">
+                                                        {group.products.map((prod: any) => {
+                                                            const specs = getProductSpecs(prod);
+                                                            return (
+                                                                <a href={`/products/${prod.categorySlug}/${prod.slug}`} class="mega-product-item">
+                                                                    <span class="mega-product-name">{prod.name}</span>
+                                                                    <div class="mega-product-specs">
+                                                                        {specs.length > 0 ? (
+                                                                            specs.slice(0, 2).map((s) => (
+                                                                                <span class="spec-badge">
+                                                                                    <span class="spec-label">{s.label}:</span>
+                                                                                    <span class="spec-val">{s.value}</span>
+                                                                                </span>
+                                                                            ))
+                                                                        ) : (
+                                                                            <span class="spec-badge">
+                                                                                <span class="spec-val">{prod.category || 'Standard'}</span>
+                                                                            </span>
+                                                                        )}
+                                                                    </div>
+                                                                </a>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                    <div class="products-mega-bottom-bar">
+                                                        <a href={`/products/${group.slug}`} class="cat-link">
+                                                            <span>Explore all {group.title}</span>
+                                                            <i class="fas fa-arrow-right"></i>
+                                                        </a>
+                                                        <a href="/brochures/product_brochure.pdf" download="Reliable_Product_Brochure.pdf" class="catalogue-btn">
+                                                            <i class="fas fa-file-pdf"></i>
+                                                            <span>Download Technical Catalogue</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            ) : (
+                                <div class="mega-menu">
+                                    <div class="mega-menu-grid" style={item.promo ? '' : 'grid-template-columns: 1fr;'}>
+                                        {item.promo && (
+                                            <div class="mega-menu-featured" style="background: linear-gradient(135deg, rgba(0, 159, 227, 0.1), rgba(0, 0, 0, 0.05)); border: 1px solid rgba(0, 0, 0, 0.1);">
+                                                <h3>{item.promo.title}</h3>
+                                                <p>{item.promo.description}</p>
+                                                <a href={item.promo.buttonUrl} class="btn-small" style="background: var(--color-primary-navy);">{item.promo.buttonText}</a>
+                                            </div>
+                                        )}
+                                        <div class="mega-menu-columns" style={item.promo ? '' : 'gap: 3rem;'}>
+                                            {item.columns?.map((col: any) => (
+                                                <div>
+                                                    <h4>{col.columnTitle}</h4>
+                                                    <ul>
+                                                        {col.links?.map((link: any) => (
+                                                            <li><a href={link.url}>{link.title}</a></li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </li>
                     ))}
                     <li>
@@ -102,10 +268,34 @@ const menuItems = navData?.menuItems || [];
         </div>
     </header>
 
-    <!-- Floating Contact Button -->
-    <a href="/contact" class="floating-contact">
-        <i class="fas fa-envelope"></i> <span class="text">Get a Quote</span>
-    </a>
+    <!-- Global Floating Actions Dock (WhatsApp, Call, Quote) -->
+    <div class="floating-actions-dock">
+        <a href="https://wa.me/917888065557?text=Hello%20Reliable%20Industries%2C%20I%20have%20an%20inquiry%20about%20your%20sealing%20solutions." target="_blank" rel="noopener noreferrer" class="floating-action-btn whatsapp-btn" aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <span class="label-text">WhatsApp</span>
+        </a>
+        <a href="tel:+917888065557" class="floating-action-btn call-btn" aria-label="Call Us">
+            <i class="fas fa-phone-alt"></i>
+            <span class="label-text">Call Us</span>
+        </a>
+        <a href="/contact" class="floating-action-btn quote-btn" aria-label="Get a Quote">
+            <i class="fas fa-envelope"></i>
+            <span class="label-text">Get a Quote</span>
+        </a>
+    </div>
+
+    <script is:inline>
+    function switchMegaTab(groupId, el, e) {
+        if (e && window.innerWidth <= 992 && e.type === 'click') {
+            e.preventDefault();
+        }
+        document.querySelectorAll('.cat-tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.group-panel-content').forEach(p => p.style.display = 'none');
+        if (el) el.classList.add('active');
+        const panel = document.getElementById('panel-' + groupId);
+        if (panel) panel.style.display = 'block';
+    }
+    </script>
 
     <!-- Flyout Search Modal -->
     <div class="search-modal" id="search-modal">

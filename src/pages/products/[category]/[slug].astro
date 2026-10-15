@@ -18,12 +18,48 @@ export async function getStaticPaths() {
   }));
 }
 
+import localProducts from '../../../data/products.json';
+
 const { category, slug } = Astro.props;
 const product = await sanityClient.fetch(groq`*[_type == "product" && slug.current == $slug][0]`, { slug });
 if (product.image) {
   product.image = urlFor(product.image).url();
 }
 product.slug = product.slug?.current || product.slug;
+
+// Find matching product in local dataset for technical diagrams & extra images
+const localProd = (localProducts as any[]).find(p => p.slug === slug || p.slug === product?.slug || p.name === product?.name);
+
+// Collect 2 to 3 gallery images (original photo + technical diagram / graphic)
+const galleryImages: { url: string; label: string; type: string }[] = [];
+if (product.image) {
+  galleryImages.push({ url: product.image, label: 'Product Photo', type: 'photo' });
+}
+if (localProd) {
+  if (localProd.image && !galleryImages.some(img => img.url === localProd.image)) {
+    galleryImages.push({ url: localProd.image, label: 'Main View', type: 'photo' });
+  }
+  if (localProd.images && Array.isArray(localProd.images)) {
+    localProd.images.forEach((imgSrc: string, i: number) => {
+      const fullPath = imgSrc.startsWith('/') ? imgSrc : '/' + imgSrc;
+      if (!galleryImages.some(img => img.url === fullPath)) {
+        const isDiagram = fullPath.includes('_gr') || fullPath.includes('diagram');
+        galleryImages.push({
+          url: fullPath,
+          label: isDiagram ? 'Technical Diagram / Cutaway' : `Engineering View ${i + 1}`,
+          type: isDiagram ? 'diagram' : 'photo'
+        });
+      }
+    });
+  }
+}
+if (galleryImages.length === 1) {
+  galleryImages.push({
+    url: '/images/engineering_cad.jpg',
+    label: 'Technical Schematic / CAD',
+    type: 'diagram'
+  });
+}
 
 const categoryProductsData = await sanityClient.fetch(groq`*[_type == "product" && category == $cat]{
   name,
@@ -39,18 +75,18 @@ const categoryProducts = categoryProductsData.map((p: any) => ({
 ---
 <Layout>
   <Header />
-  <section class="page-title" style="background-color: #001a3b; padding: 15px 0; color: white;">
+  <section class="page-title" style="background-color: #001a3b; padding: 25px 0; color: white;">
       <div class="container">
-          <h1 style="font-size: 2.2rem; font-weight: 700; margin: 0 0 5px 0;">{product.name}</h1>
-          <div style="color: #009fe3; font-weight: 500;">
-              <a href="/" style="color: white; text-decoration: none;">Home</a> <span style="margin: 0 10px;">/</span>
-              <a href={`/products/${product.categorySlug}`} style="color: white; text-decoration: none;">{product.category}</a> <span style="margin: 0 10px;">/</span>
-              <span>{product.name}</span>
+          <h1 style="font-size: 2.2rem; font-weight: 700; margin: 0 0 8px 0;">{product.name}</h1>
+          <div style="color: #009fe3; font-weight: 500; font-size: 0.95rem;">
+              <a href="/" style="color: #e2e8f0; text-decoration: none;">Home</a> <span style="margin: 0 10px; color: #718096;">/</span>
+              <a href={`/products/${product.categorySlug}`} style="color: #e2e8f0; text-decoration: none;">{product.category}</a> <span style="margin: 0 10px; color: #718096;">/</span>
+              <span style="color: #009fe3;">{product.name}</span>
           </div>
       </div>
   </section>
 
-  <section class="product-details" style="padding: 20px 0; background: #fdfdfd;">
+  <section class="product-details" style="padding: 30px 0 60px; background: #fdfdfd;">
       <div class="container">
           <div class="product-grid">
               
@@ -59,10 +95,10 @@ const categoryProducts = categoryProductsData.map((p: any) => ({
                   <div class="category-nav" style="background: white; border: 1px solid #eaeaea; border-radius: 8px; padding: 25px; margin-bottom: 30px;">
                       <h3 style="font-size: 1.25rem; font-weight: 700; color: #001a3b; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #009fe3;">{product.category}</h3>
                       <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-                          {categoryProducts.map(p => (
+                          {categoryProducts.map((p: any) => (
                               <li>
                                   <a href={`/products/${p.categorySlug}/${p.slug}`} 
-                                     style={`display: block; padding: 10px 15px; border-radius: 4px; text-decoration: none; font-weight: 500; ${p.slug === product.slug ? 'background: #009fe3; color: white;' : 'background: #f4f5f8; color: #333;'}`}>
+                                     style={`display: block; padding: 10px 15px; border-radius: 4px; text-decoration: none; font-weight: 500; font-size: 0.92rem; transition: all 0.2s; ${p.slug === product.slug ? 'background: #009fe3; color: white;' : 'background: #f4f5f8; color: #333;'}`}>
                                       {p.name}
                                   </a>
                               </li>
@@ -71,12 +107,13 @@ const categoryProducts = categoryProductsData.map((p: any) => ({
                   </div>
 
                   <div class="brochure-box" style="background: white; border: 1px solid #eaeaea; padding: 25px; border-radius: 8px; text-align: center; margin-bottom: 30px;">
-          <i class="fas fa-file-pdf" style="font-size: 2.5rem; color: #e2574c; margin-bottom: 15px;"></i>
-          <h3 style="font-size: 1.25rem; font-weight: 700; color: #001a3b; margin-bottom: 10px;">Product Brochure</h3>
-          <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">Download the full technical specifications and dimensions.</p>
-          <a href="/brochures/product_brochure.pdf" download="Reliable_Product_Brochure.pdf" style="display: block; padding: 12px; background: #001a3b; color: white; border-radius: 5px; font-weight: 600; text-decoration: none; transition: background 0.3s;" onmouseover="this.style.background='#009fe3'" onmouseout="this.style.background='#001a3b'">Download PDF</a>
-      </div>
-      <div class="contact-box" style="background: #001a3b; color: white; padding: 30px; border-radius: 8px; text-align: center;">
+                      <i class="fas fa-file-pdf" style="font-size: 2.5rem; color: #e2574c; margin-bottom: 15px;"></i>
+                      <h3 style="font-size: 1.25rem; font-weight: 700; color: #001a3b; margin-bottom: 10px;">Product Brochure</h3>
+                      <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">Download the full technical specifications and dimensions.</p>
+                      <a href="/brochures/product_brochure.pdf" download="Reliable_Product_Brochure.pdf" style="display: block; padding: 12px; background: #001a3b; color: white; border-radius: 5px; font-weight: 600; text-decoration: none; transition: background 0.3s;" onmouseover="this.style.background='#009fe3'" onmouseout="this.style.background='#001a3b'">Download PDF</a>
+                  </div>
+
+                  <div class="contact-box" style="background: #001a3b; color: white; padding: 30px; border-radius: 8px; text-align: center;">
                       <i class="fas fa-headset" style="font-size: 3rem; color: #009fe3; margin-bottom: 20px;"></i>
                       <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px;">Need Technical Support?</h3>
                       <p style="color: #a0aec0; margin-bottom: 20px; font-size: 0.95rem;">Contact our engineering team for custom solutions.</p>
@@ -87,12 +124,37 @@ const categoryProducts = categoryProductsData.map((p: any) => ({
               <!-- Main Content -->
               <div class="content">
                   
-                  <!-- Product Image Zoom -->
-                  <div class="zoom-container" style="text-align: center; margin-bottom: 40px; background: #f9f9f9; border-radius: 8px; overflow: hidden; position: relative; cursor: crosshair; padding: 20px;">
-                      <img id="product-img" src={product.image} alt={product.name} style="width: 100%; height: auto; max-height: 550px; object-fit: contain; display: block; margin: 0 auto; transition: transform 0.1s ease-out; transform-origin: center center; mix-blend-mode: multiply;">
+                  <!-- Product Image Zoom & Multi-Image Gallery Switcher (PDF Page 9) -->
+                  <div class="gallery-wrapper" style="margin-bottom: 35px;">
+                      <div class="zoom-container" style="text-align: center; background: #f9f9f9; border-radius: 8px; overflow: hidden; position: relative; cursor: crosshair; padding: 25px; border: 1px solid #edf1f4;">
+                          <img id="product-img" src={galleryImages[0].url} alt={product.name} style="width: 100%; height: auto; max-height: 480px; object-fit: contain; display: block; margin: 0 auto; transition: transform 0.1s ease-out; transform-origin: center center; mix-blend-mode: multiply;">
+                      </div>
+
+                      {galleryImages.length > 1 && (
+                          <div class="gallery-thumbnails" style="display: flex; gap: 12px; margin-top: 14px; justify-content: center; flex-wrap: wrap;">
+                              {galleryImages.map((img, idx) => (
+                                  <button type="button" 
+                                          class={`thumb-btn ${idx === 0 ? 'active' : ''}`}
+                                          onclick={`switchGalleryImage('${img.url}', this)`}
+                                          style={`display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: white; border: 2px solid ${idx === 0 ? '#009fe3' : '#e2e8f0'}; border-radius: 6px; cursor: pointer; transition: all 0.2s;`}>
+                                      <i class={img.type === 'diagram' ? 'fas fa-drafting-compass' : 'fas fa-camera'} style="color: #009fe3; font-size: 0.95rem;"></i>
+                                      <span style="font-size: 0.85rem; font-weight: 600; color: #001a3b;">{img.label}</span>
+                                  </button>
+                              ))}
+                          </div>
+                      )}
                   </div>
                   
                   <script is:inline>
+                      function switchGalleryImage(src, btn) {
+                          const img = document.getElementById('product-img');
+                          if (img) img.src = src;
+                          document.querySelectorAll('.thumb-btn').forEach(b => {
+                              b.style.borderColor = '#e2e8f0';
+                          });
+                          if (btn) btn.style.borderColor = '#009fe3';
+                      }
+
                       document.addEventListener('DOMContentLoaded', () => {
                           const container = document.querySelector('.zoom-container');
                           const img = document.getElementById('product-img');
@@ -100,12 +162,11 @@ const categoryProducts = categoryProductsData.map((p: any) => ({
                           if(container && img) {
                               container.addEventListener('mousemove', (e) => {
                                   const rect = container.getBoundingClientRect();
-                                  
                                   const x = (e.clientX - rect.left) / rect.width;
                                   const y = (e.clientY - rect.top) / rect.height;
 
                                   img.style.transformOrigin = `${x * 100}% ${y * 100}%`;
-                                  img.style.transform = 'scale(2.5)';
+                                  img.style.transform = 'scale(2.2)';
                               });
 
                               container.addEventListener('mouseleave', () => {
@@ -116,20 +177,20 @@ const categoryProducts = categoryProductsData.map((p: any) => ({
                       });
                   </script>
                   
-                  <h2 style="font-size: 2rem; font-weight: 700; color: #001a3b; margin-bottom: 20px;">Overview</h2>
-                  <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 40px;">
+                  <h2 style="font-size: 1.8rem; font-weight: 700; color: #001a3b; margin-bottom: 15px;">Overview</h2>
+                  <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 35px;">
                       {product.description}
                   </p>
                   
                   <div class="specs-grid">
                       <div>
-                          <h3 style="font-size: 1.5rem; font-weight: 700; color: #001a3b; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                          <h3 style="font-size: 1.35rem; font-weight: 700; color: #001a3b; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
                               <i class="fas fa-check-circle" style="color: #009fe3;"></i> Key Features
                           </h3>
-                          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
-                              {product.features.map(f => (
-                                  <li style="display: flex; align-items: flex-start; gap: 10px; color: #555;">
-                                      <i class="fas fa-check" style="color: #009fe3; margin-top: 5px;"></i>
+                          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                              {product.features.map((f: string) => (
+                                  <li style="display: flex; align-items: flex-start; gap: 12px; color: #4a5568; font-size: 0.95rem; line-height: 1.5; background: #fbfcfd; padding: 12px 14px; border-radius: 6px; border: 1px solid #edf2f7;">
+                                      <i class="fas fa-check-circle" style="color: #009fe3; margin-top: 3px; font-size: 1rem; flex-shrink: 0;"></i>
                                       <span>{f}</span>
                                   </li>
                               ))}

@@ -195,7 +195,7 @@ const features = homePage?.features || [
                     <div class="product-info">
                         <h3>Mechanical Seals</h3>
                         <p>High-end standard and customized seals for pumps, agitators, and compressors.</p>
-                        <a href="#" class="learn-more">Learn more <span class="arrow">&#8594;</span></a>
+                        <a href="/products/multi-spring-series-seal" class="learn-more">Learn more <span class="arrow">&#8594;</span></a>
                     </div>
                 </div>
                 <!-- Product Card 2 -->
@@ -206,18 +206,18 @@ const features = homePage?.features || [
                     <div class="product-info">
                         <h3>Seal Supply Systems</h3>
                         <p>State-of-the-art systems to ensure optimal operating conditions for your seals.</p>
-                        <a href="#" class="learn-more">Learn more <span class="arrow">&#8594;</span></a>
+                        <a href="/products/thermosyphon" class="learn-more">Learn more <span class="arrow">&#8594;</span></a>
                     </div>
                 </div>
-                <!-- Product Card 3 -->
+                <!-- Product Card 3: Rotary Joints (Replaces Magnetic Couplings) -->
                 <div class="product-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="product-image">
-                        <img src="images/product_seal_1_1790081847592.jpg" alt="Magnetic Couplings">
+                        <img src="images/sealproduct/waterrotatingunion.jpg" alt="Rotary Joints" style="object-fit: contain; padding: 10px;">
                     </div>
                     <div class="product-info">
-                        <h3>Magnetic Couplings</h3>
-                        <p>Hermetically sealed, leak-free power transmission for hazardous environments.</p>
-                        <a href="#" class="learn-more">Learn more <span class="arrow">&#8594;</span></a>
+                        <h3>Rotary Joints</h3>
+                        <p>Reliable monoflow and duoflow rotating unions engineered for water, steam, hot oil, and hydraulic applications.</p>
+                        <a href="/products/water-rotary-joints" class="learn-more">Learn more <span class="arrow">&#8594;</span></a>
                     </div>
                 </div>
                 <!-- Highlight Card -->
@@ -250,7 +250,6 @@ const features = homePage?.features || [
                             <div class="why-item-header">
                                 <span class="why-check-icon"></span>
                                 <span class="why-item-title">{feature.title}</span>
-                                <span class="why-arrow-icon">&#8594;</span>
                             </div>
                             <p class="why-item-desc">{feature.description}</p>
                         </div>
@@ -282,23 +281,24 @@ const features = homePage?.features || [
             </div>
 
             <div class="industries-split-new">
-            <div class="industry-image-left">
-                <div class="industry-image-track" id="ind-image-track">
-                    <!-- Images populated by JS -->
-                </div>
-                <div class="industry-nav-buttons">
-                    <button class="nav-btn prev" id="industry-prev-btn">&#8592;</button>
-                    <button class="nav-btn next" id="industry-next-btn">&#8594;</button>
-                </div>
-            </div>
-            <div class="industry-content-right">
-                <div class="industry-text-window">
-                    <div class="industry-text-track" id="ind-text-track">
-                        <!-- Text items populated by JS -->
+                <div class="industry-image-left">
+                    <div class="industry-image-track" id="ind-image-track">
+                        <!-- Images populated by JS -->
                     </div>
                 </div>
-
+                <div class="industry-content-right">
+                    <div class="industry-text-window">
+                        <div class="industry-text-track" id="ind-text-track">
+                            <!-- Text items populated by JS -->
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Centered Navigation Below Section -->
+            <div class="industry-nav-bottom-center">
+                <button class="nav-btn prev" id="industry-prev-btn" aria-label="Previous Industry">&#8592;</button>
+                <button class="nav-btn next" id="industry-next-btn" aria-label="Next Industry">&#8594;</button>
             </div>
         </div>
     </section>
@@ -327,7 +327,7 @@ const features = homePage?.features || [
                     <div class="innov-content">
                         <h3>Meet our experts</h3>
                         <p>We actively engineer solutions and rigorously test them in our advanced R&D facility.</p>
-                        <a href="#" class="btn btn-cyan">Talk to an expert</a>
+                        <a href="/contact" class="btn btn-cyan">Talk to an expert</a>
                     </div>
                 </div>
 
@@ -339,11 +339,21 @@ const features = homePage?.features || [
                     <div class="innov-content">
                         <h3>Advanced Engineering</h3>
                         <p>Designing reliable sealing systems for extreme and persistent problems globally.</p>
-                        <a href="#" class="btn btn-cyan">Learn about R&D</a>
+                        <a href="/contact" class="btn btn-cyan">Learn about R&D</a>
                     </div>
                 </div>
 
-
+                <!-- Card 3 (Completes the 6-card grid) -->
+                <div class="innovation-card">
+                    <div class="innov-image">
+                        <img src="images/hero_industrial_new.jpg" alt="Precision Manufacturing">
+                    </div>
+                    <div class="innov-content">
+                        <h3>Precision Manufacturing</h3>
+                        <p>State-of-the-art CNC multi-axis machining and automated testing rigs guaranteeing zero-leakage.</p>
+                        <a href="/contact" class="btn btn-cyan">Explore Facilities</a>
+                    </div>
+                </div>
 
                 <!-- Card 4 -->
                 <div class="innovation-card">
@@ -353,7 +363,7 @@ const features = homePage?.features || [
                     <div class="innov-content">
                         <h3>Online Support</h3>
                         <p>Check product specs, access manuals, and request custom modifications.</p>
-                        <a href="#" class="btn btn-cyan">To the Portal</a>
+                        <a href="/contact" class="btn btn-cyan">To the Portal</a>
                     </div>
                 </div>
                 
@@ -365,7 +375,7 @@ const features = homePage?.features || [
                     <div class="innov-content">
                         <h3>Quality Assurance</h3>
                         <p>ISO 9001:2015 certified, API 682, ATEX, and FDA compliant operations.</p>
-                        <a href="#" class="btn btn-cyan">View Certificates</a>
+                        <a href="/contact" class="btn btn-cyan">View Certificates</a>
                     </div>
                 </div>
                 
@@ -377,7 +387,7 @@ const features = homePage?.features || [
                     <div class="innov-content">
                         <h3>Global Network</h3>
                         <p>Local support worldwide. Find a service center near your facilities.</p>
-                        <a href="#" class="btn btn-cyan">Find Location</a>
+                        <a href="/contact" class="btn btn-cyan">Find Location</a>
                     </div>
                 </div>
 
@@ -386,7 +396,7 @@ const features = homePage?.features || [
     </section>
 
     <!-- Product Video Section -->
-    <section class="video-section" style="background-color: var(--bg-light-grey); padding: 2rem 0 0 0;">
+    <section class="video-section" style="background-color: var(--bg-light-grey); padding: 2rem 0 3rem 0;">
         <div class="container">
             <div class="section-header" style="text-align: center; margin-bottom: 1.5rem;">
                 <span class="kicker">MEDIA</span>
@@ -394,7 +404,7 @@ const features = homePage?.features || [
                 <p>Performance under severe conditions. Watch the video now!</p>
             </div>
         </div>
-        <div class="container pb-4" style="margin-bottom: 4rem;">
+        <div class="container pb-4">
             <div class="youtube-grid">
                 <div class="youtube-wrapper">
                     <iframe src="https://www.youtube.com/embed/p3oPn7aZlSg" title="Engineering Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -414,6 +424,15 @@ const features = homePage?.features || [
                 <div class="youtube-wrapper">
                     <iframe src="https://www.youtube.com/embed/Ks70Q3N_kdo" title="Engineering Video 6" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+            </div>
+
+            <!-- Profile / All Videos CTA Button (PDF Page 5) -->
+            <div class="video-cta-container" style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
+                <a href="https://www.youtube.com/@ReliableIndustries" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background-color: #ff0000; border-color: #ff0000; color: white; display: inline-flex; align-items: center; gap: 12px; padding: 0.95rem 2.8rem; font-size: 1.05rem; font-weight: 700; border-radius: 50px; box-shadow: 0 8px 25px rgba(255, 0, 0, 0.25); transition: all 0.3s ease;">
+                    <i class="fab fa-youtube" style="font-size: 1.4rem;"></i>
+                    <span>Visit Our Official Channel & Explore Videos</span>
+                    <i class="fas fa-arrow-right" style="font-size: 0.9rem;"></i>
+                </a>
             </div>
         </div>
     </section>

@@ -279,20 +279,55 @@ const phoneNumbers = siteSettings?.phoneNumbers || ["+91- 78880 65557", "+91- 78
             updateCarouselPosition();
         }
 
-        document.getElementById('industry-prev-btn').addEventListener('click', () => {
-            let newIndex = currentIndIndex - 1;
-            if (newIndex < 0) newIndex = industriesData.length - 1;
-            changeIndustry(newIndex);
-        });
+        const prevBtn = document.getElementById('industry-prev-btn');
+        const nextBtn = document.getElementById('industry-next-btn');
 
-        document.getElementById('industry-next-btn').addEventListener('click', () => {
-            let newIndex = currentIndIndex + 1;
-            if (newIndex >= industriesData.length) newIndex = 0;
-            changeIndustry(newIndex);
-        });
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                let newIndex = currentIndIndex - 1;
+                if (newIndex < 0) newIndex = industriesData.length - 1;
+                changeIndustry(newIndex);
+                resetAutoSwipe();
+            });
+        }
 
-        // Initial render
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                let newIndex = currentIndIndex + 1;
+                if (newIndex >= industriesData.length) newIndex = 0;
+                changeIndustry(newIndex);
+                resetAutoSwipe();
+            });
+        }
+
+        // Auto-swipe functionality (PDF Page 4)
+        let autoSwipeTimer = null;
+        function startAutoSwipe() {
+            stopAutoSwipe();
+            autoSwipeTimer = setInterval(() => {
+                let newIndex = (currentIndIndex + 1) % industriesData.length;
+                changeIndustry(newIndex);
+            }, 4000);
+        }
+        function stopAutoSwipe() {
+            if (autoSwipeTimer) clearInterval(autoSwipeTimer);
+        }
+        function resetAutoSwipe() {
+            stopAutoSwipe();
+            startAutoSwipe();
+        }
+
+        // Initial render & start auto-swipe
         initIndustriesCarousel();
+        startAutoSwipe();
+
+        const indSection = document.querySelector('.industries-section-new');
+        if (indSection) {
+            indSection.addEventListener('mouseenter', stopAutoSwipe);
+            indSection.addEventListener('mouseleave', startAutoSwipe);
+            indSection.addEventListener('touchstart', stopAutoSwipe);
+            indSection.addEventListener('touchend', startAutoSwipe);
+        }
 
         // Flyout Search Logic
         const searchTrigger = document.getElementById('search-trigger');
