@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Management Team | Reliable Industries Leadership" description="Meet the executive leadership and engineering pioneers driving technological innovation and operational excellence at Reliable Industries.">
+  <Header />
+
+  <!-- Hero Header -->
+  <section class="team-hero" style="background: linear-gradient(135deg, #001a3b 0%, #003B6D 100%); padding: 85px 0 100px; color: white; text-align: center;">
+    <div class="container">
+      <span class="kicker" style="color: #009fe3; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; display: block; margin-bottom: 12px;">LEADERSHIP & VISION</span>
+      <h1 style="font-size: clamp(2.4rem, 4vw, 3.4rem); font-weight: 800; margin-bottom: 20px;">Our Executive Management Team</h1>
+      <p style="font-size: 1.15rem; color: #e2e8f0; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+        Decades of collective mechanical engineering expertise, precision manufacturing oversight, and global business stewardship.
+      </p>
+    </div>
+  </section>
+
+  <!-- Team Grid -->
+  <section style="padding: 80px 0; background: #ffffff;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px;">
+        
+        <!-- Member 1 -->
+        <div style="background: #ffffff; border: 1px solid #eef2f6; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.05); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='none'">
+          <div style="height: 260px; background: linear-gradient(135deg, #002b54 0%, #004b87 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 5rem;">
+            <i class="fas fa-user-tie" style="opacity: 0.85;"></i>
+          </div>
+          <div style="padding: 28px 24px;">
+            <span style="color: #009fe3; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 6px;">Managing Director & Founder</span>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: #002b54; margin-bottom: 12px;">S. R. Sharma</h3>
+            <p style="color: #64748b; font-size: 0.92rem; line-height: 1.6; margin-bottom: 18px;">Over 35 years steering sealing design, international partnerships, and high-precision CNC manufacturing standards across India and global markets.</p>
+            <div style="display: flex; gap: 12px; color: #009fe3;">
+              <a href="#" style="color: #009fe3;"><i class="fab fa-linkedin" style="font-size: 1.2rem;"></i></a>
+              <a href="#" style="color: #009fe3;"><i class="fas fa-envelope" style="font-size: 1.2rem;"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div style="background: #ffffff; border: 1px solid #eef2f6; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.05); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='none'">
+          <div style="height: 260px; background: linear-gradient(135deg, #003B6D 0%, #0284c7 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 5rem;">
+            <i class="fas fa-user-cog" style="opacity: 0.85;"></i>
+          </div>
+          <div style="padding: 28px 24px;">
+            <span style="color: #009fe3; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 6px;">VP - Technical & Application Engineering</span>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: #002b54; margin-bottom: 12px;">Er. Rajesh Mehta</h3>
+            <p style="color: #64748b; font-size: 0.92rem; line-height: 1.6; margin-bottom: 18px;">Specialist in API 682 seal plans, CAD/FEA simulation, and high-pressure chemical reactor sealing solutions for extreme temperature services.</p>
+            <div style="display: flex; gap: 12px; color: #009fe3;">
+              <a href="#" style="color: #009fe3;"><i class="fab fa-linkedin" style="font-size: 1.2rem;"></i></a>
+              <a href="#" style="color: #009fe3;"><i class="fas fa-envelope" style="font-size: 1.2rem;"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 3 -->
+        <div style="background: #ffffff; border: 1px solid #eef2f6; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.05); transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='none'">
+          <div style="height: 260px; background: linear-gradient(135deg, #0284c7 0%, #002b54 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 5rem;">
+            <i class="fas fa-clipboard-check" style="opacity: 0.85;"></i>
+          </div>
+          <div style="padding: 28px 24px;">
+            <span style="color: #009fe3; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 6px;">Head of Quality Assurance & Compliance</span>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: #002b54; margin-bottom: 12px;">Dr. K. V. Joshi</h3>
+            <p style="color: #64748b; font-size: 0.92rem; line-height: 1.6; margin-bottom: 18px;">Directs metallurgical verification, hydrostatic testing procedures, ISO 9001, ASME, ATEX, and FDA regulatory accreditations.</p>
+            <div style="display: flex; gap: 12px; color: #009fe3;">
+              <a href="#" style="color: #009fe3;"><i class="fab fa-linkedin" style="font-size: 1.2rem;"></i></a>
+              <a href="#" style="color: #009fe3;"><i class="fas fa-envelope" style="font-size: 1.2rem;"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

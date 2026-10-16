@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import productsData from '../data/products.json';
 import { sanityClient } from 'sanity:client';
 import groq from 'groq';
 
@@ -437,12 +438,460 @@ const features = homePage?.features || [
         </div>
     </section>
 
+    <!-- Corporate Why Choose Us Section (PDF Page 5 Reference) -->
+    <section class="corporate-why-choose">
+        <div class="container">
+            <div class="corporate-why-grid">
+                <!-- Left Showcase Box -->
+                <div class="why-showcase-box" data-aos="fade-right">
+                    <div>
+                        <h2 class="why-showcase-title">WHY CHOOSE US</h2>
+                        <p class="why-showcase-text">
+                            Adverse environmental conditions, high rotational speed and pressure levels place demanding requirements on sealing technology employed in the process industry.
+                        </p>
+                        <p class="why-showcase-text">
+                            Reliable Industries has proven itself with its heavy-duty mechanical seals with innovative and tailor-made sealing solutions guaranteeing longer service life and optimal operational safety.
+                        </p>
+                    </div>
+                    <a href="/contact" class="why-showcase-btn">
+                        <span>Read More</span>
+                        <i class="fas fa-chevron-right" style="font-size: 0.8rem;"></i>
+                    </a>
+                </div>
 
+                <!-- Right 8-Pillars Grid -->
+                <div class="why-pillars-grid" data-aos="fade-left">
+                    <!-- Pillar 1 -->
+                    <div class="why-pillar-card">
+                        <span class="pillar-accent-bar" style="background-color: #f97316;"></span>
+                        <h3 class="pillar-title">Sealing Technology</h3>
+                        <p class="pillar-desc">Reliable designs and manufactures mechanical seals and associated products engineered for extreme industrial performance.</p>
+                        <a href="/products" class="pillar-link">
+                            <span>Details</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="why-pillar-card">
+                        <span class="pillar-accent-bar" style="background-color: #eab308;"></span>
+                        <h3 class="pillar-title">Long Standing Experience</h3>
+                        <p class="pillar-desc">Our collective knowledge of many years in the sealing industry guarantees dependable solutions for your equipment.</p>
+                        <a href="/contact" class="pillar-link">
+                            <span>Details</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="why-pillar-card">
+                        <span class="pillar-accent-bar" style="background-color: #10b981;"></span>
+                        <h3 class="pillar-title">International Standards</h3>
+                        <p class="pillar-desc">All critical raw material is compliant with international standards such as API 682, ISO 9001:2015, ATEX, and FDA.</p>
+                        <a href="/contact" class="pillar-link">
+                            <span>Details</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Pillar 4 -->
+                    <div class="why-pillar-card">
+                        <span class="pillar-accent-bar" style="background-color: #3b82f6;"></span>
+                        <h3 class="pillar-title">High Quality Manufacturing Processes</h3>
+                        <p class="pillar-desc">Manufacturing high-quality sealing systems is all down to exceptional precision, CNC machining, and automated quality checks.</p>
+                        <a href="/contact" class="pillar-link">
+                            <span>Details</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Pillar 5 -->
+                    <div class="why-pillar-card">
+                        <span class="pillar-accent-bar" style="background-color: #facc15;"></span>
+                        <h3 class="pillar-title">Continuous Training</h3>
+                        <p class="pillar-desc">To maintain our position at the forefront of technological innovation, our engineers undergo continuous specialized training.</p>
+                        <a href="/contact" class="pillar-link">
+                            <span>Details</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Pillar 6 -->
+                    <div class="why-pillar-card">
+                        <span class="pillar-accent-bar" style="background-color: #06b6d4;"></span>
+                        <h3 class="pillar-title">Global Sales & Service</h3>
+                        <p class="pillar-desc">Our aim at Reliable is to ensure utmost satisfaction of our customers across 50+ countries with prompt technical support.</p>
+                        <a href="/contact" class="pillar-link">
+                            <span>Details</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Pillar 7 -->
+                    <div class="why-pillar-card">
+                        <span class="pillar-accent-bar" style="background-color: #ef4444;"></span>
+                        <h3 class="pillar-title">Our Legacy</h3>
+                        <p class="pillar-desc">We ensure that we make each of our production processes safe, repeatable, and backed by decades of proven industrial trust.</p>
+                        <a href="/contact" class="pillar-link">
+                            <span>Details</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Pillar 8 -->
+                    <div class="why-pillar-card">
+                        <span class="pillar-accent-bar" style="background-color: #14b8a6;"></span>
+                        <h3 class="pillar-title">Environmental, Health & Safety</h3>
+                        <p class="pillar-desc">Reliable's management and employees take active participation in workplace safety, eco-conscious practices, and emission reduction.</p>
+                        <a href="/contact" class="pillar-link">
+                            <span>Details</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Showcase Section (PDF Page 6 Reference) -->
+    <section class="cert-showcase-section">
+        <div class="container">
+            <div class="cert-showcase-grid">
+                <!-- Left Framed Box -->
+                <div class="cert-framed-box">
+                    <h2 class="cert-box-title">CERTIFICATES</h2>
+                    <ul class="cert-list">
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>API Spec Q1 Certified</span></li>
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>ASME U Stamp 115366 BPV</span></li>
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>National Board "NB" Certificate</span></li>
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>ISO 19443 Nuclear Quality</span></li>
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>APIQR ISO 9001:2015</span></li>
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>ISO 29001:2020 Petroleum Systems</span></li>
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>ATEX - 2014/34/EU Directive</span></li>
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>TRCU - 012 / 010 & 032</span></li>
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>PED - CE Pressure Equipment</span></li>
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>ISO 9001:2015 Quality Management</span></li>
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>ISO 14001:2015 Environmental System</span></li>
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>ISO 45001:2018 Health & Safety</span></li>
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>EU 1935/2004 & FDA Compliant</span></li>
+                        <li class="cert-list-item"><span class="cert-bullet">•</span><span>REACH SVHC & RoHS Compliant</span></li>
+                    </ul>
+                </div>
+
+                <!-- Right Fanned Certificates Gallery -->
+                <div class="cert-gallery-container">
+                    <div class="cert-deck-wrapper" id="cert-deck">
+                        <!-- Card 0 (API Spec Q1) -->
+                        <div class="cert-doc-card cert-pos-0" data-index="0">
+                            <div class="cert-header-band">
+                                <span class="cert-badge-tag" style="background: #fef3c7; color: #b45309;">APIQR • API Monogram</span>
+                                <div class="cert-doc-title">Certificate of Authority</div>
+                                <div class="cert-doc-sub">Registration No. API-682-0412</div>
+                            </div>
+                            <div class="cert-body-content">
+                                <div class="cert-award-to">Awarded to</div>
+                                <div class="cert-company-name">Reliable Industries</div>
+                                <div class="cert-standard-name">API Spec Q1 / ISO 9001</div>
+                                <div class="cert-scope-text">Design and manufacture of industrial mechanical seals, cartridge assemblies, and seal auxiliary systems.</div>
+                            </div>
+                            <div class="cert-doc-footer">
+                                <div class="cert-stamp-badge" style="border-color: #b45309; color: #b45309;">
+                                    API<br>Q1
+                                </div>
+                                <div class="cert-sign-box">
+                                    <div class="cert-sign-line">R. Sharma</div>
+                                    <div class="cert-sign-title">VP Quality Assurance</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 1 (ASME "U" Stamp) -->
+                        <div class="cert-doc-card cert-pos-1" data-index="1">
+                            <div class="cert-header-band">
+                                <span class="cert-badge-tag" style="background: #fee2e2; color: #b91c1c;">ASME Boiler & Pressure</span>
+                                <div class="cert-doc-title">Certificate of Authorization</div>
+                                <div class="cert-doc-sub">ASME "U" Stamp No. 115366</div>
+                            </div>
+                            <div class="cert-body-content">
+                                <div class="cert-award-to">Certified Manufacturer</div>
+                                <div class="cert-company-name">Reliable Industries</div>
+                                <div class="cert-standard-name">ASME Section VIII, Div. 1</div>
+                                <div class="cert-scope-text">Fabrication and assembly of pressure vessel equipment, thermosyphon vessels, and high-pressure barrier systems.</div>
+                            </div>
+                            <div class="cert-doc-footer">
+                                <div class="cert-stamp-badge" style="border-color: #b91c1c; color: #b91c1c;">
+                                    ASME<br>U
+                                </div>
+                                <div class="cert-sign-box">
+                                    <div class="cert-sign-line">M. Jenkins</div>
+                                    <div class="cert-sign-title">Managing Director</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 (ISO 9001:2015 Center / Prominent) -->
+                        <div class="cert-doc-card cert-pos-2" data-index="2">
+                            <div class="cert-header-band">
+                                <span class="cert-badge-tag" style="background: #e0f2fe; color: #0369a1;">Quality Management</span>
+                                <div class="cert-doc-title">Certificate of Registration</div>
+                                <div class="cert-doc-sub">Certificate No. ISO-9001-2015-RI</div>
+                            </div>
+                            <div class="cert-body-content">
+                                <div class="cert-award-to">This certifies that</div>
+                                <div class="cert-company-name">Reliable Industries</div>
+                                <div class="cert-standard-name">ISO 9001:2015</div>
+                                <div class="cert-scope-text">Comprehensive Quality Management Systems for precision engineering, custom seal manufacturing, and zero-defect quality control.</div>
+                            </div>
+                            <div class="cert-doc-footer">
+                                <div class="cert-stamp-badge" style="border-color: #0284c7; color: #0284c7;">
+                                    ISO<br>9001
+                                </div>
+                                <div class="cert-sign-box">
+                                    <div class="cert-sign-line">Dr. H. Mehta</div>
+                                    <div class="cert-sign-title">Lead Auditor / Registrar</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 (ATEX Directive) -->
+                        <div class="cert-doc-card cert-pos-3" data-index="3">
+                            <div class="cert-header-band">
+                                <span class="cert-badge-tag" style="background: #fef9c3; color: #854d0e;">ATEX 2014/34/EU • Ex</span>
+                                <div class="cert-doc-title">EU-Type Examination</div>
+                                <div class="cert-doc-sub">Notified Body No. 0081 / ATEX</div>
+                            </div>
+                            <div class="cert-body-content">
+                                <div class="cert-award-to">Equipment Compliance</div>
+                                <div class="cert-company-name">Reliable Industries</div>
+                                <div class="cert-standard-name">II 2 GD c IIC T4...T1</div>
+                                <div class="cert-scope-text">Explosion-proof mechanical seal design for dangerous and explosive gas / dust environments in petrochemical plants.</div>
+                            </div>
+                            <div class="cert-doc-footer">
+                                <div class="cert-stamp-badge" style="border-color: #ca8a04; color: #ca8a04;">
+                                    Ex<br>ATEX
+                                </div>
+                                <div class="cert-sign-box">
+                                    <div class="cert-sign-line">A. Dupont</div>
+                                    <div class="cert-sign-title">Safety Director</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 (ISO 14001 & ISO 45001 EHS) -->
+                        <div class="cert-doc-card cert-pos-4" data-index="4">
+                            <div class="cert-header-band">
+                                <span class="cert-badge-tag" style="background: #d1fae5; color: #047857;">Environmental & Safety</span>
+                                <div class="cert-doc-title">Integrated EHS Certificate</div>
+                                <div class="cert-doc-sub">Registration No. EHS-45001-14001</div>
+                            </div>
+                            <div class="cert-body-content">
+                                <div class="cert-award-to">Certified Organization</div>
+                                <div class="cert-company-name">Reliable Industries</div>
+                                <div class="cert-standard-name">ISO 14001:2015 & 45001:2018</div>
+                                <div class="cert-scope-text">Implementation of international occupational safety and environmentally sustainable seal manufacturing practices.</div>
+                            </div>
+                            <div class="cert-doc-footer">
+                                <div class="cert-stamp-badge" style="border-color: #059669; color: #059669;">
+                                    EHS<br>CERT
+                                </div>
+                                <div class="cert-sign-box">
+                                    <div class="cert-sign-line">S. Patel</div>
+                                    <div class="cert-sign-title">Head of Compliance</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation controls below deck -->
+                    <div class="cert-deck-nav">
+                        <button class="cert-nav-btn" id="cert-prev-btn" aria-label="Previous Certificate">&#8592;</button>
+                        <button class="cert-nav-btn" id="cert-next-btn" aria-label="Next Certificate">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Carousel Section (PDF Page 7 Reference) -->
+    <section class="featured-products-section">
+        <div class="container">
+            <div class="feat-products-header">
+                <h2 class="feat-products-title">FEATURED PRODUCTS</h2>
+                <div class="feat-title-underline"></div>
+            </div>
+
+            <div class="feat-carousel-container">
+                <button class="feat-nav-btn prev" id="feat-prev-btn" aria-label="Previous Products">&#10094;</button>
+
+                <div class="feat-carousel-viewport">
+                    <div class="feat-products-track" id="feat-products-track">
+                        {productsData.map((prod: any) => {
+                            const imgUrl = prod.image || (prod.img?.startsWith('/') ? prod.img : '/' + (prod.img || 'images/sealproduct/drysealreactor.png'));
+                            const linkUrl = `/products/${prod.categorySlug}/${prod.slug}`;
+                            return (
+                                <a href={linkUrl} class="feat-prod-card">
+                                    <div class="feat-prod-img-box">
+                                        <img src={imgUrl} alt={prod.name} class="feat-prod-img" loading="lazy" />
+                                    </div>
+                                    <h3 class="feat-prod-name">{prod.name}</h3>
+                                    <p class="feat-prod-category">{prod.category || 'Mechanical Seal'}</p>
+                                    <span class="feat-prod-sub">View Specs &rarr;</span>
+                                </a>
+                            );
+                        })}
+                    </div>
+                </div>
+                <button class="feat-nav-btn next" id="feat-next-btn" aria-label="Next Products">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Reviews Section (PDF Page 8 Reference) -->
+    <section class="google-reviews-section">
+        <div class="container">
+            <div class="google-reviews-header">
+                <span class="google-kicker">VERIFIED CLIENT FEEDBACK</span>
+                <h2 class="google-reviews-title">Trusted By Industrial Leaders Worldwide</h2>
+                <div class="google-trust-badge">
+                    <i class="fab fa-google" style="color: #4285F4; font-size: 1.25rem;"></i>
+                    <div class="google-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="google-rating-text"><strong>4.9 / 5.0</strong> (150+ Google Reviews)</span>
+                </div>
+            </div>
+
+            <div class="google-reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        "Reliable's heavy-duty cartridge seals completely solved our recurrent leakage problem on high-temperature chemical slurry pumps. We have experienced zero downtime in over 18 months of 24/7 continuous operation. Excellent engineering support!"
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar">RS</div>
+                        <div class="author-info">
+                            <h4>Rajesh Singhania</h4>
+                            <p>Chief Maintenance Head • Petrochemical Refinery</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        "Custom engineered reactor seals delivered with complete API 682 compliance test certificates well ahead of our turnaround schedule. Their responsiveness and precision machining tolerances are exceptional."
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar">VR</div>
+                        <div class="author-info">
+                            <h4>Vikramaditya Rao</h4>
+                            <p>GM Rotating Equipment • Fertilizer & Agrochem Corp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        "We switched our plant to Reliable Industries for boiler feed pump seals and rotary unions. Their seal support systems and emergency technical dispatch saved us immense maintenance costs."
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar">DM</div>
+                        <div class="author-info">
+                            <h4>David Miller</h4>
+                            <p>Operations Lead • Thermal Power Generation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
   <Footer />
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+        // Featured Products Carousel
+        const featTrack = document.getElementById('feat-products-track');
+        const featPrevBtn = document.getElementById('feat-prev-btn');
+        const featNextBtn = document.getElementById('feat-next-btn');
+
+        if (featTrack && featPrevBtn && featNextBtn) {
+            const getFeatScrollAmount = () => {
+                const firstCard = featTrack.firstElementChild as HTMLElement;
+                if (firstCard) {
+                    const cardWidth = firstCard.offsetWidth;
+                    const gap = parseFloat(window.getComputedStyle(featTrack).gap) || 24;
+                    const cardsToScroll = window.innerWidth > 992 ? 2 : 1;
+                    return (cardWidth + gap) * cardsToScroll;
+                }
+                return 320;
+            };
+
+            featPrevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                featTrack.scrollBy({ left: -getFeatScrollAmount(), behavior: 'smooth' });
+            });
+
+            featNextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                featTrack.scrollBy({ left: getFeatScrollAmount(), behavior: 'smooth' });
+            });
+        }
+        // Interactive Certifications Deck Rotator
+        const certCards = document.querySelectorAll('.cert-doc-card');
+        const certPrev = document.getElementById('cert-prev-btn');
+        const certNext = document.getElementById('cert-next-btn');
+
+        if (certCards.length > 0) {
+            let activeCenterIndex = 2; // Card 2 starts in center
+            const totalCards = certCards.length;
+
+            const updateCertPositions = () => {
+                certCards.forEach((card, idx) => {
+                    for (let i = 0; i < 5; i++) {
+                        card.classList.remove(`cert-pos-${i}`);
+                    }
+                    let offset = (idx - activeCenterIndex + totalCards) % totalCards;
+                    let pos = (offset + 2) % totalCards;
+                    card.classList.add(`cert-pos-${pos}`);
+                });
+            };
+
+            if (certPrev) {
+                certPrev.addEventListener('click', () => {
+                    activeCenterIndex = (activeCenterIndex - 1 + totalCards) % totalCards;
+                    updateCertPositions();
+                });
+            }
+
+            if (certNext) {
+                certNext.addEventListener('click', () => {
+                    activeCenterIndex = (activeCenterIndex + 1) % totalCards;
+                    updateCertPositions();
+                });
+            }
+
+            certCards.forEach((card, idx) => {
+                card.addEventListener('click', () => {
+                    activeCenterIndex = idx;
+                    updateCertPositions();
+                });
+            });
+        }
         const setupCarousel = (gridSelector, prevId, nextId) => {
             const grid = document.querySelector(gridSelector);
             const prevBtn = document.getElementById(prevId);
