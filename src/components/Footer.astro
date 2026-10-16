@@ -92,34 +92,104 @@ const phoneNumbers = siteSettings?.phoneNumbers || ["+91- 78880 65557", "+91- 78
             }
         });
 
-        // Mobile Menu Logic
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const mainNav = document.querySelector('.main-nav');
+        // Mobile Menu & Drawer Logic
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle') || document.querySelector('.mobile-menu-toggle');
+        const mobileNavClose = document.getElementById('mobile-nav-close');
+        const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+        const mainNav = document.getElementById('main-nav') || document.querySelector('.main-nav');
         
+        function openMobileMenu() {
+            if (mobileMenuToggle) mobileMenuToggle.classList.add('active');
+            if (mainNav) mainNav.classList.add('open');
+            document.body.classList.add('menu-open');
+        }
+
+        function closeMobileMenu() {
+            if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+            if (mainNav) mainNav.classList.remove('open');
+            document.body.classList.remove('menu-open');
+        }
+
         if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', () => {
-                mobileMenuToggle.classList.toggle('active');
-                mainNav.classList.toggle('open');
+            mobileMenuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (mainNav && mainNav.classList.contains('open')) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
             });
         }
 
-        // Mobile Submenu Toggle Logic
+        if (mobileNavClose) {
+            mobileNavClose.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeMobileMenu();
+            });
+        }
+
+        if (mobileNavBackdrop) {
+            mobileNavBackdrop.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+
+        // Mobile Top-Level Submenu (e.g. Products) Toggle
         const megaMenuLinks = document.querySelectorAll('.has-mega-menu > a');
         megaMenuLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
+                if (window.innerWidth <= 992) {
                     e.preventDefault();
                     const parent = link.parentElement;
+                    const willOpen = !parent.classList.contains('active-mobile-submenu');
                     
-                    // Toggle current submenu
-                    parent.classList.toggle('active-mobile-submenu');
-                    
-                    // Optionally close others
+                    // Close other open submenus
                     megaMenuLinks.forEach(otherLink => {
                         if (otherLink !== link) {
                             otherLink.parentElement.classList.remove('active-mobile-submenu');
                         }
                     });
+
+                    // Toggle current submenu
+                    parent.classList.toggle('active-mobile-submenu', willOpen);
+                }
+            });
+        });
+
+        // Mobile Product Category Accordion Handler
+        const catHeaders = document.querySelectorAll('.mobile-cat-header');
+        catHeaders.forEach(header => {
+            header.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const currentItem = header.closest('.mobile-cat-item');
+                if (!currentItem) return;
+                
+                const isOpen = currentItem.classList.contains('open');
+
+                // Collapse all other open category items for compact neatness
+                document.querySelectorAll('.mobile-cat-item.open').forEach(item => {
+                    if (item !== currentItem) {
+                        item.classList.remove('open');
+                        const otherBtn = item.querySelector('.mobile-cat-header');
+                        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Toggle this category item
+                if (isOpen) {
+                    currentItem.classList.remove('open');
+                    header.setAttribute('aria-expanded', 'false');
+                } else {
+                    currentItem.classList.add('open');
+                    header.setAttribute('aria-expanded', 'true');
                 }
             });
         });

@@ -150,6 +150,9 @@ function getProductSpecs(prod: any) {
         </div>
     </div>
 
+    <!-- Mobile Navigation Backdrop -->
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+
     <!-- Main Header -->
     <header class="main-header">
         <div class="container header-content">
@@ -162,19 +165,28 @@ function getProductSpecs(prod: any) {
                     <span class="tagline">PIONEER IN SEALING</span>
                 </div>
             </a>
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
                 <span class="hamburger"></span>
             </button>
-            <nav class="main-nav">
+            <nav class="main-nav" id="main-nav">
+                <!-- Mobile Drawer Header -->
+                <div class="mobile-nav-header">
+                    <div class="mobile-nav-brand">Reliable Menu</div>
+                    <button type="button" class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
                 <ul>
                     {menuItems.map((item: any) => (
                         <li class="has-mega-menu">
-                            <a href={item.link} class={item.title === 'Products' ? 'active' : ''}>
-                                {item.title} <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i>
+                            <a href={item.link} class={`nav-item-link ${item.title === 'Products' ? 'active' : ''}`}>
+                                <span>{item.title}</span>
+                                <i class="fas fa-chevron-down nav-chevron-icon" style="font-size: 0.75rem;"></i>
                             </a>
                             {item.title === 'Products' ? (
                                 <div class="mega-menu products-mega-menu">
-                                    <div class="products-mega-layout">
+                                    <!-- Desktop Layout (shown on screens > 992px) -->
+                                    <div class="products-mega-layout desktop-only-layout">
                                         <!-- Left Categories Sidebar -->
                                         <div class="products-mega-sidebar">
                                             {productGroups.map((group, gIdx) => (
@@ -230,30 +242,93 @@ function getProductSpecs(prod: any) {
                                             ))}
                                         </div>
                                     </div>
+
+                                    <!-- Mobile Accordion Layout (shown on screens <= 992px) -->
+                                    <div class="products-mobile-layout">
+                                        <!-- Top Action Hub -->
+                                        <div class="mobile-products-quick-actions">
+                                            <a href="/products" class="mobile-quick-btn view-all-btn">
+                                                <i class="fas fa-th-large"></i>
+                                                <span>Browse All Products</span>
+                                                <i class="fas fa-arrow-right arrow-icon"></i>
+                                            </a>
+                                            <a href="/brochures/product_brochure.pdf" download="Reliable_Product_Brochure.pdf" class="mobile-quick-btn pdf-btn">
+                                                <i class="fas fa-file-pdf"></i>
+                                                <span>Technical Catalogue</span>
+                                                <i class="fas fa-download download-icon"></i>
+                                            </a>
+                                        </div>
+
+                                        <!-- Mobile Categories Accordion -->
+                                        <div class="mobile-cat-accordion">
+                                            {productGroups.map((group) => (
+                                                <div class="mobile-cat-item" data-group-id={group.id}>
+                                                    <button type="button" class="mobile-cat-header" aria-expanded="false">
+                                                        <span class="mobile-cat-title">{group.title}</span>
+                                                        <span class="mobile-cat-badge">{group.products.length}</span>
+                                                        <span class="mobile-cat-chevron">
+                                                            <i class="fas fa-chevron-down"></i>
+                                                        </span>
+                                                    </button>
+                                                    <div class="mobile-cat-body">
+                                                        <div class="mobile-cat-body-inner">
+                                                            <div class="mobile-products-list">
+                                                                {group.products.map((prod: any) => {
+                                                                    const specs = getProductSpecs(prod);
+                                                                    return (
+                                                                        <a href={`/products/${prod.categorySlug}/${prod.slug}`} class="mobile-product-card">
+                                                                            <div class="mobile-product-details">
+                                                                                <span class="mobile-product-name">{prod.name}</span>
+                                                                                {specs.length > 0 && (
+                                                                                    <div class="mobile-product-specs">
+                                                                                        {specs.slice(0, 2).map((s) => (
+                                                                                            <span class="spec-badge">
+                                                                                                <span class="spec-label">{s.label}:</span>
+                                                                                                <span class="spec-val">{s.value}</span>
+                                                                                            </span>
+                                                                                        ))}
+                                                                                    </div>
+                                                                                )}
+                                                                            </div>
+                                                                            <i class="fas fa-chevron-right mobile-card-arrow"></i>
+                                                                        </a>
+                                                                    );
+                                                                })}
+                                                            </div>
+                                                            <a href={`/products/${group.slug}`} class="mobile-cat-explore-link">
+                                                                <span>Explore all {group.title}</span>
+                                                                <i class="fas fa-arrow-right"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
                             ) : (
                                 <div class="mega-menu">
                                     <div class="mega-menu-grid" style={item.promo ? '' : 'grid-template-columns: 1fr;'}>
                                         {item.promo && (
-                                            <div class="mega-menu-featured" style="background: linear-gradient(135deg, rgba(0, 159, 227, 0.1), rgba(0, 0, 0, 0.05)); border: 1px solid rgba(0, 0, 0, 0.1);">
-                                                <h3>{item.promo.title}</h3>
-                                                <p>{item.promo.description}</p>
-                                                <a href={item.promo.buttonUrl} class="btn-small" style="background: var(--color-primary-navy);">{item.promo.buttonText}</a>
-                                            </div>
-                                        )}
-                                        <div class="mega-menu-columns" style={item.promo ? '' : 'gap: 3rem;'}>
-                                            {item.columns?.map((col: any) => (
-                                                <div>
-                                                    <h4>{col.columnTitle}</h4>
-                                                    <ul>
-                                                        {col.links?.map((link: any) => (
-                                                            <li><a href={link.url}>{link.title}</a></li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
+                                             <div class="mega-menu-featured" style="background: linear-gradient(135deg, rgba(0, 159, 227, 0.1), rgba(0, 0, 0, 0.05)); border: 1px solid rgba(0, 0, 0, 0.1);">
+                                                 <h3>{item.promo.title}</h3>
+                                                 <p>{item.promo.description}</p>
+                                                 <a href={item.promo.buttonUrl} class="btn-small" style="background: var(--color-primary-navy);">{item.promo.buttonText}</a>
+                                             </div>
+                                         )}
+                                         <div class="mega-menu-columns" style={item.promo ? '' : 'gap: 3rem;'}>
+                                             {item.columns?.map((col: any) => (
+                                                 <div>
+                                                     <h4>{col.columnTitle}</h4>
+                                                     <ul>
+                                                         {col.links?.map((link: any) => (
+                                                             <li><a href={link.url}>{link.title}</a></li>
+                                                         ))}
+                                                     </ul>
+                                                 </div>
+                                             ))}
+                                         </div>
+                                     </div>
                                 </div>
                             )}
                         </li>
