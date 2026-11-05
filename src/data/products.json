@@ -939,41 +939,172 @@
   {
     "id": 28,
     "category": "Steam Rotary Joints",
-    "name": "RDF - DSGQ - 220 - THIS IS DEOFLOW FLANGED END HIGH TEMP ROTATING UNION.",
-    "rotary_joint_size_available": "3”, 3 ½”, 4”",
-    "media": "Hot Oil, Hot Water, Thermic Fluid",
+    "name": "RMF - HT-140 - THIS IS MONOFLOW HIGH TEMPRETURE ROTATING UNION.",
+    "rotary_joint_size_available": "1/2” to 3”",
+    "direction": "Right Hand & Left Hand Thread",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
     "temperature_range": "0°C to 350°C",
-    "pressure": "30 kg/cm²",
+    "pressure": "0 to 25 kg/cm²",
     "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
-    "rotor": "SS 304, SS 316, Cast Steel, C.I, SS 304",
-    "seal_ring": "Antimony Carbon",
+    "rotor": "SS 304, SS 316, Cast Steel",
     "guide_ring": "Antimony Carbon",
-    "rpm": "400 to 450",
-    "siphon_pipe": "Screw end RH / LH or rotating",
+    "sealing_ring": "Antimony Carbon",
+    "rpm": "400 to 500",
     "images": [
-      "images/sealproduct/monoflowhightemp_5.png"
+      "images/sealproduct/monoflowhightemp_1.png"
     ],
-    "img": "images/sealproduct/monoflowhightemp_5.png",
+    "img": "images/sealproduct/monoflowhightemp_1.png",
     "categorySlug": "steam-rotary-joints",
-    "slug": "rdf-dsgq-220-this-is-deoflow-flanged-end-high-temp-rotating-union-28",
-    "image": "/images/sealproduct/monoflowhightemp_5.png",
+    "slug": "rmf-ht-140-this-is-monoflow-high-tempreture-rotating-union-28",
+    "image": "/images/sealproduct/monoflowhightemp_1.png",
     "specs": {
-      "Rotary joint size available": "3”, 3 ½”, 4”",
-      "Media": "Hot Oil, Hot Water, Thermic Fluid",
+      "Size": "1/2\" to 3\"",
+      "Temp": "0°C to 350°C",
+      "Press": "0 to 25 kg/cm²",
+      "Rotary joint size available": "1/2” to 3”",
+      "Direction": "Right Hand & Left Hand Thread",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
       "Temperature range": "0°C to 350°C",
-      "Pressure": "30 kg/cm²",
+      "Pressure": "0 to 25 kg/cm²",
       "Moc of body": "Forged Cast Steel, SS 304, SS 316",
-      "Rotor": "SS 304, SS 316, Cast Steel, C.I, SS 304",
-      "Seal ring": "Antimony Carbon",
+      "Rotor": "SS 304, SS 316, Cast Steel",
       "Guide ring": "Antimony Carbon",
-      "Rpm": "400 to 450",
-      "Siphon pipe": "Screw end RH / LH or rotating"
+      "Sealing ring": "Antimony Carbon",
+      "Rpm": "400 to 500"
     },
     "features": [
+      "Direction: Right Hand & Left Hand Thread",
+      "Media: Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
       "High performance reliability",
-      "Designed for severe conditions",
-      "Long operating life",
-      "Easy installation and maintenance"
+      "Designed for severe conditions"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 51,
+    "category": "Steam Rotary Joints",
+    "name": "RDF-HT- 160 - THIS IS DEOFLOW HIGH TEMPRETURE ROTATING UNION.",
+    "rotary_joint_size_available": "1/2” to 3”",
+    "direction": "Right Hand & Left Hand Thread",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+    "temperature_range": "0°C to 350°C",
+    "pressure": "0 to 25 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "guide_ring": "Antimony Carbon",
+    "sealing_ring": "Antimony Carbon",
+    "rpm": "400 to 500",
+    "images": [
+      "images/sealproduct/monoflowhightemp_2.png"
+    ],
+    "img": "images/sealproduct/monoflowhightemp_2.png",
+    "categorySlug": "steam-rotary-joints",
+    "slug": "rdf-ht-160-this-is-deoflow-high-tempreture-rotating-union-51",
+    "image": "/images/sealproduct/monoflowhightemp_2.png",
+    "specs": {
+      "Size": "1/2\" to 3\"",
+      "Temp": "0°C to 350°C",
+      "Press": "0 to 25 kg/cm²",
+      "Rotary joint size available": "1/2” to 3”",
+      "Direction": "Right Hand & Left Hand Thread",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+      "Temperature range": "0°C to 350°C",
+      "Pressure": "0 to 25 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Guide ring": "Antimony Carbon",
+      "Sealing ring": "Antimony Carbon",
+      "Rpm": "400 to 500"
+    },
+    "features": [
+      "Direction: Right Hand & Left Hand Thread",
+      "Media: Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+      "High performance reliability",
+      "Designed for severe conditions"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 52,
+    "category": "Steam Rotary Joints",
+    "name": "RMF - HT 180 - THIS IS FLANGED END ROTATING UNION",
+    "rotary_joint_size_available": "1/2” to 3”",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+    "temperature_range": "0°C to 350°C",
+    "pressure": "0 to 25 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "guide_ring": "Antimony Carbon",
+    "sealing_ring": "Antimony Carbon",
+    "rpm": "400 to 500",
+    "images": [
+      "images/sealproduct/monoflowhightemp_3.png"
+    ],
+    "img": "images/sealproduct/monoflowhightemp_3.png",
+    "categorySlug": "steam-rotary-joints",
+    "slug": "rmf-ht-180-this-is-flanged-end-rotating-union-52",
+    "image": "/images/sealproduct/monoflowhightemp_3.png",
+    "specs": {
+      "Size": "1/2\" to 3\"",
+      "Temp": "0°C to 350°C",
+      "Press": "0 to 25 kg/cm²",
+      "Rotary joint size available": "1/2” to 3”",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+      "Temperature range": "0°C to 350°C",
+      "Pressure": "0 to 25 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Guide ring": "Antimony Carbon",
+      "Sealing ring": "Antimony Carbon",
+      "Rpm": "400 to 500"
+    },
+    "features": [
+      "Flanged End Rotating Union",
+      "Media: Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+      "High performance reliability",
+      "Designed for severe conditions"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
+  },
+  {
+    "id": 53,
+    "category": "Steam Rotary Joints",
+    "name": "RDF - HT 200 - THIS IS DEOFLOW FLANGED END ROTATING UNION",
+    "rotary_joint_size_available": "1/2” to 3”",
+    "media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+    "temperature_range": "0°C to 350°C",
+    "pressure": "0 to 25 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel",
+    "guide_ring": "Antimony Carbon",
+    "sealing_ring": "Antimony Carbon",
+    "rpm": "400 to 500",
+    "images": [
+      "images/sealproduct/monoflowhightemp_4.png"
+    ],
+    "img": "images/sealproduct/monoflowhightemp_4.png",
+    "categorySlug": "steam-rotary-joints",
+    "slug": "rdf-ht-200-this-is-deoflow-flanged-end-rotating-union-53",
+    "image": "/images/sealproduct/monoflowhightemp_4.png",
+    "specs": {
+      "Size": "1/2\" to 3\"",
+      "Temp": "0°C to 350°C",
+      "Press": "0 to 25 kg/cm²",
+      "Rotary joint size available": "1/2” to 3”",
+      "Media": "Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+      "Temperature range": "0°C to 350°C",
+      "Pressure": "0 to 25 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel",
+      "Guide ring": "Antimony Carbon",
+      "Sealing ring": "Antimony Carbon",
+      "Rpm": "400 to 500"
+    },
+    "features": [
+      "Deoflow Flanged End Rotating Union",
+      "Media: Chilled Water, Normal Water, Oil, Steam, Hot Water, Hot Oil, Thermic Fluid",
+      "High performance reliability",
+      "Designed for severe conditions"
     ],
     "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
   },
@@ -1066,41 +1197,6 @@
     "img": "images/sealproduct/hydrolic_3.png",
     "categorySlug": "hydrolic-rotary-joints",
     "slug": "rdf-h-200-this-is-hydraulic-rotating-union-31",
-    "image": "/images/sealproduct/hydrolic_3.png",
-    "specs": {
-      "Media": "Hydraulic Oil",
-      "Temperature range": "0°C to 80°C",
-      "Pressure": "0 to 250 bar",
-      "Moc of body": "SS 316",
-      "Rotor": "SS 316",
-      "Bearing": "SKF / FAG, Steel Cage, Rubber Cage",
-      "Rpm": "500 to 700"
-    },
-    "features": [
-      "High performance reliability",
-      "Designed for severe conditions",
-      "Long operating life",
-      "Easy installation and maintenance"
-    ],
-    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
-  },
-  {
-    "id": 32,
-    "category": "Hydrolic Rotary Joints",
-    "name": "RDF - H-200 - THIS IS HYDRAULIC ROTATING UNION",
-    "media": "Hydraulic Oil",
-    "temperature_range": "0°C to 80°C",
-    "pressure": "0 to 250 bar",
-    "moc_of_body": "SS 316",
-    "rotor": "SS 316",
-    "bearing": "SKF / FAG, Steel Cage, Rubber Cage",
-    "rpm": "500 to 700",
-    "images": [
-      "images/sealproduct/hydrolic_3.png"
-    ],
-    "img": "images/sealproduct/hydrolic_3.png",
-    "categorySlug": "hydrolic-rotary-joints",
-    "slug": "rdf-h-200-this-is-hydraulic-rotating-union-32",
     "image": "/images/sealproduct/hydrolic_3.png",
     "specs": {
       "Media": "Hydraulic Oil",
@@ -1600,5 +1696,49 @@
       "Direction: Can be Used clockwise or anti clockwise.",
       "But before purchasing the please specify the rotation of pump from Motor side."
     ]
+  },
+  {
+    "id": 54,
+    "category": "High Temperature Rotary Joint",
+    "name": "RDF - DSGQ - 220 - THIS IS DEOFLOW FLANGED END HIGH TEMP ROTATING UNION.",
+    "rotary_joint_size_available": "3\", 3 ½\", 4\"",
+    "media": "Hot Oil, Hot Water, Thermic Fluid",
+    "temperature_range": "0°C to 350°C",
+    "pressure": "30 kg/cm²",
+    "moc_of_body": "Forged Cast Steel, SS 304, SS 316",
+    "rotor": "SS 304, SS 316, Cast Steel, C.I, SS 304",
+    "seal_ring": "Antimony Carbon",
+    "guide_ring": "Antimony Carbon",
+    "rpm": "400 to 450",
+    "siphon_pipe": "Screw end RH / LH or rotating",
+    "images": [
+      "images/sealproduct/monoflowhightemp_5.png"
+    ],
+    "img": "images/sealproduct/monoflowhightemp_5.png",
+    "categorySlug": "high-temp-rotary-joints",
+    "slug": "rdf-dsgq-220-this-is-deoflow-flanged-end-high-temp-rotating-union-54",
+    "image": "/images/sealproduct/monoflowhightemp_5.png",
+    "specs": {
+      "Size": "3\", 3 ½\", 4\"",
+      "Temp": "0°C to 350°C",
+      "Press": "30 kg/cm²",
+      "Rotary joint size available": "3\", 3 ½\", 4\"",
+      "Media": "Hot Oil, Hot Water, Thermic Fluid",
+      "Temperature range": "0°C to 350°C",
+      "Pressure": "30 kg/cm²",
+      "Moc of body": "Forged Cast Steel, SS 304, SS 316",
+      "Rotor": "SS 304, SS 316, Cast Steel, C.I, SS 304",
+      "Seal ring": "Antimony Carbon",
+      "Guide ring": "Antimony Carbon",
+      "Rpm": "400 to 450",
+      "Siphon pipe": "Screw end RH / LH or rotating"
+    },
+    "features": [
+      "Media: Hot Oil, Hot Water, Thermic Fluid",
+      "Siphon pipe: Screw end RH / LH or rotating",
+      "High performance reliability",
+      "Designed for severe conditions"
+    ],
+    "description": "A reliable sealing solution engineered for maximum efficiency and durability in industrial applications."
   }
 ]

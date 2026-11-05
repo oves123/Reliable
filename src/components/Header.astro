@@ -3,79 +3,247 @@ import { sanityClient } from 'sanity:client';
 import groq from 'groq';
 import productsData from '../data/products.json';
 
+// Filter out 'Special Seal', 'Dairy Used' products, the 4th cartridge seal (series-50), and duplicate hydraulic rotary union (id 32) from dropdown
+const dropdownProducts = productsData.filter(p => 
+  p.name !== 'Special Seal' && 
+  !p.slug.includes('special-seal') &&
+  !p.name.includes('Dairy Used') &&
+  p.categorySlug !== 'dairy-seal' &&
+  p.slug !== 'reliable-cartridge-seal-series-50' &&
+  p.slug !== 'rdf-h-200-this-is-hydraulic-rotating-union-32' &&
+  p.id !== 32
+);
+
 const navData = await sanityClient.fetch(groq`*[_type == "navigation"][0]`);
 const menuItems = navData?.menuItems || [];
 
-// Group products for the detailed Sealmatic-style mega menu
-const productGroups = [
+// 3-Tier Hierarchy: Super Categories -> Sub Categories -> Products
+const superCategories = [
   {
-    id: 'cartridge',
-    title: 'Standard Cartridge Seals',
-    slug: 'cartridge-seal',
-    products: productsData.filter(p => p.categorySlug === 'cartridge-seal').slice(0, 9)
+    id: 'mechanical-seal',
+    title: 'Mechanical Seal',
+    icon: 'fa-cog',
+    subcategories: [
+      {
+        id: 'multi-spring',
+        title: 'Multi Spring Seal',
+        slug: 'multi-spring-series-seal',
+        products: dropdownProducts.filter(p => p.categorySlug === 'multi-spring-series-seal' || p.categorySlug === 'mechanical-seal').slice(0, 9)
+      },
+      {
+        id: 'single-spring',
+        title: 'Single Spring Seal',
+        slug: 'single-spring-series-seal',
+        products: dropdownProducts.filter(p => p.categorySlug === 'single-spring-series-seal').slice(0, 9)
+      },
+      {
+        id: 'rubber-bellow',
+        title: 'Rubber Bellow Seal',
+        slug: 'water-seal',
+        products: dropdownProducts.filter(p => p.categorySlug === 'water-seal').slice(0, 9)
+      },
+      {
+        id: 'high-temp',
+        title: 'High Temperature Seal',
+        slug: 'high-temp-seal',
+        products: dropdownProducts.filter(p => p.categorySlug === 'high-temp-seal').slice(0, 9)
+      },
+      {
+        id: 'cartridge',
+        title: 'Cartridge Seal',
+        slug: 'cartridge-seal',
+        products: dropdownProducts.filter(p => p.categorySlug === 'cartridge-seal').slice(0, 9)
+      },
+      {
+        id: 'reactor-seal',
+        title: 'Reactor Seal',
+        slug: 'reactor-seal',
+        products: dropdownProducts.filter(p => p.categorySlug === 'reactor-seal').slice(0, 9)
+      },
+      {
+        id: 'agitator-seal',
+        title: 'Agitator Seal',
+        slug: 'agitator-seal',
+        products: dropdownProducts.filter(p => p.categorySlug === 'agitator-seal').slice(0, 9)
+      }
+    ]
   },
   {
-    id: 'single-spring',
-    title: 'Single Spring Series Seals',
-    slug: 'single-spring-series-seal',
-    products: productsData.filter(p => p.categorySlug === 'single-spring-series-seal').slice(0, 9)
+    id: 'rotary-joints',
+    title: 'Rotary Joints',
+    icon: 'fa-sync-alt',
+    subcategories: [
+      {
+        id: 'water-rotary',
+        title: 'Water Rotary Joints',
+        slug: 'water-rotary-joints',
+        products: dropdownProducts.filter(p => p.categorySlug === 'water-rotary-joints').slice(0, 9)
+      },
+      {
+        id: 'hot-oil-rotary',
+        title: 'Hot Oil Rotary Joints',
+        slug: 'hot-oil-rotary-joints',
+        products: dropdownProducts.filter(p => p.categorySlug === 'hot-oil-rotary-joints').slice(0, 9)
+      },
+      {
+        id: 'steam-rotary',
+        title: 'Steam Rotary Joints',
+        slug: 'steam-rotary-joints',
+        products: dropdownProducts.filter(p => p.categorySlug === 'steam-rotary-joints').slice(0, 9)
+      },
+      {
+        id: 'hydraulic-rotary',
+        title: 'Hydraulic Rotary Joints',
+        slug: 'hydrolic-rotary-joints',
+        products: dropdownProducts.filter(p => p.categorySlug === 'hydrolic-rotary-joints').slice(0, 9)
+      },
+      {
+        id: 'high-temp-rotary',
+        title: 'High Temperature Rotary Joint',
+        slug: 'high-temp-rotary-joints',
+        products: dropdownProducts.filter(p => p.categorySlug === 'high-temp-rotary-joints').slice(0, 9)
+      }
+    ]
   },
   {
-    id: 'multi-spring',
-    title: 'Multi Spring Series Seals',
-    slug: 'multi-spring-series-seal',
-    products: productsData.filter(p => p.categorySlug === 'multi-spring-series-seal').slice(0, 9)
+    id: 'seal-support-system',
+    title: 'Seal Support System',
+    icon: 'fa-shield-alt',
+    subcategories: [
+      {
+        id: 'thermosyphon-sys',
+        title: 'Thermosyphon System',
+        slug: 'thermosyphon',
+        products: dropdownProducts.filter(p => p.categorySlug === 'thermosyphon').slice(0, 9)
+      },
+      {
+        id: 'heat-exchanger-sys',
+        title: 'Heat Exchanger System',
+        slug: 'heat-exchanged-system',
+        products: dropdownProducts.filter(p => p.categorySlug === 'heat-exchanged-system').slice(0, 9)
+      }
+    ]
   },
   {
-    id: 'water-rotary',
-    title: 'Water Rotary Joints',
-    slug: 'water-rotary-joints',
-    products: productsData.filter(p => p.categorySlug === 'water-rotary-joints').slice(0, 9)
+    id: 'bearing-isolators',
+    title: 'Bearing Isolators',
+    icon: 'fa-ring',
+    subcategories: [
+      {
+        id: 'bearing-isolator-pro',
+        title: 'Bearing Isolator Pro',
+        slug: 'products',
+        products: [
+          {
+            name: 'Non-Contact Metallic Bearing Isolator',
+            category: 'Bearing Isolators',
+            slug: 'bearing-isolator-pro',
+            categorySlug: 'products',
+            specs: { Size: '20 - 150mm', Temp: '-40 to 200°C', Speed: 'Up to 60 m/s' },
+            isCustom: true
+          },
+          {
+            name: 'Flanged Pump Bearing Protection Seal',
+            category: 'Bearing Isolators',
+            slug: 'bearing-protection-seal',
+            categorySlug: 'products',
+            specs: { Size: '25 - 120mm', Temp: '-30 to 180°C', Ingress: 'IP66 / IP67' },
+            isCustom: true
+          },
+          {
+            name: 'Heavy-Duty Gearbox Isolator Seal',
+            category: 'Bearing Isolators',
+            slug: 'gearbox-isolator-seal',
+            categorySlug: 'products',
+            specs: { Size: '30 - 200mm', Temp: '-40 to 220°C', Material: 'Bronze / SS316' },
+            isCustom: true
+          }
+        ]
+      }
+    ]
   },
   {
-    id: 'hot-oil-rotary',
-    title: 'Hot Oil & Steam Rotary Joints',
-    slug: 'hot-oil-rotary-joints',
-    products: productsData.filter(p => p.categorySlug === 'hot-oil-rotary-joints' || p.categorySlug === 'steam-rotary-joints').slice(0, 9)
-  },
-  {
-    id: 'hydraulic-rotary',
-    title: 'Hydraulic Rotary Joints',
-    slug: 'hydrolic-rotary-joints',
-    products: productsData.filter(p => p.categorySlug === 'hydrolic-rotary-joints').slice(0, 9)
-  },
-  {
-    id: 'reactor-agitator',
-    title: 'Reactor & Agitator Seals',
-    slug: 'reactor-seal',
-    products: productsData.filter(p => p.categorySlug === 'reactor-seal' || p.categorySlug === 'agitator-seal').slice(0, 9)
-  },
-  {
-    id: 'high-temp',
-    title: 'High Temp Seals',
-    slug: 'high-temp-seal',
-    products: productsData.filter(p => p.categorySlug === 'high-temp-seal').slice(0, 9)
-  },
-  {
-    id: 'support-systems',
-    title: 'Supply Systems & Heat Exchangers',
-    slug: 'thermosyphon',
-    products: productsData.filter(p => p.categorySlug === 'thermosyphon' || p.categorySlug === 'heat-exchanged-system').slice(0, 9)
-  },
-  {
-    id: 'dairy-water',
-    title: 'Dairy & Water Bellow Seals',
-    slug: 'water-seal',
-    products: productsData.filter(p => p.categorySlug === 'water-seal' || p.categorySlug === 'dairy-seal').slice(0, 9)
+    id: 'spares',
+    title: 'Spares',
+    icon: 'fa-wrench',
+    subcategories: [
+      {
+        id: 'lapped-seal-face',
+        title: 'Lapped Seal Face',
+        slug: 'products',
+        products: [
+          {
+            name: 'Silicon / Tungsten Carbide',
+            category: 'Spares',
+            slug: 'silicon-tungsten-carbide',
+            categorySlug: 'products',
+            specs: { Material: 'SiC / TC', Type: 'Lapped Seal Face' },
+            isCustom: true
+          },
+          {
+            name: 'Carbon',
+            category: 'Spares',
+            slug: 'carbon-seal-faces',
+            categorySlug: 'products',
+            specs: { Material: 'Carbon Graphite', Temp: '-50 to 260°C' },
+            isCustom: true
+          },
+          {
+            name: 'Ceramic',
+            category: 'Spares',
+            slug: 'ceramic-seal-faces',
+            categorySlug: 'products',
+            specs: { Material: '99.5% Alumina', Property: 'Corrosion Resistant' },
+            isCustom: true
+          },
+          {
+            name: 'Teflon',
+            category: 'Spares',
+            slug: 'teflon-components',
+            categorySlug: 'products',
+            specs: { Material: 'Virgin / Glass PTFE', Temp: '-70 to 260°C' },
+            isCustom: true
+          },
+          {
+            name: 'Grafoil',
+            category: 'Spares',
+            slug: 'grafoil-packing',
+            categorySlug: 'products',
+            specs: { Material: 'Flexible Grafoil', Temp: 'Up to 650°C' },
+            isCustom: true
+          },
+          {
+            name: 'Rubber',
+            category: 'Spares',
+            slug: 'rubber-elastomers',
+            categorySlug: 'products',
+            specs: { Material: 'FKM / Viton / EPDM', Standard: 'AS568 / Metric' },
+            isCustom: true
+          }
+        ]
+      }
+    ]
   }
 ];
 
-// Helper to extract cleanly formatted specs for mega-menu cards
+// Helper to clean product names in dropdown (remove Inside/Outside and append series number to differentiate)
+function getDropdownProductName(prod: any) {
+  let name = prod.name || '';
+  name = name.replace(/\b(Inside|Outside)\s*(Mounting|Mounted)?\b\s*/gi, '');
+  const numMatch = (prod.slug || '').match(/-(\d+)$/);
+  if (numMatch && !name.match(new RegExp('\\b' + numMatch[1] + '\\b'))) {
+    if (/Series$/i.test(name.trim())) {
+      name = name.trim() + ' ' + numMatch[1];
+    }
+  }
+  return name.replace(/\s+/g, ' ').trim();
+}
+
 function getProductSpecs(prod: any) {
   const specs: { label: string; value: string }[] = [];
   const raw = prod.specs || {};
 
-  const rawSize = raw.Size || prod.Size;
+  const rawSize = raw.Size || prod.Size || raw['Rotary joint size available'] || prod.rotary_joint_size_available;
   if (rawSize) {
     const cleanedSize = String(rawSize)
       .replace(/--/g, ' - ')
@@ -85,7 +253,7 @@ function getProductSpecs(prod: any) {
     specs.push({ label: 'Size', value: cleanedSize });
   }
 
-  const rawTemp = raw.Temp || prod.Temp;
+  const rawTemp = raw.Temp || prod.Temp || raw['Temperature range'] || prod.temperature_range;
   if (rawTemp) {
     const cleanedTemp = String(rawTemp)
       .replace(/\bTO\b/gi, 'to')
@@ -95,7 +263,7 @@ function getProductSpecs(prod: any) {
   }
 
   if (specs.length < 2) {
-    const rawPress = raw.Press || prod.Press || raw.Prees || prod.Prees;
+    const rawPress = raw.Press || prod.Press || raw.Prees || prod.Prees || raw.Pressure || prod.pressure;
     if (rawPress) {
       specs.push({ label: 'Press', value: String(rawPress).trim() });
     }
@@ -158,7 +326,7 @@ function getProductSpecs(prod: any) {
         <div class="container header-content">
             <a href="/" class="logo">
                 <div class="logo-text">
-                    <div style="display: flex; gap: 6px; align-items: baseline;">
+                    <div style="display: flex; gap: 8px; align-items: baseline;">
                         <h1>Reliable</h1>
                         <h2>Industries</h2>
                     </div>
@@ -185,65 +353,87 @@ function getProductSpecs(prod: any) {
                             </a>
                             {item.title === 'Products' ? (
                                 <div class="mega-menu products-mega-menu">
-                                    <!-- Desktop Layout (shown on screens > 992px) -->
+                                    <!-- Desktop 3-Tier Cascade Layout (shown on screens > 992px) -->
                                     <div class="products-mega-layout desktop-only-layout">
-                                        <!-- Left Categories Sidebar -->
-                                        <div class="products-mega-sidebar">
-                                            {productGroups.map((group, gIdx) => (
-                                                <a href={`/products/${group.slug}`} 
-                                                   class={`cat-tab-btn ${gIdx === 0 ? 'active' : ''}`}
-                                                   data-group-id={group.id}
-                                                   onclick={`switchMegaTab('${group.id}', this, event)`}
-                                                   onmouseover={`switchMegaTab('${group.id}', this, event)`}>
-                                                    <span>{group.title}</span>
-                                                    <i class="fas fa-chevron-right"></i>
-                                                </a>
+                                        <!-- Tier 1: Super Categories (Screenshot 3) -->
+                                        <div class="products-mega-super-col">
+                                            {superCategories.map((sCat, sIdx) => (
+                                                <button type="button" 
+                                                        class={`super-cat-btn ${sIdx === 0 ? 'active' : ''}`}
+                                                        data-super-id={sCat.id}
+                                                        onmouseenter={`switchSuperCat('${sCat.id}', this, event)`}
+                                                        onclick={`switchSuperCat('${sCat.id}', this, event)`}>
+                                                    <span>{sCat.title}</span>
+                                                    <i class="fas fa-chevron-right super-chevron"></i>
+                                                </button>
                                             ))}
                                         </div>
-                                        <!-- Right Products Detail Grid Panel -->
-                                        <div class="products-mega-panel">
-                                            {productGroups.map((group, gIdx) => (
-                                                <div class="group-panel-content" id={`panel-${group.id}`} style={gIdx === 0 ? 'display: block;' : 'display: none;'}>
-                                                    <div class="products-mega-grid">
-                                                        {group.products.map((prod: any) => {
-                                                            const specs = getProductSpecs(prod);
-                                                            return (
-                                                                <a href={`/products/${prod.categorySlug}/${prod.slug}`} class="mega-product-item">
-                                                                    <span class="mega-product-name">{prod.name}</span>
-                                                                    <div class="mega-product-specs">
-                                                                        {specs.length > 0 ? (
-                                                                            specs.slice(0, 2).map((s) => (
-                                                                                <span class="spec-badge">
-                                                                                    <span class="spec-label">{s.label}:</span>
-                                                                                    <span class="spec-val">{s.value}</span>
-                                                                                </span>
-                                                                            ))
-                                                                        ) : (
-                                                                            <span class="spec-badge">
-                                                                                <span class="spec-val">{prod.category || 'Standard'}</span>
-                                                                            </span>
-                                                                        )}
-                                                                    </div>
-                                                                </a>
-                                                            );
-                                                        })}
-                                                    </div>
-                                                    <div class="products-mega-bottom-bar">
-                                                        <a href={`/products/${group.slug}`} class="cat-link">
-                                                            <span>Explore all {group.title}</span>
-                                                            <i class="fas fa-arrow-right"></i>
-                                                        </a>
-                                                        <a href="/brochures/product_brochure.pdf" download="Reliable_Product_Brochure.pdf" class="catalogue-btn">
-                                                            <i class="fas fa-file-pdf"></i>
-                                                            <span>Download Technical Catalogue</span>
-                                                        </a>
-                                                    </div>
+
+                                        <!-- Tier 2: Sub-Categories (Screenshot 4) -->
+                                        <div class="products-mega-sub-col">
+                                            {superCategories.map((sCat, sIdx) => (
+                                                <div class="sub-col-group" id={`subcol-${sCat.id}`} style={sIdx === 0 ? 'display: block;' : 'display: none;'}>
+                                                    {sCat.subcategories.map((sub, subIdx) => (
+                                                        <button type="button"
+                                                                class={`sub-cat-btn ${subIdx === 0 ? 'active' : ''}`}
+                                                                data-super-id={sCat.id}
+                                                                data-sub-id={sub.id}
+                                                                onmouseenter={`switchSubCat('${sCat.id}', '${sub.id}', this, event)`}
+                                                                onclick={`switchSubCat('${sCat.id}', '${sub.id}', this, event)`}>
+                                                            <span>{sub.title}</span>
+                                                            <i class="fas fa-chevron-right"></i>
+                                                        </button>
+                                                    ))}
                                                 </div>
                                             ))}
                                         </div>
+
+                                        <!-- Tier 3: Products Detail Grid Panel -->
+                                        <div class="products-mega-display-col">
+                                            {superCategories.map((sCat, sIdx) =>
+                                                sCat.subcategories.map((sub, subIdx) => (
+                                                    <div class="sub-products-panel" id={`panel-${sCat.id}-${sub.id}`} style={sIdx === 0 && subIdx === 0 ? 'display: flex;' : 'display: none;'}>
+                                                        <div class="panel-header-compact">
+                                                            <span class="panel-sub-title">{sub.title}</span>
+                                                        </div>
+
+                                                        <div class="products-mega-grid">
+                                                            {sub.products.map((prod: any) => {
+                                                                const specs = getProductSpecs(prod);
+                                                                const targetUrl = prod.isCustom ? `/contact?inquiry=${encodeURIComponent(prod.name)}` : `/products/${prod.categorySlug}/${prod.slug}`;
+                                                                return (
+                                                                    <a href={targetUrl} class="mega-product-item">
+                                                                        <div class="mega-product-header">
+                                                                            <span class="mega-product-name">{getDropdownProductName(prod)}</span>
+                                                                        </div>
+                                                                        {specs.length > 0 && (
+                                                                            <div class="mega-product-specs">
+                                                                                {specs.slice(0, 2).map((s) => (
+                                                                                    <span class="spec-badge">
+                                                                                        <span class="spec-label">{s.label}:</span>
+                                                                                        <span class="spec-val">{s.value}</span>
+                                                                                    </span>
+                                                                                ))}
+                                                                            </div>
+                                                                        )}
+                                                                    </a>
+                                                                );
+                                                            })}
+                                                        </div>
+
+                                                        <div class="products-mega-bottom-bar">
+                                                            <a href="/brochures/product_brochure.pdf" download="Reliable_Product_Brochure.pdf" class="catalogue-btn">
+                                                                <i class="fas fa-file-pdf"></i>
+                                                                <span>Technical Catalogue</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            )}
+                                        </div>
                                     </div>
 
-                                    <!-- Mobile Accordion Layout (shown on screens <= 992px) -->
+                                    <!-- Mobile Nested 3-Tier Accordion Layout (shown on screens <= 992px) -->
                                     <div class="products-mobile-layout">
                                         <!-- Top Action Hub -->
                                         <div class="mobile-products-quick-actions">
@@ -259,46 +449,62 @@ function getProductSpecs(prod: any) {
                                             </a>
                                         </div>
 
-                                        <!-- Mobile Categories Accordion -->
-                                        <div class="mobile-cat-accordion">
-                                            {productGroups.map((group) => (
-                                                <div class="mobile-cat-item" data-group-id={group.id}>
-                                                    <button type="button" class="mobile-cat-header" aria-expanded="false">
-                                                        <span class="mobile-cat-title">{group.title}</span>
-                                                        <span class="mobile-cat-badge">{group.products.length}</span>
-                                                        <span class="mobile-cat-chevron">
+                                        <!-- Level 1: Super Categories Mobile Accordion -->
+                                        <div class="mobile-super-accordion">
+                                            {superCategories.map((sCat) => (
+                                                <div class="mobile-super-item" data-super-id={sCat.id}>
+                                                    <button type="button" class="mobile-super-header" aria-expanded="false">
+                                                        <span class="mobile-super-title">{sCat.title}</span>
+                                                        <span class="mobile-super-badge">{sCat.subcategories.length} Categories</span>
+                                                        <span class="mobile-super-chevron">
                                                             <i class="fas fa-chevron-down"></i>
                                                         </span>
                                                     </button>
-                                                    <div class="mobile-cat-body">
-                                                        <div class="mobile-cat-body-inner">
-                                                            <div class="mobile-products-list">
-                                                                {group.products.map((prod: any) => {
-                                                                    const specs = getProductSpecs(prod);
-                                                                    return (
-                                                                        <a href={`/products/${prod.categorySlug}/${prod.slug}`} class="mobile-product-card">
-                                                                            <div class="mobile-product-details">
-                                                                                <span class="mobile-product-name">{prod.name}</span>
-                                                                                {specs.length > 0 && (
-                                                                                    <div class="mobile-product-specs">
-                                                                                        {specs.slice(0, 2).map((s) => (
-                                                                                            <span class="spec-badge">
-                                                                                                <span class="spec-label">{s.label}:</span>
-                                                                                                <span class="spec-val">{s.value}</span>
-                                                                                            </span>
-                                                                                        ))}
-                                                                                    </div>
-                                                                                )}
+                                                    <div class="mobile-super-body">
+                                                        <div class="mobile-super-body-inner">
+                                                            <!-- Level 2: Sub Categories Mobile Accordion -->
+                                                            <div class="mobile-sub-accordion">
+                                                                {sCat.subcategories.map((sub) => (
+                                                                    <div class="mobile-sub-item" data-sub-id={sub.id}>
+                                                                        <button type="button" class="mobile-sub-header" aria-expanded="false">
+                                                                            <span class="mobile-sub-title">{sub.title}</span>
+                                                                            {sub.products.length > 0 && <span class="mobile-sub-badge">{sub.products.length}</span>}
+                                                                            <span class="mobile-sub-chevron">
+                                                                                <i class="fas fa-chevron-down"></i>
+                                                                            </span>
+                                                                        </button>
+                                                                        <div class="mobile-sub-body">
+                                                                            <div class="mobile-sub-body-inner">
+                                                                                <div class="mobile-products-list">
+                                                                                    {sub.products.map((prod: any) => {
+                                                                                        const specs = getProductSpecs(prod);
+                                                                                        const targetUrl = prod.isCustom ? `/contact?inquiry=${encodeURIComponent(prod.name)}` : `/products/${prod.categorySlug}/${prod.slug}`;
+                                                                                        return (
+                                                                                            <a href={targetUrl} class="mobile-product-card">
+                                                                                                <div class="mobile-product-details">
+                                                                                                    <span class="mobile-product-name">{getDropdownProductName(prod)}</span>
+                                                                                                    {specs.length > 0 && (
+                                                                                                        <div class="mobile-product-specs">
+                                                                                                            {specs.slice(0, 2).map((s) => (
+                                                                                                                <span class="spec-badge">
+                                                                                                                    <span class="spec-label">{s.label}:</span>
+                                                                                                                    <span class="spec-val">{s.value}</span>
+                                                                                                                </span>
+                                                                                                            ))}
+                                                                                                        </div>
+                                                                                                    )}
+                                                                                                </div>
+                                                                                                <i class="fas fa-chevron-right mobile-card-arrow"></i>
+                                                                                            </a>
+                                                                                        );
+                                                                                    })}
+                                                                                </div>
+
                                                                             </div>
-                                                                            <i class="fas fa-chevron-right mobile-card-arrow"></i>
-                                                                        </a>
-                                                                    );
-                                                                })}
+                                                                        </div>
+                                                                    </div>
+                                                                ))}
                                                             </div>
-                                                            <a href={`/products/${group.slug}`} class="mobile-cat-explore-link">
-                                                                <span>Explore all {group.title}</span>
-                                                                <i class="fas fa-arrow-right"></i>
-                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -360,16 +566,105 @@ function getProductSpecs(prod: any) {
     </div>
 
     <script is:inline>
-    function switchMegaTab(groupId, el, e) {
+    function switchSuperCat(superId, el, e) {
         if (e && window.innerWidth <= 992 && e.type === 'click') {
             e.preventDefault();
         }
-        document.querySelectorAll('.cat-tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.group-panel-content').forEach(p => p.style.display = 'none');
+        document.querySelectorAll('.super-cat-btn').forEach(b => b.classList.remove('active'));
         if (el) el.classList.add('active');
-        const panel = document.getElementById('panel-' + groupId);
-        if (panel) panel.style.display = 'block';
+
+        document.querySelectorAll('.sub-col-group').forEach(g => g.style.display = 'none');
+        const targetSubCol = document.getElementById('subcol-' + superId);
+        if (targetSubCol) {
+            targetSubCol.style.display = 'block';
+            const firstSubBtn = targetSubCol.querySelector('.sub-cat-btn');
+            if (firstSubBtn) {
+                const subId = firstSubBtn.getAttribute('data-sub-id');
+                switchSubCat(superId, subId, firstSubBtn, null);
+            }
+        }
     }
+
+    function switchSubCat(superId, subId, el, e) {
+        if (e && window.innerWidth <= 992 && e.type === 'click') {
+            e.preventDefault();
+        }
+        const parentGroup = el ? el.closest('.sub-col-group') : document.getElementById('subcol-' + superId);
+        if (parentGroup) {
+            parentGroup.querySelectorAll('.sub-cat-btn').forEach(b => b.classList.remove('active'));
+        }
+        if (el) el.classList.add('active');
+
+        document.querySelectorAll('.sub-products-panel').forEach(p => p.style.display = 'none');
+        const targetPanel = document.getElementById('panel-' + superId + '-' + subId);
+        if (targetPanel) {
+            targetPanel.style.display = 'flex';
+        }
+    }
+
+    // Mobile nested 3-tier accordion event handlers
+    document.addEventListener('DOMContentLoaded', () => {
+        // Level 1: Super categories toggle
+        const superHeaders = document.querySelectorAll('.mobile-super-header');
+        superHeaders.forEach(header => {
+            header.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const item = header.closest('.mobile-super-item');
+                if (!item) return;
+                const isOpen = item.classList.contains('open');
+
+                // Collapse other super items
+                document.querySelectorAll('.mobile-super-item.open').forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove('open');
+                        const btn = other.querySelector('.mobile-super-header');
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                if (isOpen) {
+                    item.classList.remove('open');
+                    header.setAttribute('aria-expanded', 'false');
+                } else {
+                    item.classList.add('open');
+                    header.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // Level 2: Sub categories toggle
+        const subHeaders = document.querySelectorAll('.mobile-sub-header');
+        subHeaders.forEach(header => {
+            header.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const item = header.closest('.mobile-sub-item');
+                if (!item) return;
+                const isOpen = item.classList.contains('open');
+
+                // Collapse other sub-items inside same parent super item
+                const parentSuper = item.closest('.mobile-super-item');
+                if (parentSuper) {
+                    parentSuper.querySelectorAll('.mobile-sub-item.open').forEach(other => {
+                        if (other !== item) {
+                            other.classList.remove('open');
+                            const btn = other.querySelector('.mobile-sub-header');
+                            if (btn) btn.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                }
+
+                if (isOpen) {
+                    item.classList.remove('open');
+                    header.setAttribute('aria-expanded', 'false');
+                } else {
+                    item.classList.add('open');
+                    header.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    });
     </script>
 
     <!-- Flyout Search Modal -->
@@ -400,11 +695,9 @@ function getProductSpecs(prod: any) {
         {"id":7,"name":"High Temp Seal Series","category":"High Temp Seal","slug":"high-temp-seal-series-7","categorySlug":"high-temp-seal"},
         {"id":8,"name":"Reliable Cartridge seal Series","category":"Cartridge Seal","slug":"reliable-cartridge-seal-series-8","categorySlug":"cartridge-seal"},
         {"id":9,"name":"Reliable Inside Mounted Single Spring Seal Series","category":"Single Spring Series Seal","slug":"reliable-inside-mounted-single-spring-seal-series-9","categorySlug":"single-spring-series-seal"},
-        {"id":10,"name":"Special Seal","category":"Mechanical Seal","slug":"special-seal-10","categorySlug":"mechanical-seal"},
         {"id":11,"name":"Reliable Inside Mounted Single Spring Seal Series","category":"Single Spring Series Seal","slug":"reliable-inside-mounted-single-spring-seal-series-11","categorySlug":"single-spring-series-seal"},
         {"id":12,"name":"Reliable Inside Mounted Single Spring Seal Series","category":"Single Spring Series Seal","slug":"reliable-inside-mounted-single-spring-seal-series-12","categorySlug":"single-spring-series-seal"},
         {"id":13,"name":"Reliable Rubber Bellow Single Spring Seal Series","category":"Water Seal","slug":"reliable-rubber-bellow-single-spring-seal-series-13","categorySlug":"water-seal"},
-        {"id":14,"name":"Reliable Dairy Used Single Spring Seal Series","category":"Dairy Seal","slug":"reliable-dairy-used-single-spring-seal-series-14","categorySlug":"dairy-seal"},
         {"id":15,"name":"Reliable Rotary Pressure Joints","category":"Rotary Joints","slug":"reliable-rotary-pressure-joints-15","categorySlug":"rotary-joints"},
         {"id":16,"name":"01 RMF 60 - Monoflow Rotating Union","category":"Water Rotary Joints","slug":"01-rmf-60-this-is-monoflow-rotating-union-16","categorySlug":"water-rotary-joints"},
         {"id":17,"name":"RDF 80 - Deoflow Rotating Union","category":"Water Rotary Joints","slug":"rdf-80---this-is-deofolw-rotating-union-17","categorySlug":"water-rotary-joints"},
@@ -418,29 +711,34 @@ function getProductSpecs(prod: any) {
         {"id":25,"name":"RMF-HT 180 - Flanged End Rotating Union","category":"Hot Oil Rotary Joints","slug":"rmf---ht-180---this-is-flanged-end-rotating-union-25","categorySlug":"hot-oil-rotary-joints"},
         {"id":26,"name":"RDF-HT 200 - Deoflow Flanged Rotating Union","category":"Hot Oil Rotary Joints","slug":"rdf---ht-200---this-is-deoflow-flanged-end-rotating-union-26","categorySlug":"hot-oil-rotary-joints"},
         {"id":27,"name":"RDF-HT 200 - Deoflow Flanged Rotating Union","category":"Hot Oil Rotary Joints","slug":"rdf---ht-200---this-is-deoflow-flanged-end-rotating-union-27","categorySlug":"hot-oil-rotary-joints"},
-        {"id":28,"name":"RDF-DSGQ-220 - Deoflow Flanged High Temp Rotating Union","category":"Steam Rotary Joints","slug":"rdf---dsgq---220---this-is-deoflow-flanged-end-high-temp-rotating-union-28","categorySlug":"steam-rotary-joints"},
+        {"id":28,"name":"RMF - HT-140 - Monoflow High Temp Rotating Union","category":"Steam Rotary Joints","slug":"rmf-ht-140-this-is-monoflow-high-tempreture-rotating-union-28","categorySlug":"steam-rotary-joints"},
+        {"id":51,"name":"RDF-HT- 160 - Deoflow High Temp Rotating Union","category":"Steam Rotary Joints","slug":"rdf-ht-160-this-is-deoflow-high-tempreture-rotating-union-51","categorySlug":"steam-rotary-joints"},
+        {"id":52,"name":"RMF - HT 180 - Flanged End Rotating Union","category":"Steam Rotary Joints","slug":"rmf-ht-180-this-is-flanged-end-rotating-union-52","categorySlug":"steam-rotary-joints"},
+        {"id":53,"name":"RDF - HT 200 - Deoflow Flanged End Rotating Union","category":"Steam Rotary Joints","slug":"rdf-ht-200-this-is-deoflow-flanged-end-rotating-union-53","categorySlug":"steam-rotary-joints"},
+        {"id":54,"name":"RDF - DSGQ - 220 - Deoflow Flanged High Temp Rotating Union","category":"High Temperature Rotary Joint","slug":"rdf-dsgq-220-this-is-deoflow-flanged-end-high-temp-rotating-union-54","categorySlug":"high-temp-rotary-joints"},
         {"id":29,"name":"RMF-H-100 - Hydraulic Rotating Union","category":"Hydrolic Rotary Joints","slug":"rmf---h-100---this-is-hydraulic-rotating-union-29","categorySlug":"hydrolic-rotary-joints"},
         {"id":30,"name":"RDF-H-150 - Hydraulic Rotating Union","category":"Hydrolic Rotary Joints","slug":"rdf--h-150---this-is-hydraulic-rotating-union-30","categorySlug":"hydrolic-rotary-joints"},
         {"id":31,"name":"RDF-H-200 - Hydraulic Rotating Union","category":"Hydrolic Rotary Joints","slug":"rdf---h-200---this-is-hydraulic-rotating-union-31","categorySlug":"hydrolic-rotary-joints"},
-        {"id":32,"name":"RDF-H-200 - Hydraulic Rotating Union","category":"Hydrolic Rotary Joints","slug":"rdf---h-200---this-is-hydraulic-rotating-union-32","categorySlug":"hydrolic-rotary-joints"},
         {"id":33,"name":"Inside Mounting Multi Spring Seal Series","category":"Multi Spring Series Seal","slug":"inside-mounting-multi-spring-seal-series-33","categorySlug":"multi-spring-series-seal"},
         {"id":34,"name":"Inside Mounting Multi Spring Seal Series","category":"Multi Spring Series Seal","slug":"inside-mounting-multi-spring-seal-series-34","categorySlug":"multi-spring-series-seal"},
         {"id":35,"name":"Inside Mounting Multi Spring Seal Series","category":"Multi Spring Series Seal","slug":"inside-mounting-multi-spring-seal-series-35","categorySlug":"multi-spring-series-seal"},
         {"id":36,"name":"Outside Mounting Multi Spring Seal Series","category":"Multi Spring Series Seal","slug":"outside-mounting-multi-spring-seal-series-36","categorySlug":"multi-spring-series-seal"},
         {"id":37,"name":"Outside Mounting Multi Spring Seal Series","category":"Multi Spring Series Seal","slug":"outside-mounting-multi-spring-seal-series-37","categorySlug":"multi-spring-series-seal"},
-        {"id":38,"name":"Special Seal","category":"Multi Spring Series Seal","slug":"special-seal-38","categorySlug":"multi-spring-series-seal"},
         {"id":39,"name":"Reliable Inside Mounted Single Spring Seal Series","category":"Single Spring Series Seal","slug":"reliable-inside-mounted-single-spring-seal-series-39","categorySlug":"single-spring-series-seal"},
         {"id":40,"name":"Reliable Inside Mounted Single Spring Seal Series","category":"Single Spring Series Seal","slug":"reliable-inside-mounted-single-spring-seal-series-40","categorySlug":"single-spring-series-seal"},
         {"id":41,"name":"Reliable Inside Mounted Single Spring Seal Series","category":"Single Spring Series Seal","slug":"reliable-inside-mounted-single-spring-seal-series-41","categorySlug":"single-spring-series-seal"},
         {"id":42,"name":"Reliable Rubber Bellow Single Spring Seal Series","category":"Water Seal","slug":"reliable-rubber-bellow-single-spring-seal-series-42","categorySlug":"water-seal"},
         {"id":43,"name":"Reliable Rubber Bellow Single Spring Seal Series","category":"Water Seal","slug":"reliable-rubber-bellow-single-spring-seal-series-43","categorySlug":"water-seal"},
-        {"id":44,"name":"Reliable Dairy Used Single Spring Seal Series","category":"Dairy Seal","slug":"reliable-dairy-used-single-spring-seal-series-44","categorySlug":"dairy-seal"},
-        {"id":45,"name":"Reliable Dairy Used Single Spring Seal Series","category":"Dairy Seal","slug":"reliable-dairy-used-single-spring-seal-series-45","categorySlug":"dairy-seal"},
-        {"id":46,"name":"Reliable Dairy Used Single Spring Seal Series","category":"Dairy Seal","slug":"reliable-dairy-used-single-spring-seal-series-46","categorySlug":"dairy-seal"},
         {"id":47,"name":"High Temp Seal Series","category":"High Temp Seal","slug":"high-temp-seal-series-47","categorySlug":"high-temp-seal"},
         {"id":48,"name":"Reliable Cartridge seal Series","category":"Cartridge Seal","slug":"reliable-cartridge-seal-series-48","categorySlug":"cartridge-seal"},
         {"id":49,"name":"Reliable Cartridge seal Series","category":"Cartridge Seal","slug":"reliable-cartridge-seal-series-49","categorySlug":"cartridge-seal"},
-        {"id":50,"name":"Reliable Cartridge seal Series","category":"Cartridge Seal","slug":"reliable-cartridge-seal-series-50","categorySlug":"cartridge-seal"}
+        {"id":101,"name":"Silicon / Tungsten Carbide","category":"Spares","slug":"products","categorySlug":"products"},
+        {"id":102,"name":"Carbon","category":"Spares","slug":"products","categorySlug":"products"},
+        {"id":103,"name":"Ceramic","category":"Spares","slug":"products","categorySlug":"products"},
+        {"id":104,"name":"Teflon","category":"Spares","slug":"products","categorySlug":"products"},
+        {"id":105,"name":"Grafoil","category":"Spares","slug":"products","categorySlug":"products"},
+        {"id":106,"name":"Rubber","category":"Spares","slug":"products","categorySlug":"products"},
+        {"id":107,"name":"Lapped Seal Face","category":"Spares","slug":"products","categorySlug":"products"}
     ];
 
     let selectedIndex = -1;

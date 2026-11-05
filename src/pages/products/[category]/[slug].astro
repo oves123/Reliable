@@ -6,29 +6,51 @@ import { sanityClient } from 'sanity:client';
 import groq from 'groq';
 import { urlFor } from '../../../utils/sanity';
 
+import localProducts from '../../../data/products.json';
+
 export async function getStaticPaths() {
   const products = await sanityClient.fetch(groq`*[_type == "product"]{
     "slug": slug.current,
     categorySlug,
     category
   }`);
-  return products.map(product => ({
+  const paths = [...products];
+  for (const lp of (localProducts as any[])) {
+    if (lp.slug && !paths.some(p => p.slug === lp.slug)) {
+      paths.push({
+        slug: lp.slug,
+        categorySlug: lp.categorySlug,
+        category: lp.category
+      });
+    }
+  }
+  return paths.map(product => ({
     params: { category: product.categorySlug, slug: product.slug },
     props: { category: product.category, slug: product.slug },
   }));
 }
 
-import localProducts from '../../../data/products.json';
-
 const { category, slug } = Astro.props;
-const product = await sanityClient.fetch(groq`*[_type == "product" && slug.current == $slug][0]`, { slug });
-if (product.image) {
+const fetchedProduct = await sanityClient.fetch(groq`*[_type == "product" && slug.current == $slug][0]`, { slug });
+const localProd = (localProducts as any[]).find(p => p.slug === slug || p.slug === fetchedProduct?.slug || p.name === fetchedProduct?.name);
+
+const product = fetchedProduct || (localProd ? {
+  name: localProd.name,
+  slug: localProd.slug,
+  category: localProd.category,
+  categorySlug: localProd.categorySlug,
+  description: localProd.description,
+  features: localProd.features || [],
+  specs: localProd.specs || {},
+  image: localProd.image || (localProd.img ? '/' + localProd.img : '')
+} : null);
+
+if (product?.image && typeof product.image === 'object') {
   product.image = urlFor(product.image).url();
 }
-product.slug = product.slug?.current || product.slug;
-
-// Find matching product in local dataset for technical diagrams & extra images
-const localProd = (localProducts as any[]).find(p => p.slug === slug || p.slug === product?.slug || p.name === product?.name);
+if (product) {
+  product.slug = product.slug?.current || product.slug;
+}
 
 // Collect 2 to 3 gallery images (original photo + technical diagram / graphic)
 const galleryImages: { url: string; label: string; type: string }[] = [];
@@ -61,17 +83,157 @@ if (galleryImages.length === 1) {
   });
 }
 
-const categoryProductsData = await sanityClient.fetch(groq`*[_type == "product" && category == $cat]{
-  name,
-  "slug": slug.current,
-  categorySlug,
-  image
-}`, { cat: category });
+// Filter out 'Special Seal', 'Dairy Used' products, the 4th cartridge seal (series-50), and duplicate hydraulic rotary union (id 32) matching dropdown
+const dropdownProducts = (localProducts as any[]).filter(p => 
+  p.name !== 'Special Seal' && 
+  !p.slug?.includes('special-seal') &&
+  !p.name?.includes('Dairy Used') &&
+  p.categorySlug !== 'dairy-seal' &&
+  p.slug !== 'reliable-cartridge-seal-series-50' &&
+  p.slug !== 'rdf-h-200-this-is-hydraulic-rotating-union-32' &&
+  p.id !== 32
+);
 
-const categoryProducts = categoryProductsData.map((p: any) => ({
-  ...p,
-  image: p.image ? urlFor(p.image).url() : ''
-}));
+// Helper to clean product names in sidebar (remove Inside/Outside and append series number to differentiate)
+function getDropdownProductName(prod: any) {
+  let name = prod.name || '';
+  name = name.replace(/\b(Inside|Outside)\s*(Mounting|Mounted)?\b\s*/gi, '');
+  const numMatch = (prod.slug || '').match(/-(\d+)$/);
+  if (numMatch && !name.match(new RegExp('\\b' + numMatch[1] + '\\b'))) {
+    if (/Series$/i.test(name.trim())) {
+      name = name.trim() + ' ' + numMatch[1];
+    }
+  }
+  return name.replace(/\s+/g, ' ').trim();
+}
+
+function getProductSpecs(prod: any) {
+  const specs: { label: string; value: string }[] = [];
+  const raw = prod.specs || {};
+
+  const rawSize = raw.Size || prod.Size || raw['Rotary joint size available'] || prod.rotary_joint_size_available;
+  if (rawSize) {
+    const cleanedSize = String(rawSize)
+      .replace(/--/g, ' - ')
+      .replace(/- -/g, ' - ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    specs.push({ label: 'Size', value: cleanedSize });
+  }
+
+  const rawTemp = raw.Temp || prod.Temp || raw['Temperature range'] || prod.temperature_range;
+  if (rawTemp) {
+    const cleanedTemp = String(rawTemp)
+      .replace(/\bTO\b/gi, 'to')
+      .replace(/\s+/g, ' ')
+      .trim();
+    specs.push({ label: 'Temp', value: cleanedTemp });
+  }
+
+  if (specs.length < 2) {
+    const rawPress = raw.Press || prod.Press || raw.Prees || prod.Prees || raw.Pressure || prod.pressure;
+    if (rawPress) {
+      specs.push({ label: 'Press', value: String(rawPress).trim() });
+    }
+  }
+
+  if (specs.length === 0 && (raw.Capacity || prod.Capacity)) {
+    specs.push({ label: 'Cap', value: String(raw.Capacity || prod.Capacity).trim() });
+  }
+
+  return specs;
+}
+
+// Subcategory mapping identical to Header mega-menu dropdown
+const subCategoriesDef = [
+  {
+    title: 'Multi Spring Seal',
+    slug: 'multi-spring-series-seal',
+    match: (p: any) => p.categorySlug === 'multi-spring-series-seal' || p.categorySlug === 'mechanical-seal'
+  },
+  {
+    title: 'Single Spring Seal',
+    slug: 'single-spring-series-seal',
+    match: (p: any) => p.categorySlug === 'single-spring-series-seal'
+  },
+  {
+    title: 'Rubber Bellow Seal',
+    slug: 'water-seal',
+    match: (p: any) => p.categorySlug === 'water-seal'
+  },
+  {
+    title: 'High Temperature Seal',
+    slug: 'high-temp-seal',
+    match: (p: any) => p.categorySlug === 'high-temp-seal'
+  },
+  {
+    title: 'Cartridge Seal',
+    slug: 'cartridge-seal',
+    match: (p: any) => p.categorySlug === 'cartridge-seal'
+  },
+  {
+    title: 'Reactor Seal',
+    slug: 'reactor-seal',
+    match: (p: any) => p.categorySlug === 'reactor-seal'
+  },
+  {
+    title: 'Agitator Seal',
+    slug: 'agitator-seal',
+    match: (p: any) => p.categorySlug === 'agitator-seal'
+  },
+  {
+    title: 'Water Rotary Joints',
+    slug: 'water-rotary-joints',
+    match: (p: any) => p.categorySlug === 'water-rotary-joints'
+  },
+  {
+    title: 'Hot Oil Rotary Joints',
+    slug: 'hot-oil-rotary-joints',
+    match: (p: any) => p.categorySlug === 'hot-oil-rotary-joints'
+  },
+  {
+    title: 'Steam Rotary Joints',
+    slug: 'steam-rotary-joints',
+    match: (p: any) => p.categorySlug === 'steam-rotary-joints'
+  },
+  {
+    title: 'Hydraulic Rotary Joints',
+    slug: 'hydrolic-rotary-joints',
+    match: (p: any) => p.categorySlug === 'hydrolic-rotary-joints'
+  },
+  {
+    title: 'High Temperature Rotary Joint',
+    slug: 'high-temp-rotary-joints',
+    match: (p: any) => p.categorySlug === 'high-temp-rotary-joints'
+  },
+  {
+    title: 'Thermosyphon System',
+    slug: 'thermosyphon',
+    match: (p: any) => p.categorySlug === 'thermosyphon'
+  },
+  {
+    title: 'Heat Exchanger System',
+    slug: 'heat-exchanged-system',
+    match: (p: any) => p.categorySlug === 'heat-exchanged-system'
+  },
+  {
+    title: 'Rotary Joints',
+    slug: 'rotary-joints',
+    match: (p: any) => p.categorySlug === 'rotary-joints'
+  }
+];
+
+const activeSubDef = subCategoriesDef.find(sub => sub.match(product) || sub.slug === product.categorySlug);
+
+let relatedProducts = activeSubDef 
+  ? dropdownProducts.filter(p => activeSubDef.match(p))
+  : dropdownProducts.filter(p => p.categorySlug === product.categorySlug || p.category === product.category);
+
+if (relatedProducts.length === 0) {
+  relatedProducts = [product];
+}
+
+const sidebarTitle = activeSubDef?.title || product.category;
 ---
 <Layout>
   <Header />
@@ -92,18 +254,38 @@ const categoryProducts = categoryProductsData.map((p: any) => ({
               
               <!-- Sidebar -->
               <div class="sidebar">
-                  <div class="category-nav" style="background: white; border: 1px solid #eaeaea; border-radius: 8px; padding: 25px; margin-bottom: 30px;">
-                      <h3 style="font-size: 1.25rem; font-weight: 700; color: #001a3b; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #009fe3;">{product.category}</h3>
-                      <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-                          {categoryProducts.map((p: any) => (
-                              <li>
+                  <div class="category-nav" style="background: white; border: 1px solid #eaeaea; border-radius: 8px; padding: 20px; margin-bottom: 30px;">
+                      <div style="margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #009fe3; display: flex; align-items: center; justify-content: space-between;">
+                          <h3 style="font-size: 1.15rem; font-weight: 700; color: #001a3b; margin: 0;">{sidebarTitle}</h3>
+                          <span style="font-size: 0.72rem; font-weight: 700; color: #009fe3; background: #e0f2fe; padding: 2px 8px; border-radius: 10px;">{relatedProducts.length} Products</span>
+                      </div>
+                      <div class="sidebar-products-list">
+                          {relatedProducts.map((p: any) => {
+                              const isActive = p.slug === product.slug;
+                              const specs = getProductSpecs(p);
+                              return (
                                   <a href={`/products/${p.categorySlug}/${p.slug}`} 
-                                     style={`display: block; padding: 10px 15px; border-radius: 4px; text-decoration: none; font-weight: 500; font-size: 0.92rem; transition: all 0.2s; ${p.slug === product.slug ? 'background: #009fe3; color: white;' : 'background: #f4f5f8; color: #333;'}`}>
-                                      {p.name}
+                                     class={`sidebar-product-card ${isActive ? 'active' : ''}`}>
+                                      <div class="sidebar-card-header">
+                                          <span class="sidebar-product-name">{getDropdownProductName(p)}</span>
+                                          {isActive && (
+                                              <i class="fas fa-check-circle active-icon"></i>
+                                          )}
+                                      </div>
+                                      {specs.length > 0 && (
+                                          <div class="sidebar-product-specs">
+                                              {specs.slice(0, 2).map((s) => (
+                                                  <span class="spec-badge">
+                                                      <span class="spec-label">{s.label}:</span>
+                                                      <span class="spec-val">{s.value}</span>
+                                                  </span>
+                                              ))}
+                                          </div>
+                                      )}
                                   </a>
-                              </li>
-                          ))}
-                      </ul>
+                              );
+                          })}
+                      </div>
                   </div>
 
                   <div class="brochure-box" style="background: white; border: 1px solid #eaeaea; padding: 25px; border-radius: 8px; text-align: center; margin-bottom: 30px;">
@@ -226,9 +408,120 @@ const categoryProducts = categoryProductsData.map((p: any) => ({
 /* Default Desktop Layout */
 .product-grid {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 50px;
+  grid-template-columns: 310px 1fr;
+  gap: 40px;
   align-items: start;
+}
+
+/* Sidebar Product Cards matching Screenshot 2 */
+.sidebar-products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 13px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 7px;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  min-height: 60px;
+  box-sizing: border-box;
+}
+
+.sidebar-product-card:hover {
+  background: #ffffff;
+  border-color: #009fe3;
+  box-shadow: 0 4px 12px rgba(0, 159, 227, 0.12);
+  transform: translateY(-1px);
+}
+
+.sidebar-product-card.active {
+  background: #009fe3 !important;
+  border-color: #0082ba !important;
+  box-shadow: 0 4px 14px rgba(0, 159, 227, 0.25) !important;
+}
+
+.sidebar-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.sidebar-product-name {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #001a3b;
+  line-height: 1.25;
+  transition: color 0.18s ease;
+}
+
+.sidebar-product-card.active .sidebar-product-name {
+  color: #ffffff !important;
+}
+
+.sidebar-product-card .active-icon {
+  color: #ffffff;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.sidebar-product-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  width: 100%;
+}
+
+.sidebar-product-card .spec-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: #334155;
+  background: #edf2f7;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  line-height: 1.25;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.sidebar-product-card.active .spec-badge {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+}
+
+.sidebar-product-card .spec-badge .spec-label {
+  font-weight: 700;
+  color: #64748b;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+
+.sidebar-product-card.active .spec-badge .spec-label {
+  color: #e0f2fe !important;
+}
+
+.sidebar-product-card .spec-badge .spec-val {
+  font-weight: 600;
+  color: #0f172a;
+  font-size: 0.68rem;
+}
+
+.sidebar-product-card.active .spec-badge .spec-val {
+  color: #ffffff !important;
 }
 
 .content {

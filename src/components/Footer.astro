@@ -262,52 +262,67 @@ const phoneNumbers = siteSettings?.phoneNumbers || ["+91- 78880 65557", "+91- 78
             }
         }
 
-        // Industries Interactive Section Logic
+        // Industries Interactive Section Logic (All 10 Industries from Reliable Industries Catalog)
         const industriesData = [
             {
-                title: "Energy Transition",
-                desc: "Leverage our sealing expertise in applications such as hydrogen, CCUS, LNG, alternative fuel production or sustainable plastics for a low-carbon future.",
-                image: "images/industry_energy_1790083113983.jpg"
+                tag: "OIL & GAS IND.",
+                title: "Oil & Gas Industry",
+                desc: "Oil Refineries & Gas industries choose Reliable seals for their most difficult application for improving financial performance. Our product proved significant performance all the time.",
+                image: "/images/hero_industrial_1790081823152.jpg"
             },
             {
-                title: "Oil and gas industry",
-                desc: "Robust mechanical seals for upstream and downstream processes, ensuring reliability in the most demanding extraction and refinement conditions.",
-                image: "images/hero_industrial_1790081823152.jpg"
+                tag: "CHEMICAL PROCESS IND.",
+                title: "Chemical Process Industry",
+                desc: "The chemical processing industry's focus on environmental pollution control and significant improvement and life of their equipment. Reliable Ind. products prove high performance of sealing product and fulfill the correct requirement of this ind.",
+                image: "/images/industry_chemical.jpg"
             },
             {
-                title: "Refining technology",
-                desc: "Advanced sealing systems designed for high-temperature and high-pressure refinery applications to maximize plant availability.",
-                image: "images/engineering_cad.jpg"
+                tag: "PHARMACEUTICAL IND.",
+                title: "Pharmaceutical Industry",
+                desc: "Pharmaceutical Industries focus on cleanness environment pollution control & public health. Reliable seals for Pump & Reactor, provide high performance of equipment and solution for their critical application.",
+                image: "/images/hero_pharma_light.jpg"
             },
             {
-                title: "Petrochemical industry",
-                desc: "Reliable sealing solutions for critical pumps and compressors handling hazardous, volatile, and highly corrosive petrochemical fluids.",
-                image: "images/hero_industrial_1790081823152.jpg"
+                tag: "PULP & PAPER IND.",
+                title: "Pulp & Paper Industry",
+                desc: "This industries focus on environment pollution control and minimize the water consumption for their equipment. Reliable Ind. prove excellent performance.",
+                image: "/images/mission_hero_bg.jpg"
             },
             {
-                title: "Chemical industry",
-                desc: "Our seal solutions are robust, reliable and specially adapted to processes, such as in basic, fine and inorganic chemistry.",
-                image: "images/industry_chemical.jpg"
+                tag: "POWER GENERATION IND.",
+                title: "Power Generation Industry",
+                desc: "Reliable Industries designed & developed excellent seal for nuclear, fossil or fuel plant, for handling boiler feed water fine gas & slurry etc.",
+                image: "/images/industry_energy_1790083113983.jpg"
             },
             {
-                title: "Pharmaceutical industry",
-                desc: "To help you meet the challenges of a highly competitive, strictly regulated market we provide you with extensive support in sealing technology.",
-                image: "images/hero_pharma_light.jpg"
+                tag: "MINING & MINERALS IND.",
+                title: "Mining & Minerals Industry",
+                desc: "This industries focus on environment control for handling slurry product or abrasive product. Reliable ind. designed & developed relevant seals to provide excellent performance.",
+                image: "/images/hero_industrial_new.jpg"
             },
             {
-                title: "Power plant technology",
-                desc: "High-performance seals for boiler feed pumps and cooling water systems in conventional and renewable power generation plants.",
-                image: "images/engineering_cad.jpg"
+                tag: "FOOD & BEVERAGE IND.",
+                title: "Food & Beverage Industry",
+                desc: "Food & Beverages Ind. focus on environment pollution control & public health and cleanness. Reliable ind. provide food grade approved seals to fulfill their commitment.",
+                image: "/images/hero_pharma_light.jpg"
             },
             {
-                title: "Water applications",
-                desc: "Durable and efficient sealing technology for water transport, desalination, and wastewater treatment facilities.",
-                image: "images/industry_energy_1790083113983.jpg"
+                tag: "WATER SYSTEMS",
+                title: "Water Systems",
+                desc: "Since the early introduction of elastomer bellow mechanical seals. Reliable has designed & developed Mech seal for residential, commercial, industrial, and agricultural water pump. As these applications become more demanding, we continue to innovate with more robust designs and improved materials to meet the need for higher pressures, corrosion, and abrasion.",
+                image: "/images/hero_industrial_1790081823152.jpg"
             },
             {
-                title: "Food processing industry",
-                desc: "Hygienic and FDA-compliant sealing solutions ensuring absolute purity and safety in food and beverage production.",
-                image: "images/hero_pharma_light.jpg"
+                tag: "REFRIGERATION COMPRESSORS",
+                title: "Refrigeration Compressors",
+                desc: "Reliable pioneered the development of metal bellows seals for refrigeration compressors to meet the demand imposed by new refrigerants and strict leakage controls on ozone depleting gases. Today our seals fitted on the majority of new manufactured compressors.",
+                image: "/images/engineering_cad.jpg"
+            },
+            {
+                tag: "TEXTILE IND.",
+                title: "Textile Industry",
+                desc: "This industries focus on environment pollution control cleanness & public health. Reliable Ind. has designed & developed effective sealing system to prove the excellent performance & fulfill the need of this Ind.",
+                image: "/images/hero_rotary_joint_product.jpg"
             }
         ];
 
@@ -331,9 +346,10 @@ const phoneNumbers = siteSettings?.phoneNumbers || ["+91- 78880 65557", "+91- 78
                 const textItem = document.createElement('div');
                 textItem.className = 'industry-text-item';
                 textItem.innerHTML = `
+                    <div style="font-size: 0.82rem; font-weight: 700; color: #009fe3; letter-spacing: 1.5px; margin-bottom: 0.6rem; text-transform: uppercase;">${ind.tag}</div>
                     <h3>${ind.title}</h3>
                     <p>${ind.desc}</p>
-                    <a href="#" class="learn-more">Read more <span class="arrow">&#8594;</span></a>
+                    <a href="/contact?inquiry=${encodeURIComponent(ind.title)}" class="learn-more">Read more <span class="arrow">&#8594;</span></a>
                 `;
                 indTextTrack.appendChild(textItem);
             });
@@ -344,6 +360,12 @@ const phoneNumbers = siteSettings?.phoneNumbers || ["+91- 78880 65557", "+91- 78
             if(!indImageTrack || !indTextTrack) return;
             indImageTrack.style.transform = `translateX(-${currentIndIndex * 100}%)`;
             indTextTrack.style.transform = `translateX(-${currentIndIndex * 100}%)`;
+            const counter = document.getElementById('industry-counter');
+            if (counter) {
+                const currentStr = String(currentIndIndex + 1).padStart(2, '0');
+                const totalStr = String(industriesData.length).padStart(2, '0');
+                counter.textContent = `${currentStr} / ${totalStr}`;
+            }
         }
 
         function changeIndustry(newIndex) {

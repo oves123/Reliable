@@ -15,9 +15,10 @@ const missionSubtitle = homePage?.missionSubtitle || "OUR MISSION";
 const missionTitle = homePage?.missionTitle || "Continuous innovations in sealing applications.";
 const missionDescription = homePage?.missionDescription || "Belief in the capabilities of our people to rapidly transfer ideas to reality and a firm faith in promising leak-free, maintenance-free, high quality standard products.";
 
-const stats = homePage?.stats || [
-  { number: 50, suffix: '+', label: 'Countries Served' },
-  { number: 10000, suffix: '+', label: 'Global Installations' },
+const statsList = [
+  { number: 38, suffix: '+', label: 'Years of Experience' },
+  { number: 15, suffix: '+', label: 'Countries Served' },
+  { number: 10, suffix: 'k+', label: 'Global Installations' },
   { number: 100, suffix: '%', label: 'Quality Assured' }
 ];
 
@@ -29,6 +30,62 @@ const features = homePage?.features || [
   { title: 'Fast', description: 'Quick turnaround times to minimize your system downtime.' },
   { title: 'Global', description: 'Worldwide support network ready to assist wherever you are.' }
 ];
+
+// Featured products organized by category sequence (Mechanical Seal, Rotary Joints, Seal Support, etc. - 1-2 per category)
+const prioritySlugs = [
+  // 1. Mechanical Seal (Item i & ii from notes)
+  'agitator-seal-2',
+  'high-temp-seal-series-5',
+  // 2. Rotary Joints (Item iv from notes: Hydraulic rotating union & Water rotary)
+  'rmf-h-100-this-is-hydraulic-rotating-union-29',
+  'rdf-80-this-is-deofolw-rotating-union-17',
+  // 3. Seal Support System (Item v from notes: Thermosyphon & Heat Exchanger)
+  'thermosyphon-3',
+  'heat-exchanger-system-4',
+  // 4. Mechanical Seal (Round 2: Item iii from notes: Cartridge seal & Reactor seal)
+  'reliable-cartridge-seal-series-8',
+  'reactor-seal-1',
+  // 5. Rotary Joints (Round 2: High temp rotating union & Hydraulic RDF-H-150)
+  'rdf-dsgq-220-this-is-deoflow-flanged-end-high-temp-rotating-union-24',
+  'rdf-h-150-this-is-hydraulic-rotating-union-30',
+  // 6. Mechanical Seal (Round 3: Multi Spring & Single Spring)
+  'inside-mounting-multi-spring-seal-series-33',
+  'reliable-inside-mounted-single-spring-seal-series-40',
+  // 7. Mechanical Seal (Round 4: Rubber Bellow Seal)
+  'reliable-rubber-bellow-single-spring-seal-series-13',
+  // 8. Rotary Joints (Round 3: Steam / Flanged End Rotary)
+  'rmf-ht-180-this-is-flanged-end-rotating-union-25'
+];
+
+const prioritizedItems = prioritySlugs
+  .map(slug => productsData.find((p: any) => p.slug === slug || p.slug?.includes(slug)))
+  .filter(Boolean);
+
+const remainingItems = productsData.filter((p: any) => 
+  !prioritySlugs.some(s => p.slug === s || p.slug?.includes(s)) &&
+  p.name !== 'Special Seal' &&
+  !p.slug.includes('special-seal') &&
+  !p.name.includes('Dairy Used') &&
+  p.categorySlug !== 'dairy-seal' &&
+  p.slug !== 'reliable-cartridge-seal-series-50' &&
+  p.slug !== 'rdf-h-200-this-is-hydraulic-rotating-union-32' &&
+  p.id !== 32
+);
+
+const featuredProducts = [...prioritizedItems, ...remainingItems];
+
+function formatFeatName(name: string) {
+  if (!name) return '';
+  return name.replace(/\s*-\s*THIS IS\s*/i, ' - ').replace(/\s+/g, ' ').trim();
+}
+
+function formatFeatCategory(category: string) {
+  if (!category) return 'Mechanical Seal';
+  if (category === 'Agitator SeaL') return 'Agitator Seal';
+  if (category === 'Heat Exchanged System') return 'Heat Exchanger System';
+  if (category === 'Hydrolic Rotary Joints') return 'Hydraulic Rotary Joints';
+  return category;
+}
 ---
 <Layout title={homePage?.seoTitle} description={homePage?.seoDescription}>
   <Header />
@@ -113,10 +170,10 @@ const features = homePage?.features || [
             <!-- Slide 3 (Mission) -->
             <div class="carousel-slide">
                 <div class="hero-image"
-                    style="background-image: url('images/mission_hero_bg.jpg'); background-size: cover; background-position: center;">
+                    style="background-image: url('images/hero_rotary_joint_product.jpg'); background-size: cover; background-position: center right;">
                 </div>
                 <div class="hero-overlay"
-                    style="background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 60%, rgba(255, 255, 255, 0.2) 100%);">
+                    style="background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 45%, rgba(255, 255, 255, 0) 80%);">
                 </div>
                 <div class="container">
                     <div class="hero-content" style="max-width: 900px;">
@@ -159,12 +216,8 @@ const features = homePage?.features || [
     <!-- Stats Section -->
     <section class="stats-section">
         <div class="container stats-grid">
-            <div class="stat-item" data-aos="zoom-in" data-aos-delay="0">
-                <div class="stat-number" data-target="30">0</div>
-                <div class="stat-label">Years of Experience</div>
-            </div>
-            {stats.map((stat: any, index: number) => (
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay={(index + 1) * 100}>
+            {statsList.map((stat: any, index: number) => (
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay={index * 100}>
                     <div class="stat-number" data-target={stat.number}>0</div>
                     {stat.suffix && <span class="stat-plus">{stat.suffix}</span>}
                     <div class="stat-label">{stat.label}</div>
@@ -199,19 +252,8 @@ const features = homePage?.features || [
                         <a href="/products/multi-spring-series-seal" class="learn-more">Learn more <span class="arrow">&#8594;</span></a>
                     </div>
                 </div>
-                <!-- Product Card 2 -->
+                <!-- Product Card 2: Rotary Joints -->
                 <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-image">
-                        <img src="images/product_seal_2_1790081868989.jpg" alt="Seal Supply Systems">
-                    </div>
-                    <div class="product-info">
-                        <h3>Seal Supply Systems</h3>
-                        <p>State-of-the-art systems to ensure optimal operating conditions for your seals.</p>
-                        <a href="/products/thermosyphon" class="learn-more">Learn more <span class="arrow">&#8594;</span></a>
-                    </div>
-                </div>
-                <!-- Product Card 3: Rotary Joints (Replaces Magnetic Couplings) -->
-                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="product-image">
                         <img src="images/sealproduct/waterrotatingunion.jpg" alt="Rotary Joints" style="object-fit: contain; padding: 10px;">
                     </div>
@@ -219,6 +261,17 @@ const features = homePage?.features || [
                         <h3>Rotary Joints</h3>
                         <p>Reliable monoflow and duoflow rotating unions engineered for water, steam, hot oil, and hydraulic applications.</p>
                         <a href="/products/water-rotary-joints" class="learn-more">Learn more <span class="arrow">&#8594;</span></a>
+                    </div>
+                </div>
+                <!-- Product Card 3: Seal Support Systems (Updated & Moved from 2nd) -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-image">
+                        <img src="images/product_seal_2_1790081868989.jpg" alt="Seal Support Systems">
+                    </div>
+                    <div class="product-info">
+                        <h3>Seal Support Systems</h3>
+                        <p>State-of-the-art systems to ensure optimal operating conditions for your seals.</p>
+                        <a href="/products/thermosyphon" class="learn-more">Learn more <span class="arrow">&#8594;</span></a>
                     </div>
                 </div>
                 <!-- Highlight Card -->
@@ -299,6 +352,7 @@ const features = homePage?.features || [
             <!-- Centered Navigation Below Section -->
             <div class="industry-nav-bottom-center">
                 <button class="nav-btn prev" id="industry-prev-btn" aria-label="Previous Industry">&#8592;</button>
+                <span id="industry-counter" style="font-weight: 700; color: var(--color-primary-navy); font-size: 0.95rem; min-width: 65px; text-align: center; letter-spacing: 1.5px; user-select: none;">01 / 10</span>
                 <button class="nav-btn next" id="industry-next-btn" aria-label="Next Industry">&#8594;</button>
             </div>
         </div>
@@ -396,7 +450,8 @@ const features = homePage?.features || [
         </div>
     </section>
 
-    <!-- Product Video Section -->
+    <!-- Product Video Section (Hidden per user request) -->
+    {/*
     <section class="video-section" style="background-color: var(--bg-light-grey); padding: 2rem 0 3rem 0;">
         <div class="container">
             <div class="section-header" style="text-align: center; margin-bottom: 1.5rem;">
@@ -437,6 +492,7 @@ const features = homePage?.features || [
             </div>
         </div>
     </section>
+    */}
 
     <!-- Corporate Why Choose Us Section (PDF Page 5 Reference) -->
     <section class="corporate-why-choose">
@@ -725,7 +781,7 @@ const features = homePage?.features || [
 
                 <div class="feat-carousel-viewport">
                     <div class="feat-products-track" id="feat-products-track">
-                        {productsData.map((prod: any) => {
+                        {featuredProducts.map((prod: any) => {
                             const imgUrl = prod.image || (prod.img?.startsWith('/') ? prod.img : '/' + (prod.img || 'images/sealproduct/drysealreactor.png'));
                             const linkUrl = `/products/${prod.categorySlug}/${prod.slug}`;
                             return (
@@ -733,8 +789,8 @@ const features = homePage?.features || [
                                     <div class="feat-prod-img-box">
                                         <img src={imgUrl} alt={prod.name} class="feat-prod-img" loading="lazy" />
                                     </div>
-                                    <h3 class="feat-prod-name">{prod.name}</h3>
-                                    <p class="feat-prod-category">{prod.category || 'Mechanical Seal'}</p>
+                                    <h3 class="feat-prod-name">{formatFeatName(prod.name)}</h3>
+                                    <p class="feat-prod-category">{formatFeatCategory(prod.category)}</p>
                                     <span class="feat-prod-sub">View Specs &rarr;</span>
                                 </a>
                             );

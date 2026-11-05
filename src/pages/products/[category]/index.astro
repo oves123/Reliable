@@ -6,14 +6,23 @@ import { sanityClient } from 'sanity:client';
 import groq from 'groq';
 import { urlFor } from '../../../utils/sanity';
 
+import localProducts from '../../../data/products.json';
+
 export async function getStaticPaths() {
   const products = await sanityClient.fetch(groq`*[_type == "product"]{
     category,
     categorySlug
   }`);
-  const categories = [...new Set(products.map(p => p.category))];
-  return categories.map(cat => ({
-    params: { category: products.find(p => p.category === cat).categorySlug },
+  const catMap = new Map();
+  products.forEach((p: any) => catMap.set(p.category, p.categorySlug));
+  (localProducts as any[]).forEach((lp: any) => {
+    if (lp.category && lp.categorySlug && !catMap.has(lp.category)) {
+      catMap.set(lp.category, lp.categorySlug);
+    }
+  });
+
+  return Array.from(catMap.entries()).map(([cat, slug]) => ({
+    params: { category: slug },
     props: { categoryName: cat }
   }));
 }
@@ -31,6 +40,41 @@ const categoryProducts = categoryProductsData.map(p => ({
   ...p,
   image: p.image ? urlFor(p.image).url() : ''
 }));
+
+function getCleanProductName(name: string, slug: string) {
+  let cleanName = name || '';
+  cleanName = cleanName.replace(/\b(Inside|Outside)\s*(Mounting|Mounted)?\b\s*/gi, '');
+  const numMatch = (slug || '').match(/-(\d+)$/);
+  if (numMatch && !cleanName.match(new RegExp('\\b' + numMatch[1] + '\\b'))) {
+    if (/Series$/i.test(cleanName.trim())) {
+      cleanName = cleanName.trim() + ' ' + numMatch[1];
+    }
+  }
+  return cleanName.replace(/\s+/g, ' ').trim();
+}
+
+const localMatches = (localProducts as any[]).filter(p => 
+  (p.category === categoryName || p.categorySlug === Astro.params.category) &&
+  p.name !== 'Special Seal' && 
+  !p.slug?.includes('special-seal') &&
+  !p.name?.includes('Dairy Used') &&
+  p.categorySlug !== 'dairy-seal' &&
+  p.slug !== 'reliable-cartridge-seal-series-50' &&
+  p.slug !== 'rdf-h-200-this-is-hydraulic-rotating-union-32' &&
+  p.id !== 32
+);
+
+for (const lp of localMatches) {
+  if (!categoryProducts.some((cp: any) => cp.slug === lp.slug)) {
+    categoryProducts.push({
+      name: getCleanProductName(lp.name, lp.slug),
+      slug: lp.slug,
+      categorySlug: lp.categorySlug,
+      image: lp.image || (lp.img ? '/' + lp.img : ''),
+      description: lp.description || ''
+    });
+  }
+}
 ---
 <Layout>
   <Header />
