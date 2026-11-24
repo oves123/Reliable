@@ -387,7 +387,7 @@ function getProductSpecs(prod: any) {
                 <ul>
                     {menuItems.map((item: any) => (
                         <li class="has-mega-menu">
-                            <a href={item.link} class={`nav-item-link ${item.title === 'Products' ? 'active' : ''}`}>
+                            <a href={item.title === 'Products' ? 'javascript:void(0)' : item.link} class={`nav-item-link ${item.title === 'Products' ? 'active' : ''}`} style={item.title === 'Products' ? 'cursor: default;' : ''}>
                                 <span>{item.title}</span>
                                 <i class="fas fa-chevron-down nav-chevron-icon" style="font-size: 0.75rem;"></i>
                             </a>
@@ -477,12 +477,14 @@ function getProductSpecs(prod: any) {
                                     <div class="products-mobile-layout">
                                         <!-- Top Action Hub -->
                                         <div class="mobile-products-quick-actions">
+                                            <!-- Browse All Products page commented out as requested
                                             <a href="/products" class="mobile-quick-btn view-all-btn">
                                                 <i class="fas fa-th-large"></i>
                                                 <span>Browse All Products</span>
                                                 <i class="fas fa-arrow-right arrow-icon"></i>
                                             </a>
-                                            <a href="/brochures/product_brochure.pdf" download="Reliable_Product_Brochure.pdf" class="mobile-quick-btn pdf-btn">
+                                            -->
+                                            <a href="/brochures/product_brochure.pdf" download="Reliable_Product_Brochure.pdf" class="mobile-quick-btn pdf-btn" style="flex: 1;">
                                                 <i class="fas fa-file-pdf"></i>
                                                 <span>Technical Catalogue</span>
                                                 <i class="fas fa-download download-icon"></i>
