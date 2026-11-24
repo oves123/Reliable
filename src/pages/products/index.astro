@@ -23,6 +23,7 @@ const categories = [...new Set(products.map(p => p.category))].map(name => {
   return {
     name,
     slug: catProducts[0].categorySlug,
+    productSlug: catProducts[0].slug,
     image: catProducts[0].image ? urlFor(catProducts[0].image).url() : ''
   };
 });
@@ -176,15 +177,15 @@ const categories = [...new Set(products.map(p => p.category))].map(name => {
                   {categories.map(cat => (
                       <div class="category-card" data-name={cat.name}>
                           <figure class="card-figure">
-                              <a href={`/products/${cat.slug}`}>
+                              <a href={`/products/${cat.slug}/${cat.productSlug}`}>
                                   <img src={cat.image} alt={cat.name} class="card-img">
                               </a>
                           </figure>
                           <div class="card-content">
                               <h3 class="card-title">
-                                  <a href={`/products/${cat.slug}`} style="color: inherit; text-decoration: none;">{cat.name}</a>
+                                  <a href={`/products/${cat.slug}/${cat.productSlug}`} style="color: inherit; text-decoration: none;">{cat.name}</a>
                               </h3>
-                              <a href={`/products/${cat.slug}`} class="card-link">
+                              <a href={`/products/${cat.slug}/${cat.productSlug}`} class="card-link">
                                   View Products &rarr;
                               </a>
                           </div>

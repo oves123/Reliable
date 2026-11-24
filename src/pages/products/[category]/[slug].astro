@@ -242,7 +242,10 @@ const sidebarTitle = activeSubDef?.title || product.category;
           <h1 style="font-size: 2.2rem; font-weight: 700; margin: 0 0 8px 0;">{product.name}</h1>
           <div style="color: #009fe3; font-weight: 500; font-size: 0.95rem;">
               <a href="/" style="color: #e2e8f0; text-decoration: none;">Home</a> <span style="margin: 0 10px; color: #718096;">/</span>
+              <!-- Category in breadcrumb completely commented out as requested (don't show for all products):
               <a href={`/products/${product.categorySlug}`} style="color: #e2e8f0; text-decoration: none;">{product.category}</a> <span style="margin: 0 10px; color: #718096;">/</span>
+              <span style="color: #cbd5e1; cursor: default;">{product.category}</span> <span style="margin: 0 10px; color: #718096;">/</span>
+              -->
               <span style="color: #009fe3;">{product.name}</span>
           </div>
       </div>

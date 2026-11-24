@@ -49,12 +49,13 @@ const phoneNumbers = siteSettings?.phoneNumbers || ["+91- 78880 65557", "+91- 78
             <div class="footer-col">
                 <h4>Industries</h4>
                 <ul>
-                    <li><a href="#">Oil & Gas</a></li>
-                    <li><a href="#">Chemical Processing</a></li>
-                    <li><a href="#">Pharmaceutical</a></li>
-                    <li><a href="#">Power Generation</a></li>
-                    <li><a href="#">Water Systems</a></li>
-                    <li><a href="#">Food & Beverage</a></li>
+                    <li><a href="/industries/oil-and-gas">Oil & Gas</a></li>
+                    <li><a href="/industries/chemical-process">Chemical Processing</a></li>
+                    <li><a href="/industries/pharmaceutical">Pharmaceutical</a></li>
+                    <li><a href="/industries/power-generation">Power Generation</a></li>
+                    <li><a href="/industries/water-systems">Water Systems</a></li>
+                    <li><a href="/industries/mining-and-minerals">Mining & Minerals</a></li>
+                    <li><a href="/industries" style="color: #009fe3; font-weight: 700;">View All 10 Industries →</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -265,60 +266,70 @@ const phoneNumbers = siteSettings?.phoneNumbers || ["+91- 78880 65557", "+91- 78
         // Industries Interactive Section Logic (All 10 Industries from Reliable Industries Catalog)
         const industriesData = [
             {
+                slug: "oil-and-gas",
                 tag: "OIL & GAS IND.",
                 title: "Oil & Gas Industry",
                 desc: "Oil Refineries & Gas industries choose Reliable seals for their most difficult application for improving financial performance. Our product proved significant performance all the time.",
                 image: "/images/hero_industrial_1790081823152.jpg"
             },
             {
+                slug: "chemical-process",
                 tag: "CHEMICAL PROCESS IND.",
                 title: "Chemical Process Industry",
                 desc: "The chemical processing industry's focus on environmental pollution control and significant improvement and life of their equipment. Reliable Ind. products prove high performance of sealing product and fulfill the correct requirement of this ind.",
                 image: "/images/industry_chemical.jpg"
             },
             {
+                slug: "pharmaceutical",
                 tag: "PHARMACEUTICAL IND.",
                 title: "Pharmaceutical Industry",
                 desc: "Pharmaceutical Industries focus on cleanness environment pollution control & public health. Reliable seals for Pump & Reactor, provide high performance of equipment and solution for their critical application.",
                 image: "/images/hero_pharma_light.jpg"
             },
             {
+                slug: "pulp-and-paper",
                 tag: "PULP & PAPER IND.",
                 title: "Pulp & Paper Industry",
                 desc: "This industries focus on environment pollution control and minimize the water consumption for their equipment. Reliable Ind. prove excellent performance.",
                 image: "/images/mission_hero_bg.jpg"
             },
             {
+                slug: "power-generation",
                 tag: "POWER GENERATION IND.",
                 title: "Power Generation Industry",
                 desc: "Reliable Industries designed & developed excellent seal for nuclear, fossil or fuel plant, for handling boiler feed water fine gas & slurry etc.",
                 image: "/images/industry_energy_1790083113983.jpg"
             },
             {
+                slug: "mining-and-minerals",
                 tag: "MINING & MINERALS IND.",
                 title: "Mining & Minerals Industry",
                 desc: "This industries focus on environment control for handling slurry product or abrasive product. Reliable ind. designed & developed relevant seals to provide excellent performance.",
                 image: "/images/hero_industrial_new.jpg"
             },
             {
+                slug: "food-and-beverage",
                 tag: "FOOD & BEVERAGE IND.",
                 title: "Food & Beverage Industry",
                 desc: "Food & Beverages Ind. focus on environment pollution control & public health and cleanness. Reliable ind. provide food grade approved seals to fulfill their commitment.",
                 image: "/images/hero_pharma_light.jpg"
             },
             {
+                slug: "water-systems",
                 tag: "WATER SYSTEMS",
                 title: "Water Systems",
                 desc: "Since the early introduction of elastomer bellow mechanical seals. Reliable has designed & developed Mech seal for residential, commercial, industrial, and agricultural water pump. As these applications become more demanding, we continue to innovate with more robust designs and improved materials to meet the need for higher pressures, corrosion, and abrasion.",
                 image: "/images/hero_industrial_1790081823152.jpg"
             },
             {
+                slug: "refrigeration-compressors",
                 tag: "REFRIGERATION COMPRESSORS",
                 title: "Refrigeration Compressors",
                 desc: "Reliable pioneered the development of metal bellows seals for refrigeration compressors to meet the demand imposed by new refrigerants and strict leakage controls on ozone depleting gases. Today our seals fitted on the majority of new manufactured compressors.",
                 image: "/images/engineering_cad.jpg"
             },
             {
+                slug: "textile",
                 tag: "TEXTILE IND.",
                 title: "Textile Industry",
                 desc: "This industries focus on environment pollution control cleanness & public health. Reliable Ind. has designed & developed effective sealing system to prove the excellent performance & fulfill the need of this Ind.",
@@ -349,7 +360,7 @@ const phoneNumbers = siteSettings?.phoneNumbers || ["+91- 78880 65557", "+91- 78
                     <div style="font-size: 0.82rem; font-weight: 700; color: #009fe3; letter-spacing: 1.5px; margin-bottom: 0.6rem; text-transform: uppercase;">${ind.tag}</div>
                     <h3>${ind.title}</h3>
                     <p>${ind.desc}</p>
-                    <a href="/contact?inquiry=${encodeURIComponent(ind.title)}" class="learn-more">Read more <span class="arrow">&#8594;</span></a>
+                    <a href="/industries/${ind.slug}" class="learn-more">Read more <span class="arrow">&#8594;</span></a>
                 `;
                 indTextTrack.appendChild(textItem);
             });

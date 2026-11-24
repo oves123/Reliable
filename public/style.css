@@ -152,40 +152,40 @@ h3 {
 }
 
 .logo-text h1 {
-    font-size: 2.1rem;
+    font-size: 1.75rem;
     font-style: italic;
     color: var(--color-primary-navy);
-    line-height: 0.9;
+    line-height: 0.95;
     letter-spacing: -0.5px;
 }
 
 .logo-text h2 {
-    font-size: 2.1rem;
+    font-size: 1.75rem;
     font-style: italic;
     color: var(--color-primary-navy);
-    line-height: 0.9;
+    line-height: 0.95;
     margin-bottom: 0;
 }
 
 .logo-text .tagline {
-    font-size: 0.72rem;
+    font-size: 0.62rem;
     font-style: italic;
     font-weight: 700;
     color: var(--color-primary-navy);
-    letter-spacing: 2.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     display: block;
-    margin-top: 5px;
+    margin-top: 3px;
     border-top: 1.5px solid var(--color-primary-navy);
-    padding-top: 3px;
+    padding-top: 2px;
 }
 
 /* Header & Utility Bar */
 .utility-bar {
     background-color: var(--color-primary-navy);
     color: var(--bg-white);
-    font-size: 0.8rem;
-    padding: 0.5rem 0;
+    font-size: 0.78rem;
+    padding: 0.32rem 0;
 }
 
 .utility-content {
@@ -205,7 +205,7 @@ h3 {
 
 .main-header {
     background-color: var(--bg-white);
-    padding: 1.35rem 0;
+    padding: 0.6rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -214,7 +214,7 @@ h3 {
 }
 
 .main-header.scrolled {
-    padding: 0.85rem 0;
+    padding: 0.4rem 0;
 }
 
 .header-content {
@@ -226,7 +226,7 @@ h3 {
 
 .main-nav ul {
     display: flex;
-    gap: 2.6rem;
+    gap: 2rem;
     align-items: center;
     position: relative;
 }
@@ -234,12 +234,12 @@ h3 {
 .main-nav a {
     color: var(--color-primary-navy);
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     display: flex;
     align-items: center;
     gap: 6px;
     position: relative;
-    padding: 0.35rem 0.2rem;
+    padding: 0.2rem 0;
 }
 
 .main-nav a span {
@@ -1725,7 +1725,7 @@ h3 {
 .cert-marquee {
     background-color: var(--color-primary-dark);
     color: white;
-    padding: 8px 0;
+    padding: 5px 0;
     overflow: hidden;
     white-space: nowrap;
     position: relative;

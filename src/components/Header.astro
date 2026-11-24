@@ -2,6 +2,7 @@
 import { sanityClient } from 'sanity:client';
 import groq from 'groq';
 import productsData from '../data/products.json';
+import industriesData from '../data/industries.json';
 
 // Filter out 'Special Seal', 'Dairy Used' products, the 4th cartridge seal (series-50), and duplicate hydraulic rotary union (id 32) from dropdown
 const dropdownProducts = productsData.filter(p => 
@@ -15,7 +16,46 @@ const dropdownProducts = productsData.filter(p =>
 );
 
 const navData = await sanityClient.fetch(groq`*[_type == "navigation"][0]`);
-const menuItems = navData?.menuItems || [];
+const rawMenuItems = navData?.menuItems || [];
+// Custom mapping for navigation items:
+// 1. Remove 'Resources' column under Company
+// 2. Populate all 10 industries from catalog under Industries
+const menuItems = rawMenuItems.map((item: any) => {
+  if (item.title === 'Industries') {
+    const primarySectors = industriesData.filter(ind => ind.sector === 'Primary Sectors');
+    const specializedSectors = industriesData.filter(ind => ind.sector === 'Specialized Sectors');
+    return {
+      ...item,
+      link: '/industries',
+      promo: {
+        title: 'Engineered for Oil & Gas',
+        description: 'Read our latest case study on how we eliminated leakage in extreme high-pressure pumping systems.',
+        buttonText: 'View All Industries',
+        buttonUrl: '/industries'
+      },
+      columns: [
+        {
+          columnTitle: 'Primary Sectors',
+          links: primarySectors.map(ind => ({
+            title: ind.title.replace(' Industry', ''),
+            url: `/industries/${ind.slug}`
+          }))
+        },
+        {
+          columnTitle: 'Specialized',
+          links: specializedSectors.map(ind => ({
+            title: ind.title.replace(' Industry', ''),
+            url: `/industries/${ind.slug}`
+          }))
+        }
+      ]
+    };
+  }
+  return {
+    ...item,
+    columns: item.columns?.filter((col: any) => col.columnTitle?.trim() !== 'Resources')
+  };
+});
 
 // 3-Tier Hierarchy: Super Categories -> Sub Categories -> Products
 const superCategories = [

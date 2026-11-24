@@ -1,0 +1,188 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import industries from '../../data/industries.json';
+
+export async function getStaticPaths() {
+  return industries.map((ind) => ({
+    params: { slug: ind.slug },
+    props: { industry: ind }
+  }));
+}
+
+const { industry } = Astro.props;
+const otherIndustries = industries.filter((i) => i.slug !== industry.slug);
+---
+
+<Layout title={`${industry.title} Sealing Solutions | Reliable Industries`} description={industry.desc}>
+  <Header />
+
+  <!-- Breadcrumb -->
+  <div style="background: #001229; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 0;">
+    <div class="container" style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #94a3b8;">
+      <a href="/" style="color: #cbd5e1; text-decoration: none;">Home</a>
+      <i class="fas fa-chevron-right" style="font-size: 0.7rem; color: #64748b;"></i>
+      <a href="/industries" style="color: #cbd5e1; text-decoration: none;">Industries</a>
+      <i class="fas fa-chevron-right" style="font-size: 0.7rem; color: #64748b;"></i>
+      <span style="color: #009fe3; font-weight: 600;">{industry.title}</span>
+    </div>
+  </div>
+
+  <!-- Industry Hero Section -->
+  <section style="background: linear-gradient(135deg, #001a3b 0%, #003B6D 100%); padding: 70px 0 85px; color: white; position: relative; overflow: hidden;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: center;">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 159, 227, 0.15); border: 1px solid rgba(0, 159, 227, 0.4); padding: 6px 14px; border-radius: 4px; color: #38bdf8; font-size: 0.8rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px;">
+            <i class={`${industry.icon}`}></i>
+            <span>{industry.tag}</span>
+          </div>
+          <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 18px;">
+            {industry.title}
+          </h1>
+          <p style="font-size: 1.2rem; color: #38bdf8; font-weight: 600; line-height: 1.5; margin-bottom: 20px;">
+            {industry.headline}
+          </p>
+          <p style="font-size: 1.05rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 30px; max-width: 620px;">
+            {industry.fullText}
+          </p>
+          <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <a href={`/contact?inquiry=${encodeURIComponent(industry.title + ' Sealing Application')}`} class="btn btn-primary" style="background: #009fe3; border: none; padding: 13px 30px; border-radius: 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Request Technical Proposal</a>
+            <a href="/brochures/product_brochure.pdf" download="Reliable_Product_Brochure.pdf" class="btn" style="background: rgba(255,255,255,0.08); color: white; border: 1px solid rgba(255,255,255,0.25); padding: 13px 25px; border-radius: 50px; font-weight: 600; font-size: 0.92rem; display: inline-flex; align-items: center; gap: 8px;">
+              <i class="fas fa-file-pdf"></i>
+              <span>Engineering Brochure</span>
+            </a>
+          </div>
+        </div>
+
+        <div style="position: relative;">
+          <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35); border: 1px solid rgba(255,255,255,0.15);">
+            <img src={industry.image} alt={industry.title} style="width: 100%; height: 380px; object-fit: cover; display: block;" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Content Grid -->
+  <section style="padding: 80px 0; background: #ffffff;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 50px;" class="industry-detail-layout">
+        
+        <!-- Left Column: Main Technical Information -->
+        <div>
+          <!-- Official Catalog Statement Highlight -->
+          <div style="background: #f8fafc; border-left: 4px solid #009fe3; padding: 25px 30px; border-radius: 0 8px 8px 0; margin-bottom: 45px; border-top: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+            <span style="font-size: 0.78rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #009fe3; display: block; margin-bottom: 8px;">
+              OFFICIAL RELIABLE INDUSTRIES PERFORMANCE STATEMENT
+            </span>
+            <p style="font-size: 1.15rem; font-weight: 600; color: #002b54; line-height: 1.6; margin: 0; font-style: italic;">
+              "{industry.desc}"
+            </p>
+          </div>
+
+          <!-- Operating Parameters -->
+          <div style="margin-bottom: 50px;">
+            <h2 style="font-size: 1.7rem; font-weight: 800; color: #002b54; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+              <i class="fas fa-sliders-h" style="color: #009fe3; font-size: 1.3rem;"></i>
+              <span>Engineering Operating Envelope</span>
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px;">
+              {Object.entries(industry.operatingConditions).map(([label, val]) => (
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px;">
+                  <span style="display: block; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: #64748b; letter-spacing: 0.5px; margin-bottom: 6px;">{label}</span>
+                  <span style="display: block; font-size: 0.98rem; font-weight: 700; color: #002b54; line-height: 1.4;">{val}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Key Equipment & Applications -->
+          <div style="margin-bottom: 50px;">
+            <h2 style="font-size: 1.7rem; font-weight: 800; color: #002b54; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+              <i class="fas fa-cogs" style="color: #009fe3; font-size: 1.3rem;"></i>
+              <span>Key Rotating Equipment Served</span>
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+              {industry.keyEquipment.map((eq) => (
+                <div style="display: flex; align-items: center; gap: 12px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+                  <i class="fas fa-check-circle" style="color: #009fe3; font-size: 1.1rem; flex-shrink: 0;"></i>
+                  <span style="font-size: 0.95rem; font-weight: 600; color: #334155;">{eq}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Recommended Sealing Solutions -->
+          <div>
+            <h2 style="font-size: 1.7rem; font-weight: 800; color: #002b54; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+              <i class="fas fa-shield-alt" style="color: #009fe3; font-size: 1.3rem;"></i>
+              <span>Recommended Reliable Sealing Systems</span>
+            </h2>
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              {industry.recommendedProducts.map((prod) => (
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 22px 25px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+                  <div style="max-width: 520px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 700; color: #002b54; margin-bottom: 6px;">{prod.name}</h3>
+                    <p style="font-size: 0.92rem; color: #64748b; line-height: 1.5; margin: 0;">{prod.desc}</p>
+                  </div>
+                  <a href={`/products/${prod.category}`} style="background: #002b54; color: white; padding: 10px 22px; border-radius: 6px; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0;">
+                    <span>View Product Series</span>
+                    <i class="fas fa-arrow-right" style="font-size: 0.75rem;"></i>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Sidebar Navigation & Inquiry Box -->
+        <div>
+          <!-- Quick Inquiry Card -->
+          <div style="background: linear-gradient(135deg, #001a3b 0%, #003B6D 100%); color: white; border-radius: 12px; padding: 30px; margin-bottom: 35px; box-shadow: 0 10px 25px rgba(0, 43, 73, 0.15);">
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 12px;">Need An Engineered Solution?</h3>
+            <p style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 22px;">
+              Provide your pump / equipment details and fluid conditions. Our engineering team will supply dimensioned CAD drawings and an API-compliant seal proposal.
+            </p>
+            <a href={`/contact?inquiry=${encodeURIComponent(industry.title + ' Application')}`} class="btn btn-primary" style="background: #009fe3; border: none; width: 100%; text-align: center; display: block; padding: 12px 20px; border-radius: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.9rem;">
+              Request Quote
+            </a>
+            <div style="margin-top: 18px; text-align: center; font-size: 0.85rem; color: #94a3b8;">
+              Direct Technical Line: <a href="tel:+917888065557" style="color: #38bdf8; text-decoration: none; font-weight: 600;">+91 78880 65557</a>
+            </div>
+          </div>
+
+          <!-- All Industries Navigation -->
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #002b54; margin-bottom: 16px; border-bottom: 2px solid #009fe3; padding-bottom: 8px;">
+              All Industries Served
+            </h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+              {industries.map((ind) => (
+                <li>
+                  <a href={`/industries/${ind.slug}`} style={`display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.2s ease; ${ind.slug === industry.slug ? 'background: #009fe3; color: white;' : 'background: white; color: #334155; border: 1px solid #e2e8f0;'}`}>
+                    <span>{ind.title}</span>
+                    <i class="fas fa-chevron-right" style={`font-size: 0.75rem; ${ind.slug === industry.slug ? 'color: white;' : 'color: #94a3b8;'}`}></i>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  @media (max-width: 900px) {
+    .industry-detail-layout {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+

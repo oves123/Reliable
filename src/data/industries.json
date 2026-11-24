@@ -1,0 +1,243 @@
+[
+  {
+    "id": "oil-and-gas",
+    "slug": "oil-and-gas",
+    "tag": "OIL & GAS IND.",
+    "title": "Oil & Gas Industry",
+    "headline": "Mission-Critical Sealing for Upstream, Midstream & Downstream Refining",
+    "desc": "Oil Refineries & Gas industries choose Reliable seals for their most difficult application for improving financial performance. Our product proved significant performance all the time.",
+    "fullText": "Oil Refineries & Gas industries choose Reliable seals for their most difficult application for improving financial performance. Our product proved significant performance all the time. In high-pressure crude pumping, hydrocarbon gas processing, and volatile chemical separation, Reliable mechanical seals deliver leak-free containment compliant with API 682 Category 1, 2, and 3 standards.",
+    "image": "/images/hero_industrial_1790081823152.jpg",
+    "sector": "Primary Sectors",
+    "icon": "fas fa-burn",
+    "keyEquipment": ["Crude Oil Transfer Pumps", "Booster & Pipeline Pumps", "High Pressure Gas Compressors", "Distillation Bottom Pumps", "Flare Gas Recovery Units"],
+    "operatingConditions": {
+      "Pressure": "Up to 150 bar (2175 psi)",
+      "Temperature": "-50°C to 400°C (-58°F to 752°F)",
+      "Speed": "Up to 3600 RPM / 25 m/s",
+      "Media": "Crude oil, sour hydrocarbons, LPG, NGL, condensate, toxic gas"
+    },
+    "recommendedProducts": [
+      { "name": "Reliable Cartridge Seal Series", "slug": "cartridge-seal", "category": "cartridge-seal", "desc": "Pre-assembled dual and single cartridge seals built to API 682 specifications." },
+      { "name": "High Temp Seal Series", "slug": "high-temp-seal", "category": "high-temp-seal", "desc": "Metal bellows and high-temperature elastomeric seals for hot hydrocarbon services." },
+      { "name": "Thermosyphon Seal Support System", "slug": "thermosyphon", "category": "thermosyphon", "desc": "API Plan 52/53 pressurized barrier fluid cooling and circulation reservoirs." }
+    ]
+  },
+  {
+    "id": "chemical-process",
+    "slug": "chemical-process",
+    "tag": "CHEMICAL PROCESS IND.",
+    "title": "Chemical Process Industry",
+    "headline": "Zero-Emission Containment for Aggressive & Toxic Chemical Processing",
+    "desc": "The chemical processing industry's focus on environmental pollution control and significant improvement and life of their equipment. Reliable Ind. products prove high performance of sealing product and fulfill the correct requirement of this ind.",
+    "fullText": "The chemical processing industry's focus on environmental pollution control and significant improvement and life of their equipment. Reliable Ind. products prove high performance of sealing product and fulfill the correct requirement of this ind. With corrosion-resistant exotic metallurgy, Silicon Carbide, and Teflon face technologies, Reliable seals eliminate toxic fugitive emissions and prolong pump lifespan.",
+    "image": "/images/industry_chemical.jpg",
+    "sector": "Primary Sectors",
+    "icon": "fas fa-flask",
+    "keyEquipment": ["Chemical Process Pumps (ISO 5199 / ANSI)", "Glass-Lined Reactors", "Acid & Alkali Circulation Pumps", "Autoclaves & Agitators", "Crystallizers"],
+    "operatingConditions": {
+      "Pressure": "Full Vacuum to 40 bar",
+      "Temperature": "-70°C to 260°C",
+      "Corrosion": "High resistance to sulfuric, hydrochloric, nitric acids and organic solvents",
+      "Media": "Corrosive chemicals, polymers, caustics, chlorinated hydrocarbons"
+    },
+    "recommendedProducts": [
+      { "name": "Reactor Seal", "slug": "reactor-seal", "category": "reactor-seal", "desc": "Dry-running and liquid-lubricated seals designed for top-entry glass-lined reactors." },
+      { "name": "Agitator Seal", "slug": "agitator-seal", "category": "agitator-seal", "desc": "Heavy-duty mixer seals handling shaft runout and thermal expansion." },
+      { "name": "Heat Exchanger System", "slug": "heat-exchanged-system", "category": "heat-exchanged-system", "desc": "Tubular coolers for seal flush fluids in extreme exothermic chemical reactions." }
+    ]
+  },
+  {
+    "id": "pharmaceutical",
+    "slug": "pharmaceutical",
+    "tag": "PHARMACEUTICAL IND.",
+    "title": "Pharmaceutical Industry",
+    "headline": "Ultra-Clean, Sanitary & FDA-Compliant Sealing Solutions",
+    "desc": "Pharmaceutical Industries focus on cleanness environment pollution control & public health. Reliable seals for Pump & Reactor, provide high performance of equipment and solution for their critical application.",
+    "fullText": "Pharmaceutical Industries focus on cleanness environment pollution control & public health. Reliable seals for Pump & Reactor, provide high performance of equipment and solution for their critical application. Engineered with electropolished stainless steel 316L surfaces, USP Class VI elastomers, and self-draining designs for CIP (Clean-In-Place) and SIP (Steam-In-Place) sterilization cycles.",
+    "image": "/images/hero_pharma_light.jpg",
+    "sector": "Primary Sectors",
+    "icon": "fas fa-pills",
+    "keyEquipment": ["Sterile Bio-Reactors & Fermenters", "Sanitary Centrifugal Pumps", "WFI (Water For Injection) Pumps", "Freeze Dryers & Blenders", "Purified Water Circulation Loops"],
+    "operatingConditions": {
+      "Compliance": "FDA 21 CFR 177.2600 & USP Class VI",
+      "Cleaning": "CIP / SIP cycles at up to 140°C steam",
+      "Surface Finish": "Ra < 0.4 µm (Electropolished SS316L)",
+      "Media": "Active pharmaceutical ingredients (API), sterile broth, sterile WFI"
+    },
+    "recommendedProducts": [
+      { "name": "Dairy & Sanitary Single Spring Seal", "slug": "dairy-seal", "category": "dairy-seal", "desc": "Hygienic easy-clean seals conforming to international sanitary standards." },
+      { "name": "Reactor Seal", "slug": "reactor-seal", "category": "reactor-seal", "desc": "Contamination-free seals with integrated sanitary barrier debris traps." },
+      { "name": "Cartridge Seal Series", "slug": "cartridge-seal", "category": "cartridge-seal", "desc": "Pre-aligned cartridge seals preventing seal face contamination during installation." }
+    ]
+  },
+  {
+    "id": "pulp-and-paper",
+    "slug": "pulp-and-paper",
+    "tag": "PULP & PAPER IND.",
+    "title": "Pulp & Paper Industry",
+    "headline": "Water-Saving & Slurry-Resistant Sealing for Papermaking Machinery",
+    "desc": "This industries focus on environment pollution control and minimize the water consumption for their equipment. Reliable Ind. prove excellent performance.",
+    "fullText": "This industries focus on environment pollution control and minimize the water consumption for their equipment. Reliable Ind. prove excellent performance. In paper mills where fibrous stock, black liquor, and bleaching agents create severe clogging, Reliable non-clogging single and dual seals eliminate fresh water dilution and drastically reduce downtime.",
+    "image": "/images/mission_hero_bg.jpg",
+    "sector": "Primary Sectors",
+    "icon": "fas fa-newspaper",
+    "keyEquipment": ["Pulp Stock Pumps", "Refiners & Deflakers", "Black Liquor Evaporator Pumps", "Bleach Washer Pumps", "Paper Machine Rotary Steam Cylinders"],
+    "operatingConditions": {
+      "Fiber Consistency": "Up to 12% pulp consistency without clogging",
+      "Water Reduction": "Up to 80% seal water conservation with closed-loop systems",
+      "Chemicals": "Caustic liquor, chlorine dioxide, abrasive fiber filler slurries",
+      "Temperature": "Up to 180°C"
+    },
+    "recommendedProducts": [
+      { "name": "Steam Rotary Pressure Joints", "slug": "steam-rotary-joints", "category": "steam-rotary-joints", "desc": "High-speed rotating unions for heated dryer cylinders in paper machines." },
+      { "name": "Multi Spring Series Seal", "slug": "multi-spring-series-seal", "category": "multi-spring-series-seal", "desc": "Protected spring seals preventing fiber accumulation in heavy slurry." },
+      { "name": "Single Spring Series Seal", "slug": "single-spring-series-seal", "category": "single-spring-series-seal", "desc": "Large coil spring design inherently immune to clogging by solids." }
+    ]
+  },
+  {
+    "id": "power-generation",
+    "slug": "power-generation",
+    "tag": "POWER GENERATION IND.",
+    "title": "Power Generation Industry",
+    "headline": "High-Pressure & High-Speed Engineered Seals for Energy Facilities",
+    "desc": "Reliable Industries designed & developed excellent seal for nuclear, fossil or fuel plant, for handling boiler feed water fine gas & slurry etc.",
+    "fullText": "Reliable Industries designed & developed excellent seal for nuclear, fossil or fuel plant, for handling boiler feed water fine gas & slurry etc. Power utilities rely on our multi-stage boiler feed pump seals, flue gas desulfurization (FGD) slurry seals, and cooling tower circulating water pump seals engineered for continuous baseload uptime.",
+    "image": "/images/industry_energy_1790083113983.jpg",
+    "sector": "Primary Sectors",
+    "icon": "fas fa-bolt",
+    "keyEquipment": ["Boiler Feed Water Pumps (BFP)", "Condensate Extraction Pumps", "Flue Gas Desulfurization (FGD) Absorber Pumps", "Cooling Water Circulators", "Nuclear Safety Grade Pumps"],
+    "operatingConditions": {
+      "Pressure": "Up to 80 bar in boiler feed systems",
+      "Temperature": "Up to 220°C in high-pressure feedwater",
+      "Slurry Content": "Heavy limestone and gypsum slurry in FGD scrubbers",
+      "Speed": "High peripheral speeds up to 5000 RPM"
+    },
+    "recommendedProducts": [
+      { "name": "Cartridge Seal Series", "slug": "cartridge-seal", "category": "cartridge-seal", "desc": "Engineered multi-spring and metal bellows cartridges for power plant pumps." },
+      { "name": "Thermosyphon Seal Support System", "slug": "thermosyphon", "category": "thermosyphon", "desc": "High-pressure thermal circulation vessels maintaining cool seal face boundaries." },
+      { "name": "High Temp Seal Series", "slug": "high-temp-seal", "category": "high-temp-seal", "desc": "Thermal-shock resistant seals engineered for extreme cycling." }
+    ]
+  },
+  {
+    "id": "mining-and-minerals",
+    "slug": "mining-and-minerals",
+    "tag": "MINING & MINERALS IND.",
+    "title": "Mining & Minerals Industry",
+    "headline": "Tough, Abrasive-Resistant Seals for Ore Processing & Heavy Slurries",
+    "desc": "This industries focus on environment control for handling slurry product or abrasive product. Reliable ind. designed & developed relevant seals to provide excellent performance.",
+    "fullText": "This industries focus on environment control for handling slurry product or abrasive product. Reliable ind. designed & developed relevant seals to provide excellent performance. Featuring solid Tungsten Carbide and Silicon Carbide seal faces, massive dynamic clearances, and heavy-duty drive mechanisms that withstand sand, tailings, lime, and crushed ore slurries.",
+    "image": "/images/hero_industrial_new.jpg",
+    "sector": "Specialized Sectors",
+    "icon": "fas fa-mountain",
+    "keyEquipment": ["Heavy Slurry Pumps", "Tailings Disposal Pumps", "Flotation Cell Agitators", "Autoclave Feed Pumps", "Filter Press Pumps"],
+    "operatingConditions": {
+      "Solids Concentration": "Up to 60% solids by weight",
+      "Hardness": "Mohs hardness 7+ (quartz, magnetite, copper concentrate)",
+      "Vibration": "Severe mechanical shock and heavy shaft deflection",
+      "Flushing": "Can run with minimal or zero gland flush water"
+    },
+    "recommendedProducts": [
+      { "name": "Multi Spring Series Seal", "slug": "multi-spring-series-seal", "category": "multi-spring-series-seal", "desc": "Heavy-duty isolated springs protected from abrasive ore deposition." },
+      { "name": "Cartridge Seal Series", "slug": "cartridge-seal", "category": "cartridge-seal", "desc": "Rigid slurry cartridge designs resisting axial end-play and shock loads." },
+      { "name": "Silicon / Tungsten Carbide Spares", "slug": "products", "category": "products", "desc": "Ultra-hard precision lapped faces crafted for extreme wear endurance." }
+    ]
+  },
+  {
+    "id": "food-and-beverage",
+    "slug": "food-and-beverage",
+    "tag": "FOOD & BEVERAGE IND.",
+    "title": "Food & Beverage Industry",
+    "headline": "Hygienic, Food-Grade Certified Sealing for Processing Plants",
+    "desc": "Food & Beverages Ind. focus on environment pollution control & public health and cleanness. Reliable ind. provide food grade approved seals to fulfill their commitment.",
+    "fullText": "Food & Beverages Ind. focus on environment pollution control & public health and cleanness. Reliable ind. provide food grade approved seals to fulfill their commitment. Manufactured with nontoxic, non-migrating materials, our seals are certified for direct food contact in dairies, breweries, syrup bottling, and edible oil refineries.",
+    "image": "/images/hero_pharma_light.jpg",
+    "sector": "Specialized Sectors",
+    "icon": "fas fa-utensils",
+    "keyEquipment": ["Milk & Dairy Homogenizers", "Mash & Wort Brewery Pumps", "Sugar & Corn Syrup Metering Pumps", "Fruit Juice Extractors", "Edible Oil Refining Pumps"],
+    "operatingConditions": {
+      "Food Grade": "FDA compliant and EU 1935/2004 certified",
+      "Cleanability": "Zero product entrapment pockets, crevice-free architecture",
+      "Sugar / Viscosity": "Non-stick face materials preventing crystallization seizure",
+      "Temperature": "-20°C to 150°C"
+    },
+    "recommendedProducts": [
+      { "name": "Dairy Used Single Spring Seal Series", "slug": "dairy-seal", "category": "dairy-seal", "desc": "Specially designed for sanitary food processing pumps and agitators." },
+      { "name": "Rubber Bellow Single Spring Seal", "slug": "water-seal", "category": "water-seal", "desc": "Economical food-safe elastomeric seals for liquid food handling." },
+      { "name": "Water Rotary Joints", "slug": "water-rotary-joints", "category": "water-rotary-joints", "desc": "Corrosion-resistant rotating unions for rotary cooking and cooling drums." }
+    ]
+  },
+  {
+    "id": "water-systems",
+    "slug": "water-systems",
+    "tag": "WATER SYSTEMS",
+    "title": "Water Systems",
+    "headline": "Long-Lasting Sealing for Municipal, Agricultural & Desalination Pumps",
+    "desc": "Since the early introduction of elastomer bellow mechanical seals. Reliable has designed & developed Mech seal for residential, commercial, industrial, and agricultural water pump. As these applications become more demanding, we continue to innovate with more robust designs and improved materials to meet the need for higher pressures, corrosion, and abrasion.",
+    "fullText": "Since the early introduction of elastomer bellow mechanical seals. Reliable has designed & developed Mech seal for residential, commercial, industrial, and agricultural water pump. As these applications become more demanding, we continue to innovate with more robust designs and improved materials to meet the need for higher pressures, corrosion, and abrasion. From city potable water supply to reverse osmosis desalination plants, Reliable provides ultra-durable seals with unmatched MTBF.",
+    "image": "/images/hero_industrial_1790081823152.jpg",
+    "sector": "Specialized Sectors",
+    "icon": "fas fa-tint",
+    "keyEquipment": ["High-Pressure RO Desalination Pumps", "Municipal Clean Water Supply Pumps", "Sewage & Wastewater Submersible Pumps", "Agricultural Irrigation Turbines", "Cooling Water Circulation"],
+    "operatingConditions": {
+      "Pressure": "Up to 70 bar in seawater reverse osmosis",
+      "Corrosion": "Super Duplex and Monel alloys for high-salinity seawater",
+      "Abrasion": "Silicon Carbide vs Silicon Carbide for gritty river water",
+      "Standard": "EN 12756 (DIN 24960) standard dimensions"
+    },
+    "recommendedProducts": [
+      { "name": "Rubber Bellow Single Spring Seal Series", "slug": "water-seal", "category": "water-seal", "desc": "World-standard elastomer bellow seals for clean and lightly contaminated water." },
+      { "name": "Single Spring Series Seal", "slug": "single-spring-series-seal", "category": "single-spring-series-seal", "desc": "Robust general purpose seals for industrial water handling." },
+      { "name": "Water Rotary Pressure Joints", "slug": "water-rotary-joints", "category": "water-rotary-joints", "desc": "Heavy-duty rotating unions for cooling rollers, chillers, and water drums." }
+    ]
+  },
+  {
+    "id": "refrigeration-compressors",
+    "slug": "refrigeration-compressors",
+    "tag": "REFRIGERATION COMPRESSORS",
+    "title": "Refrigeration Compressors",
+    "headline": "Pioneering Metal Bellows Seals for Ultra-Low Leakage Refrigeration",
+    "desc": "Reliable pioneered the development of metal bellows seals for refrigeration compressors to meet the demand imposed by new refrigerants and strict leakage controls on ozone depleting gases. Today our seals fitted on the majority of new manufactured compressors.",
+    "fullText": "Reliable pioneered the development of metal bellows seals for refrigeration compressors to meet the demand imposed by new refrigerants and strict leakage controls on ozone depleting gases. Today our seals fitted on the majority of new manufactured compressors. Operating flawlessly in cryogenic temperatures with ammonia (NH3), CO2, and modern fluorinated refrigerants.",
+    "image": "/images/engineering_cad.jpg",
+    "sector": "Specialized Sectors",
+    "icon": "fas fa-snowflake",
+    "keyEquipment": ["Screw Compressors for Cold Storage", "Industrial Ammonia Chiller Units", "Centrifugal Refrigeration Compressors", "CO2 Transcritical Compressors", "Marine Transport Reefer Units"],
+    "operatingConditions": {
+      "Cryogenic Temp": "-60°C to 150°C",
+      "Refrigerants": "Anhydrous Ammonia (R717), CO2 (R744), R134a, R404A, R507",
+      "Lubrication": "Synthetic POE (polyolester) and PAG oils",
+      "Leakage Standard": "Hermetic containment compliance with environmental fluorinated gas regulations"
+    },
+    "recommendedProducts": [
+      { "name": "High Temp & Cryogenic Seal Series", "slug": "high-temp-seal", "category": "high-temp-seal", "desc": "Edge-welded metal bellows seals eliminating elastomer embrittlement in sub-zero refrigerant loops." },
+      { "name": "Multi Spring Series Seal", "slug": "multi-spring-series-seal", "category": "multi-spring-series-seal", "desc": "Balanced multi-spring seals for compressor shaft end sealing." },
+      { "name": "Rotary Pressure Joints", "slug": "rotary-joints", "category": "rotary-joints", "desc": "Rotary unions for industrial cooling circuits and refrigeration equipment." }
+    ]
+  },
+  {
+    "id": "textile",
+    "slug": "textile",
+    "tag": "TEXTILE IND.",
+    "title": "Textile Industry",
+    "headline": "High-Speed Rotary Joints & Chemical Seals for Dyeing & Finishing",
+    "desc": "This industries focus on environment pollution control cleanness & public health. Reliable Ind. has designed & developed effective sealing system to prove the excellent performance & fulfill the need of this Ind.",
+    "fullText": "This industries focus on environment pollution control cleanness & public health. Reliable Ind. has designed & developed effective sealing system to prove the excellent performance & fulfill the need of this Ind. From hot oil drying cans and steam sizing cylinders to high-pressure textile dyeing machines, Reliable rotary joints and mechanical seals deliver exceptional thermal endurance and non-staining operation.",
+    "image": "/images/hero_rotary_joint_product.jpg",
+    "sector": "Specialized Sectors",
+    "icon": "fas fa-tshirt",
+    "keyEquipment": ["Textile Dyeing Machines (Jigger & Jet)", "Steam Sizing & Drying Cylinders", "Hot Oil Rotary Heating Drums", "Sanforizing Machines", "Scouring & Bleaching Pumps"],
+    "operatingConditions": {
+      "Temperature": "Up to 300°C on thermic fluid heating cylinders",
+      "Steam Pressure": "Up to 15 bar saturated steam",
+      "Dyes & Caustics": "Resistant to aggressive dyeing liquors, caustic soda, peroxides",
+      "Speed": "High rotational speed with low friction torque"
+    },
+    "recommendedProducts": [
+      { "name": "Steam Rotary Pressure Joints", "slug": "steam-rotary-joints", "category": "steam-rotary-joints", "desc": "Deoflow and monoflow rotary unions for steam-heated calendar cylinders." },
+      { "name": "Hot Oil Rotary Joints", "slug": "hot-oil-rotary-joints", "category": "hot-oil-rotary-joints", "desc": "Thermal oil rotating unions with carbon graphite bearings rated to 300°C." },
+      { "name": "Multi Spring Series Seal", "slug": "multi-spring-series-seal", "category": "multi-spring-series-seal", "desc": "Chemical-resistant mechanical seals for aggressive dye liquor circulation." }
+    ]
+  }
+]
+
